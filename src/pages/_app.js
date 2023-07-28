@@ -1,5 +1,15 @@
-import '@/styles/globals.css'
+// pages/_app.js
+import { ThemeProvider } from '@mui/material/styles';
+import Navigation from '../components/Navigation';
+import theme from '../components/theme';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Navigation />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
+
+export default MyApp;
