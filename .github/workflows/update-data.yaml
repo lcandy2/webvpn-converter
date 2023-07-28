@@ -28,9 +28,7 @@ jobs:
       run: node ./data/core/6merge.js
 
     - name: Commit and push
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add ./data/webvpn.json
-        git commit -m "Commit Universities Data from GitHub Actions" || exit 0
-        git push
+      uses: actions-js/push@v1.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        message: 'Update Universities Data from GitHub Actions'
