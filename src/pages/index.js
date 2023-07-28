@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box ,alpha} from '@mui/system';
+import { Box, alpha } from '@mui/system';
 import { Container, Typography } from '@mui/material';
 import SchoolSelector from '../components/SchoolSelector';
 import UrlConverter from '../components/UrlConverter';
@@ -19,11 +19,11 @@ const IndexPage = () => {
           Convert local network URLs into Web VPN URLs.
         </Typography>
         <Box></Box>
-        <Box 
+        <Box
           mt={8}
           mb={8}
-          component="form" 
-          noValidate 
+          component="form"
+          noValidate
           autoComplete="off"
           sx={{
             position: 'relative',
