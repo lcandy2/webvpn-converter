@@ -1,5 +1,6 @@
 // pages/api/encrypt.js
 import { decryptUrl, keys } from '../../lib/urlConverter';
+export const runtime = 'edge';
 
 export default async function handler(req, res) {
   const { url, key = keys('KEY'), iv = keys('IV')} = req.query;
