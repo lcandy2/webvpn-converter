@@ -18,17 +18,50 @@ fileNames.forEach((fileName) => {
   const data = fs.readFileSync(path.join(dirImport, fileName), 'utf8');
   // Parse the file content to a JavaScript object
   const jsonData = JSON.parse(data);
+  // Change all 'host' values in jsonData
+  Object.keys(jsonData).forEach((city) => {
+    Object.keys(jsonData[city]).forEach((university) => {
+      Object.keys(jsonData[city][university]).forEach((property) => {
+        if (property === 'host') {
+          jsonData[city][university][property] = new URL(jsonData[city][university][property]).hostname;
+        }
+      });
+    });
+  });
   // Merge jsonData into mergedData
-  mergedData = { ...mergedData, ...jsonData };
+  Object.keys(jsonData).forEach((city) => {
+    if (mergedData[city]) {
+      // If the city exists in the mergedData, go through each university
+      Object.keys(jsonData[city]).forEach((university) => {
+        if (mergedData[city][university]) {
+          // If the university exists, go through each property in university data
+          Object.keys(jsonData[city][university]).forEach((property) => {
+            // Merge the property
+            mergedData[city][university][property] = jsonData[city][university][property];
+          });
+        } else {
+          // If the university does not exist, add it to mergedData
+          mergedData[city][university] = jsonData[city][university];
+        }
+      });
+    } else {
+      // If the city does not exist, add it to mergedData
+      mergedData[city] = jsonData[city];
+    }
+  });
 });
+
+
+
+
 
 // Convert mergedData to array
 let dataArr = Object.keys(mergedData).map(key => ({ [key]: mergedData[key] }));
 
 // Sort array
 dataArr.sort((a, b) => {
-  const aPinyin = pinyin(Object.keys(a)[0], {style: pinyin.STYLE_NORMAL}).join('');
-  const bPinyin = pinyin(Object.keys(b)[0], {style: pinyin.STYLE_NORMAL}).join('');
+  const aPinyin = pinyin(Object.keys(a)[0], { style: pinyin.STYLE_NORMAL }).join('');
+  const bPinyin = pinyin(Object.keys(b)[0], { style: pinyin.STYLE_NORMAL }).join('');
   return aPinyin.localeCompare(bPinyin);
 });
 
