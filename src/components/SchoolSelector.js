@@ -46,7 +46,10 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('/api/data')
+    const host = window.location.host;
+    let url = '/api/data';
+    if (host === 'wpn.pages.dev') url = '//wrdvpn.vercel.app' + url;
+    axios.get(url)
       .then(res => {
         setSchools(buildSchoolList(res.data));
 
