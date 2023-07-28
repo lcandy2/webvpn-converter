@@ -1,0 +1,36 @@
+name: Update Universities Data
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm ci # or 'npm install', if you don't have a 'package-lock.json'
+
+    - name: Run 5 export script
+      run: node ./data/core/5export.js
+
+    - name: Run 6 merge script
+      run: node ./data/core/6merge.js
+
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ./data/webvpn.json
+        git commit -m "Commit Universities Data from GitHub Actions" || exit 0
+        git push

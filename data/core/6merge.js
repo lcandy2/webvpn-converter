@@ -23,7 +23,9 @@ fileNames.forEach((fileName) => {
     Object.keys(jsonData[city]).forEach((university) => {
       Object.keys(jsonData[city][university]).forEach((property) => {
         if (property === 'host') {
-          jsonData[city][university][property] = new URL(jsonData[city][university][property]).hostname;
+          try {
+            jsonData[city][university][property] = new URL(jsonData[city][university][property]).hostname;
+          } catch (error) {}
         }
       });
     });
@@ -50,10 +52,6 @@ fileNames.forEach((fileName) => {
     }
   });
 });
-
-
-
-
 
 // Convert mergedData to array
 let dataArr = Object.keys(mergedData).map(key => ({ [key]: mergedData[key] }));

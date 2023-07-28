@@ -5,6 +5,45 @@
     },
     "北京航空航天大学": {
       "host": "http://d.buaa.edu.cn/"
+    },
+    "北京化工大学": {
+      "host": "w.buct.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    }
+  },
+  "广东": {
+    "肇庆学院": {
+      "host": "webvpn.zqu.edu.cn",
+      "crypt_key": "a#08w3%r8*4GkTcH",
+      "crypt_iv": "4&0TB20Ujm%mvT.K"
+    }
+  },
+  "江苏": {
+    "扬州大学": {
+      "host": "webvpn.yzu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "江苏海洋大学": {
+      "host": "http://webvpn.jou.edu.cn:58888/"
+    }
+  },
+  "山东": {
+    "山东大学": {
+      "host": "webvpn.sdu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    }
+  },
+  "上海": {
+    "上海海事大学": {
+      "host": "webvpn.shmtu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "上海交通大学医学院": {
+      "host": "https://webvpn.shsmu.edu.cn/"
     }
   }
 }
