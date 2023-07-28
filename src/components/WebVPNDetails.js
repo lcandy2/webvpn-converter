@@ -28,15 +28,15 @@ const WebVPNDetails = ({ data, closeDialog, handleCustomSchoolSubmit  }) => {
 
   return (
     <div>
-      <DialogTitle id="form-dialog-title">Settings</DialogTitle>
+      <DialogTitle id="form-dialog-title">设置</DialogTitle>
       <DialogContent>
         <DialogContentText>
           <Typography>
-            请在下方输入 Web VPN 地址 KEY 和 IV。<br />如果你不知道 KEY 和 IV 是什么，请将其留空。
+            请在下方输入 Web VPN 地址。<br />如果你不知道 KEY 和 IV 是什么，请留空。
           </Typography>
         </DialogContentText>
         <TextField
-          label="学校网址"
+          label="学校 Web VPN 网络地址"
           value={editSchool?.url || ''}
           name="url"
           onChange={handleChange}
@@ -72,7 +72,7 @@ const WebVPNDetails = ({ data, closeDialog, handleCustomSchoolSubmit  }) => {
         </Grid>
         <DialogContentText>
           <Typography variant="caption" >
-            注: KEY 或 IV 留空 则使用默认值 <code>wrdvpnisthebest!</code>
+            注: KEY 或 IV 留空 将使用默认值 <code>wrdvpnisthebest!</code>
           </Typography>
         </DialogContentText>
       </DialogContent>

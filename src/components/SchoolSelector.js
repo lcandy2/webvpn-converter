@@ -74,8 +74,8 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
   return (
     <Box>
       <FormControl fullWidth>
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item xs={selectedSchool ? 11 : 12}>
+        <Grid container alignItems="center" spacing={1}>
+          <Grid item xs>
             <Autocomplete
               options={[customSchool, ...schools].sort(schoolSorter)}
               filterOptions={(options, { inputValue }) => options.filter((option) => schoolMatcher(option, inputValue))}
@@ -89,7 +89,7 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
             />
           </Grid>
           {selectedSchool && (
-            <Grid item xs={1}>
+            <Grid item>
               <IconButton onClick={() => setDialogOpen(true)}>
                 <SettingsIcon />
               </IconButton>

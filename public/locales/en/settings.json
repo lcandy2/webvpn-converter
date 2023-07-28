@@ -1,0 +1,10 @@
+{
+  "settings": "Settings",
+  "des": "Please enter the Web VPN address KEY and IV below.",
+  "des2": "If you are unsure what KEY and IV are, you can leave them empty.",
+  "host": "School Web VPN Network Address",
+  "hosterr": "Network Address is required",
+  "note": "Note: Leave KEY or IV empty to use default values",
+  "save": "Save",
+  "cancel": "Cancel"
+}

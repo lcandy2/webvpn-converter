@@ -1,0 +1,10 @@
+{
+  "settings": "设置",
+  "des": "请在下方输入 Web VPN 地址 KEY 和 IV。",
+  "des2": "如果你不知道 KEY 和 IV 是什么，请将其留空。",
+  "host": "学校 Web VPN 网络地址",
+  "hosterr": "网络地址 为必填项",
+  "note": "注: KEY 或 IV 留空 则使用默认值",
+  "save": "保存",
+  "cancel": "取消"
+}
