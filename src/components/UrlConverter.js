@@ -87,6 +87,13 @@ const UrlConverter = ({ host, key, iv }) => {
     setSnackbarOpen(false);
   };
 
+  if (typeof window !== 'undefined') {
+    const storedSchool = window.localStorage.getItem('selectedSchool');
+    if (storedSchool) {
+      if (originalURLRef.current) originalURLRef.current.focus();
+    }
+  }
+
   return (
     <>
       <TextField
