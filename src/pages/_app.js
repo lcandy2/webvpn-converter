@@ -1,6 +1,5 @@
 // pages/_app.js
 import { ThemeProvider } from '@mui/material/styles';
-import { Box } from '@mui/system';
 import CssBaseline from '@mui/material/CssBaseline';
 import Navigation from '../components/Navigation';
 import { Theme } from '../components/Theme';

@@ -67,8 +67,7 @@ const UrlConverter = ({ host, key, iv }) => {
     if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(convertedURL);
-        failed();
-        // success();
+        success();
       } catch (err) {
         failed(err);
       }
