@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Grid, DialogTitle, DialogContent, DialogContentText, Typography, DialogActions, Button } from '@mui/material';
+import { TextField, Grid, DialogTitle, DialogContent, DialogContentText, Typography, DialogActions, Button, Box } from '@mui/material';
 
-const WebVPNDetails = ({ data, closeDialog, handleCustomSchoolSubmit  }) => {
+const WebVPNDetails = ({ data, closeDialog, handleCustomSchoolSubmit }) => {
   const [editSchool, setEditSchool] = useState({});
   const [urlError, setUrlError] = useState(false);
 
@@ -77,8 +77,10 @@ const WebVPNDetails = ({ data, closeDialog, handleCustomSchoolSubmit  }) => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeDialog} color="primary">取消</Button>
-        <Button onClick={handleSubmit} color="primary" variant="contained" disabled={!editSchool.url}>保存</Button>
+        <Box p={2}>
+          <Button onClick={closeDialog} color="primary">取消</Button>
+          <Button onClick={handleSubmit} color="primary" variant="contained" disabled={!editSchool.url}>保存</Button>
+        </Box>
       </DialogActions>
     </div>
   );

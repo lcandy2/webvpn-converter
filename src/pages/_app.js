@@ -1,22 +1,20 @@
 // pages/_app.js
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import Navigation from '../components/Navigation';
-import { Theme } from '../components/Theme';
-import { useMediaQuery } from '@mui/material';
+import Footer from '../components/Footer';
+import Box from '@mui/material/Box';
+import ThemeWrapper from '../components/ThemeWrapper';
 
 function MyApp({ Component, pageProps }) {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const theme = Theme(prefersDarkMode)
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+    <ThemeWrapper>
+      <Box display="flex" flexDirection="column" minHeight="100vh">
         <Navigation />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+        <Box flexGrow={1}>
+          <Component {...pageProps} />
+        </Box>
+        <Footer />
+      </Box>
+    </ThemeWrapper>
   );
 }
 

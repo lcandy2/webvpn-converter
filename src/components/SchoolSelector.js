@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Autocomplete, FormControl, TextField, CircularProgress, Box, Dialog, IconButton, Grid } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
+import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 import WebVPNDetails from './WebVPNDetails';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const CUSTOM_SCHOOL_NAME = '自定义';
 
@@ -14,6 +16,9 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
   const [revertSelectedSchool, setRevertSelectedSchool] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [customSchool, setCustomSchool] = useState([]);
+
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   useEffect(() => {
     getCustomSchool(setCustomSchool)
@@ -91,14 +96,20 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
           {selectedSchool && (
             <Grid item>
               <IconButton onClick={() => setDialogOpen(true)}>
-                <SettingsIcon />
+                <EditIcon />
               </IconButton>
             </Grid>
           )}
         </Grid>
       </FormControl>
 
-      <Dialog open={dialogOpen} onClose={closeDialog} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={dialogOpen}
+        onClose={closeDialog}
+        aria-labelledby="form-dialog-title"
+        fullScreen={fullScreen}
+        fullWidth
+        maxWidth="sm">
         {selectedSchool && <WebVPNDetails
           data={selectedSchool}
           closeDialog={closeDialog}
