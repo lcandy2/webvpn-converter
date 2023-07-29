@@ -15,7 +15,7 @@ const IndexPage = () => {
         Web VPN <Box sx={{ whiteSpace: 'nowrap' }}>网址转换工具</Box>
       </Typography>
       <Typography variant="body1" gutterBottom>
-        轻松访问校内网络资源，无需繁琐设置，只需粘贴链接，常规网址即刻转化为您学校的Web VPN网址。
+        轻松访问校内网络资源，无需繁琐设置，只需粘贴链接，常规网址即刻转化为您学校的 Web VPN 网址。
       </Typography>
       <Box
         my={6}
