@@ -1,7 +1,7 @@
 {
   "安徽": {
     "中国科学技术大学": {
-      "host": "webvpn.ustc.edu.cn"
+      "host": "wvpn.ustc.edu.cn"
     },
     "皖南医学院": {
       "host": "webvpn.wnmc.edu.cn"
@@ -122,6 +122,9 @@
       "host": "webvpn.hstc.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "广东海洋大学": {
+      "host": "webvpn.gdou.edu.cn"
     }
   },
   "广西": {
@@ -148,7 +151,9 @@
       "crypt_iv": "wrdvpnisthebest!"
     },
     "河北医科大学": {
-      "host": "webvpn.hebmu.edu.cn"
+      "host": "webvpn.hebmu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     },
     "中国人民警察大学": {
       "host": "webvpn.cppu.edu.cn"
@@ -157,6 +162,20 @@
       "host": "webvpn.hgu.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "东北大学秦皇岛分校": {
+      "host": "vpn.neuq.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "河北大学": {
+      "host": "v.hbu.cn"
+    },
+    "河北农业大学": {
+      "host": "webvpn.hebau.edu.cn"
+    },
+    "河北对外经贸职业学院": {
+      "host": "vpn.hbiibe.edu.cn"
     }
   },
   "河南": {
@@ -187,6 +206,9 @@
       "host": "webvpn.ccnu.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "湖北大学": {
+      "host": "webvpn.hubu.edu.cn"
     }
   },
   "湖南": {
@@ -208,6 +230,9 @@
     },
     "树达学院": {
       "host": "webvpn.sdw.hunnu.edu.cn"
+    },
+    "湖南大学": {
+      "host": "webvpn.hnu.edu.cn"
     }
   },
   "江苏": {
@@ -215,7 +240,9 @@
       "host": "webvpn.njit.edu.cn"
     },
     "江苏大学": {
-      "host": "webvpn.ujs.edu.cn"
+      "host": "webvpn.ujs.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     },
     "河海大学": {
       "host": "webvpn.hhu.edu.cn",
@@ -417,7 +444,14 @@
       "crypt_iv": "wrdvpnisthebest!"
     },
     "天津城建大学": {
-      "host": "webvpn.tcu.edu.cn"
+      "host": "webvpn1.tcu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "天津城建大学（教师）": {
+      "host": "webvpn.tcu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "云南": {
