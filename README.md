@@ -69,11 +69,16 @@
 | 玉溪师范学院       | 嘉兴南湖学院        |                        |                         |                         |
 | 保山学院             | 中国美术学院        |                        |                         |                         |
 |                        | 浙江学院               |                        |                         |                         |
-|                        |                         |                        |                         |                         |
 
 没有你的学校？你可以使用自定义功能，或提交 pull request 或 issue，来适配你的学校。
 
-相关文件：[适配学校列表 list.txt](https://github.com/lcandy2/webvpn-converter/blob/main/data/db/list.txt)
+相关文件：[适配学校列表 list.txt](https://github.com/lcandy2/webvpn-converter/blob/main/data/db/list.txt)。文件格式如下：
+
+| 学校省份 | 学校名称 | 学校WebVPN网址 | KEY（可留空）              | IV（可留空）           |
+|----|---------|--------------|------------------------|---------------------|
+| 北京    | 清华大学     | webvpn.tsinghua.edu.cn | wrdvpnisthebest!    | wrdvpnisthebest!    |
+| 上海    | 复旦大学     | webvpn.fudan.edu.cn    |                     |
+
 
 ## Development
 
