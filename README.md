@@ -4,6 +4,8 @@
 
 **立刻使用：[https://wrdvpn.vercel.app/](https://wrdvpn.vercel.app/)**
 
+![alt text](./assests/main.png)
+
 ## 功能
 
 - 轻松转换 URL
