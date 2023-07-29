@@ -194,7 +194,9 @@
       "host": "webvpn.hgnu.edu.cn"
     },
     "汉江师范学院": {
-      "host": "webvpn.hjnu.edu.cn"
+      "host": "webvpn.hjnu.edu.cn",
+      "crypt_key": "snmp-agentcommun",
+      "crypt_iv": "snmp-agentcommun"
     },
     "湖北警官学院": {
       "host": "webvpn.hbpa.edu.cn"
@@ -275,6 +277,11 @@
     },
     "苏州科技大学": {
       "host": "webvpn.usts.edu.cn"
+    },
+    "中国药科大学": {
+      "host": "webvpn.cpu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "吉林": {

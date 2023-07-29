@@ -50,6 +50,11 @@
       "host": "webvpn.ujs.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "中国药科大学": {
+      "host": "webvpn.cpu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "山东": {
@@ -148,6 +153,11 @@
   "湖北": {
     "湖北大学": {
       "host": "https://webvpn.hubu.edu.cn/"
+    },
+    "汉江师范学院": {
+      "host": "webvpn.hjnu.edu.cn",
+      "crypt_key": "snmp-agentcommun",
+      "crypt_iv": "snmp-agentcommun"
     }
   },
   "天津": {
