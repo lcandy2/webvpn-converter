@@ -143,10 +143,10 @@ const renderInputField = (params, loading) => (<TextField
   InputProps={{
     ...params.InputProps,
     endAdornment: (
-      <Grid container alignItems="center">
+      <>
         {loading ? <CircularProgress color="inherit" size={20} /> : null}
         {params.InputProps.endAdornment}
-      </Grid>
+      </>
     ),
   }}
 />);
