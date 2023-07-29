@@ -26,6 +26,9 @@
       "host": "webvpn.zqu.edu.cn",
       "crypt_key": "a#08w3%r8*4GkTcH",
       "crypt_iv": "4&0TB20Ujm%mvT.K"
+    },
+    "广东海洋大学": {
+      "host": "webvpn.gdou.edu.cn"
     }
   },
   "江苏": {
@@ -42,6 +45,11 @@
     },
     "苏州科技大学": {
       "host": "http://webvpn.usts.edu.cn/"
+    },
+    "江苏大学": {
+      "host": "webvpn.ujs.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "山东": {
@@ -66,6 +74,25 @@
       "host": "webvpn.hgu.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "东北大学秦皇岛分校": {
+      "host": "vpn.neuq.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "河北大学": {
+      "host": "https://v.hbu.cn/"
+    },
+    "河北医科大学": {
+      "host": "webvpn.hebmu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "河北农业大学": {
+      "host": "https://webvpn.hebau.edu.cn/"
+    },
+    "河北对外经贸职业学院": {
+      "host": "https://vpn.hbiibe.edu.cn/"
     }
   },
   "甘肃": {
@@ -101,6 +128,9 @@
   "湖南": {
     "树达学院": {
       "host": "http://webvpn.sdw.hunnu.edu.cn/"
+    },
+    "湖南大学": {
+      "host": "https://webvpn.hnu.edu.cn/"
     }
   },
   "辽宁": {
@@ -108,6 +138,28 @@
       "host": "webvpn.dlut.edu.cn",
       "crypt_key": "Wxzxvpn2023key@$",
       "crypt_iv": "Wxzxvpn2023key@$"
+    }
+  },
+  "湖北": {
+    "湖北大学": {
+      "host": "https://webvpn.hubu.edu.cn/"
+    }
+  },
+  "天津": {
+    "天津城建大学": {
+      "host": "https://webvpn1.tcu.edu.cn/login",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    },
+    "天津城建大学（教师）": {
+      "host": "webvpn.tcu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
+    }
+  },
+  "安徽": {
+    "中国科学技术大学": {
+      "host": "https://wvpn.ustc.edu.cn/"
     }
   }
 }
