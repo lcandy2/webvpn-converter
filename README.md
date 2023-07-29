@@ -1,38 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web VPN <br>网址转换工具
 
-## Getting Started
+轻松访问校内网络资源，无需繁琐设置，只需粘贴链接，常规网址即刻转化为您学校的Web VPN网址。
 
-First, run the development server:
+**立刻使用：[https://wrdvpn.vercel.app/](https://wrdvpn.vercel.app/)**
+
+## 功能
+
+- 轻松转换 URL
+- 丰富的预设学校数据
+- 可定制的加密密钥
+- 为大学生量身定制的活力主题
+- 兼容各种设备的响应式界面
+
+## Development
 
 ```bash
+git clone https://github.com/lcandy2/webvpn-converter.git
+cd webvpn-converter
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will be running at `http://localhost:3000`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Api
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This project's API consists of two parts: encryption (encrypt) and decryption (decrypt).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Encrypt API
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This API takes a raw URL and encrypts it into a Web VPN URL.
 
-## Learn More
+**URL** : `/api/encrypt`
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Decrypt API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This API takes a Web VPN URL and decrypts it back into a raw URL.
 
-## Deploy on Vercel
+**URL** : `/api/decrypt`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API Parameters
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Method** : `GET`
+
+- `url` : [required] The raw URL to be encrypted or decrypted.
+- `prehost` : [required] [only in encrypt] The URL prefix of the generated Web VPN URL.
+- `key` : [optional] The key used for encryption, defaults to `wrdvpnisthebest!`.
+- `iv` : [optional] The initialization vector used for encryption, defaults to `wrdvpnisthebest!`.
+
+**Success Response** : 
+
+```json
+{
+  "originalUrl": "school Web VPN URL",
+  "url": "encrypted URL or decrypted URL",
+  "key": "key used for decryption",
+  "iv": "initialization vector used for decryption"
+}
+```
+
+Note: When using this API, ensure that the encryption and decryption key and initialization vector are used correctly. If the key or initialization vector is incorrect, the URL may not be encrypted or decrypted successfully.
+
+## 贡献
+
+欢迎所有的贡献。
+
+## Built With and Thanks
+
+- [bit-webvpn-converter](https://github.com/spencerwooo/bit-webvpn-converter)
+- [Next.js](https://nextjs.org/)
+- [Material-UI](https://mui.com/)
+- [Icons8](https://icons8.com/)
+
+## License
+
+This project is licensed under the MPL-2.0 License - see the [LICENSE.md](LICENSE.md) file for details.
