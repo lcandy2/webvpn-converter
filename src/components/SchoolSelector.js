@@ -56,16 +56,20 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
     if (host === 'wpn.pages.dev') url = '//wrdvpn.vercel.app' + url;
     axios.get(url)
       .then(res => {
-        setSchools(buildSchoolList(res.data));
+        if (res.data.status === 'failed') {
+          console.error('Server error:', res.data.message);
+        } else {
+          setSchools(buildSchoolList(res.data.data));
 
-        if (typeof window !== 'undefined') {
-          const storedSchool = window.localStorage.getItem('selectedSchool');
-          if (storedSchool) {
-            setSelectedSchool(JSON.parse(storedSchool));
+          if (typeof window !== 'undefined') {
+            const storedSchool = window.localStorage.getItem('selectedSchool');
+            if (storedSchool) {
+              setSelectedSchool(JSON.parse(storedSchool));
+            }
           }
-        }
 
-        setLoading(false);
+          setLoading(false);
+        }
       })
       .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
@@ -126,7 +130,7 @@ const buildSchoolList = (data) => {
   for (const province in data) {
     for (const school in data[province]) {
       items.push({
-        province: province,
+        province: province || "未知省份",  // 如果省份未知，设为 "未知"
         name: school,
         url: data[province][school]['host'],
         key: data[province][school]['crypt_key'],
