@@ -3,8 +3,13 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Box from '@mui/material/Box';
 import ThemeWrapper from '../components/ThemeWrapper';
+import { useEffect } from 'react';
+import serviceWorker from '../lib/serviceWorker';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    serviceWorker();
+  }, []);
   return (
     <ThemeWrapper>
       <Box display="flex" flexDirection="column" minHeight="100vh">
