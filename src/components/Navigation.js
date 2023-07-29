@@ -13,7 +13,7 @@ export default function Navigation() {
         </Typography>
 
         <Box sx={{ display: 'flex' }}>
-          <Button color="primary" target="_blank" rel="noopener noreferrer">
+          <Button color="primary" href="https://afdian.net/a/Lcandy/plan" target="_blank" rel="noopener noreferrer">
             赞助
           </Button>
           <Button color="primary" href="https://github.com/lcandy2/webvpn-converter" target="_blank" rel="noopener noreferrer">
