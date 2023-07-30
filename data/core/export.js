@@ -27,7 +27,7 @@ fileNames.forEach((fileName) => {
         if (property === 'host') {
           try {
             jsonData[city][university][property] = new URL(jsonData[city][university][property]).hostname;
-          } catch (error) {}
+          } catch (error) { }
         }
       });
     });
@@ -75,3 +75,21 @@ dataArr.forEach(item => {
 // Write the merged data to a new JSON file
 fs.writeFileSync(dir + 'webvpn.json', JSON.stringify(sortedData, null, 2));
 console.log('The file has been saved to ' + dir + 'webvpn.json');
+
+const assestsDir = './assests'
+const readmePartA = fs.readFileSync(path.join(assestsDir, 'README.part1.md'), 'utf8');
+const readmePartB = fs.readFileSync(path.join(assestsDir, 'README.part2.md'), 'utf8');
+let readmeSchool = "";
+
+for (const province in sortedData) {
+  if (sortedData.hasOwnProperty(province)) {
+    readmeSchool += `> **${province}**：`;
+
+    const schools = Object.keys(sortedData[province]);
+    readmeSchool += schools.join("、");
+    readmeSchool += "\n> \n";
+  }
+}
+
+fs.writeFileSync('./README.md', readmePartA + readmeSchool + readmePartB);
+console.log('The file has been saved to ./README.md');
