@@ -77,7 +77,10 @@ const SchoolSelector = ({ selectedSchool, setSelectedSchool }) => {
       });
   }, []);
 
-  const schoolSorter = (a, b) => -a.province.localeCompare(a.province);
+  const schoolSorter = (a, b) => {
+    if (a.province === undefined) return -1;  // 如果a没有province属性，将a放在b后面
+    return -a.province.localeCompare(a.province);  // 如果都有province属性，按字母顺序排序
+  };
   const schoolMatcher = (option, value) => option.name.includes(value) || option.url.includes(value);
 
   return (
