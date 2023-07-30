@@ -21,11 +21,8 @@ jobs:
     - name: Install dependencies
       run: npm ci # or 'npm install', if you don't have a 'package-lock.json'
 
-    - name: Run 5 export script
-      run: node ./data/core/5export.js
-
-    - name: Run 6 merge script
-      run: node ./data/core/6merge.js
+    - name: Run export script
+      run: node ./data/core/export.js
 
     - name: Commit and push
       uses: actions-js/push@v1.4

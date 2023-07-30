@@ -1,10 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const pinyin = require('pinyin').default;
-
+const prase = require('./prase.js');
 
 const dir = './data/'
 const dirImport = dir + 'db/raw/'
+
+prase(dir + '/db/list.txt', dirImport + 'list.export.json');
 
 // List of JSON files
 const fileNames = ['wengine-vpn.export.json', 'wengine-vpn-crypt.export.json', 'list.export.json',];
