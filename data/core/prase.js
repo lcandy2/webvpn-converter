@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const dirs = ['./data/db/webvpn/', './data/db/wengine-vpn/'];
-const files = [['validURLs', 'invalidURLs', 'indeterminateURLs'], ['wengine-vpn', 'non-wengine-vpn', 'indeterminate-wengine-vpn']]
+// const dirs = ['./data/db/webvpn/', './data/db/wengine-vpn/'];
+// const files = [['validURLs', 'invalidURLs', 'indeterminateURLs'], ['wengine-vpn', 'non-wengine-vpn', 'indeterminate-wengine-vpn']]
 
 function convertToJSON(file_path) {
   const data = {};
@@ -17,7 +17,7 @@ function convertToJSON(file_path) {
         if (!data[province]) {
           data[province] = {};
         }
-        data[province][school] = url;
+        data[province][school] = { "host": url };
       }
     }
   } catch (err) {
@@ -37,15 +37,21 @@ function saveJSONToFile(jsonData, outputFileName) {
   }
 }
 
-for (let i = 0; i < dirs.length; i++) {
-  files[i].forEach(file => {
-    const inputFilePath = dirs[i] + `raw/${file}.txt`;
-    const outputFilePath = dirs[i] + `${file}.json`;
+// for (let i = 0; i < dirs.length; i++) {
+//   files[i].forEach(file => {
+//     const inputFilePath = dirs[i] + `raw/${file}.txt`;
+//     const outputFilePath = dirs[i] + `${file}.json`;
 
-    const jsonData = convertToJSON(inputFilePath);
-    saveJSONToFile(jsonData, outputFilePath);
-    console.log(dirs[i], file)
-  });
+//     const jsonData = convertToJSON(inputFilePath);
+//     saveJSONToFile(jsonData, outputFilePath);
+//     console.log(dirs[i], file)
+//   });
+// }
+
+function prase(inputFilePath, outputFilePath) {
+  const jsonData = convertToJSON(inputFilePath);
+  saveJSONToFile(jsonData, outputFilePath);
 }
 
+module.exports = prase;
 
