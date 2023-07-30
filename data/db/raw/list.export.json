@@ -1,180 +1,180 @@
 {
-  "北京": {
-    "北京大学": {
-      "host": "http://wpn.pku.edu.cn/"
+    "北京": {
+        "北京大学": {
+            "host": "http://wpn.pku.edu.cn/"
+        },
+        "北京航空航天大学": {
+            "host": "http://d.buaa.edu.cn/"
+        },
+        "北京化工大学": {
+            "host": "w.buct.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "北京建筑大学": {
+            "host": "http://webvpn.bucea.edu.cn/"
+        },
+        "中国青年政治学院": {
+            "host": "http://webvpn.cyu.edu.cn/"
+        },
+        "中国传媒大学": {
+            "host": "http://webvpn.cuc.edu.cn/"
+        }
     },
-    "北京航空航天大学": {
-      "host": "http://d.buaa.edu.cn/"
+    "广东": {
+        "肇庆学院": {
+            "host": "webvpn.zqu.edu.cn",
+            "crypt_key": "a#08w3%r8*4GkTcH",
+            "crypt_iv": "4&0TB20Ujm%mvT.K"
+        },
+        "广东海洋大学": {
+            "host": "webvpn.gdou.edu.cn"
+        }
     },
-    "北京化工大学": {
-      "host": "w.buct.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
+    "江苏": {
+        "扬州大学": {
+            "host": "webvpn.yzu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "江苏海洋大学": {
+            "host": "http://webvpn.jou.edu.cn:58888/"
+        },
+        "天平学院": {
+            "host": "http://webvpn.tpxy.usts.edu.cn/"
+        },
+        "苏州科技大学": {
+            "host": "http://webvpn.usts.edu.cn/"
+        },
+        "江苏大学": {
+            "host": "webvpn.ujs.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "中国药科大学": {
+            "host": "webvpn.cpu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        }
     },
-    "北京建筑大学": {
-      "host": "http://webvpn.bucea.edu.cn/"
+    "山东": {
+        "山东大学": {
+            "host": "webvpn.sdu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "潍坊医学院": {
+            "host": "webvpn.wfmc.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        }
     },
-    "中国青年政治学院": {
-      "host": "http://webvpn.cyu.edu.cn/"
+    "上海": {
+        "上海海事大学": {
+            "host": "webvpn.shmtu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "上海交通大学医学院": {
+            "host": "https://webvpn.shsmu.edu.cn/"
+        }
     },
-    "中国传媒大学": {
-      "host": "http://webvpn.cuc.edu.cn/"
+    "河北": {
+        "河北地质大学": {
+            "host": "webvpn.hgu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "东北大学秦皇岛分校": {
+            "host": "vpn.neuq.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "河北大学": {
+            "host": "https://v.hbu.cn/"
+        },
+        "河北医科大学": {
+            "host": "webvpn.hebmu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "河北农业大学": {
+            "host": "https://webvpn.hebau.edu.cn/"
+        },
+        "河北对外经贸职业学院": {
+            "host": "https://vpn.hbiibe.edu.cn/"
+        }
+    },
+    "甘肃": {
+        "兰州工业学院": {
+            "host": "http://webvpn.lzit.edu.cn/"
+        }
+    },
+    "福建": {
+        "福建中医药大学": {
+            "host": "webvpn.fjtcm.edu.cn:8888",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        }
+    },
+    "云南": {
+        "保山学院": {
+            "host": "http://webvpn.bsnc.cn/"
+        }
+    },
+    "四川": {
+        "四川师范大学": {
+            "host": "http://webvpn.sicnu.edu.cn/"
+        },
+        "四川传媒学院": {
+            "host": "http://webvpn.scmc.edu.cn/"
+        }
+    },
+    "广西": {
+        "河池学院": {
+            "host": "http://webvpn.hcnu.edu.cn/"
+        }
+    },
+    "湖南": {
+        "树达学院": {
+            "host": "http://webvpn.sdw.hunnu.edu.cn/"
+        },
+        "湖南大学": {
+            "host": "https://webvpn.hnu.edu.cn/"
+        }
+    },
+    "辽宁": {
+        "大连理工大学": {
+            "host": "webvpn.dlut.edu.cn",
+            "crypt_key": "Wxzxvpn2023key@$",
+            "crypt_iv": "Wxzxvpn2023key@$"
+        }
+    },
+    "湖北": {
+        "湖北大学": {
+            "host": "https://webvpn.hubu.edu.cn/"
+        },
+        "汉江师范学院": {
+            "host": "webvpn.hjnu.edu.cn",
+            "crypt_key": "snmp-agentcommun",
+            "crypt_iv": "snmp-agentcommun"
+        }
+    },
+    "天津": {
+        "天津城建大学": {
+            "host": "https://webvpn1.tcu.edu.cn/login",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        },
+        "天津城建大学（教师）": {
+            "host": "webvpn.tcu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        }
+    },
+    "安徽": {
+        "中国科学技术大学": {
+            "host": "https://wvpn.ustc.edu.cn/"
+        }
     }
-  },
-  "广东": {
-    "肇庆学院": {
-      "host": "webvpn.zqu.edu.cn",
-      "crypt_key": "a#08w3%r8*4GkTcH",
-      "crypt_iv": "4&0TB20Ujm%mvT.K"
-    },
-    "广东海洋大学": {
-      "host": "webvpn.gdou.edu.cn"
-    }
-  },
-  "江苏": {
-    "扬州大学": {
-      "host": "webvpn.yzu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "江苏海洋大学": {
-      "host": "http://webvpn.jou.edu.cn:58888/"
-    },
-    "天平学院": {
-      "host": "http://webvpn.tpxy.usts.edu.cn/"
-    },
-    "苏州科技大学": {
-      "host": "http://webvpn.usts.edu.cn/"
-    },
-    "江苏大学": {
-      "host": "webvpn.ujs.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "中国药科大学": {
-      "host": "webvpn.cpu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    }
-  },
-  "山东": {
-    "山东大学": {
-      "host": "webvpn.sdu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "潍坊医学院": {
-      "host": "webvpn.wfmc.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    }
-  },
-  "上海": {
-    "上海海事大学": {
-      "host": "webvpn.shmtu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "上海交通大学医学院": {
-      "host": "https://webvpn.shsmu.edu.cn/"
-    }
-  },
-  "河北": {
-    "河北地质大学": {
-      "host": "webvpn.hgu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "东北大学秦皇岛分校": {
-      "host": "vpn.neuq.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "河北大学": {
-      "host": "https://v.hbu.cn/"
-    },
-    "河北医科大学": {
-      "host": "webvpn.hebmu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "河北农业大学": {
-      "host": "https://webvpn.hebau.edu.cn/"
-    },
-    "河北对外经贸职业学院": {
-      "host": "https://vpn.hbiibe.edu.cn/"
-    }
-  },
-  "甘肃": {
-    "兰州工业学院": {
-      "host": "http://webvpn.lzit.edu.cn/"
-    }
-  },
-  "福建": {
-    "福建中医药大学": {
-      "host": "webvpn.fjtcm.edu.cn:8888",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    }
-  },
-  "云南": {
-    "保山学院": {
-      "host": "http://webvpn.bsnc.cn/"
-    }
-  },
-  "四川": {
-    "四川师范大学": {
-      "host": "http://webvpn.sicnu.edu.cn/"
-    },
-    "四川传媒学院": {
-      "host": "http://webvpn.scmc.edu.cn/"
-    }
-  },
-  "广西": {
-    "河池学院": {
-      "host": "http://webvpn.hcnu.edu.cn/"
-    }
-  },
-  "湖南": {
-    "树达学院": {
-      "host": "http://webvpn.sdw.hunnu.edu.cn/"
-    },
-    "湖南大学": {
-      "host": "https://webvpn.hnu.edu.cn/"
-    }
-  },
-  "辽宁": {
-    "大连理工大学": {
-      "host": "webvpn.dlut.edu.cn",
-      "crypt_key": "Wxzxvpn2023key@$",
-      "crypt_iv": "Wxzxvpn2023key@$"
-    }
-  },
-  "湖北": {
-    "湖北大学": {
-      "host": "https://webvpn.hubu.edu.cn/"
-    },
-    "汉江师范学院": {
-      "host": "webvpn.hjnu.edu.cn",
-      "crypt_key": "snmp-agentcommun",
-      "crypt_iv": "snmp-agentcommun"
-    }
-  },
-  "天津": {
-    "天津城建大学": {
-      "host": "https://webvpn1.tcu.edu.cn/login",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    },
-    "天津城建大学（教师）": {
-      "host": "webvpn.tcu.edu.cn",
-      "crypt_key": "wrdvpnisthebest!",
-      "crypt_iv": "wrdvpnisthebest!"
-    }
-  },
-  "安徽": {
-    "中国科学技术大学": {
-      "host": "https://wvpn.ustc.edu.cn/"
-    }
-  }
 }
