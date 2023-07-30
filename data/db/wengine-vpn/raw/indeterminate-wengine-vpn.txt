@@ -1,8 +1,0 @@
-安徽	滁州学院	http://webvpn.chzu.edu.cn/
-河北	河北地质大学	http://webvpn.hgu.edu.cn/
-四川	成都文理学院	http://webvpn.cdcas.edu.cn/
-贵州	贵阳信息科技学院	http://webvpn.gyiist.edu.cn/
-云南	云南财经大学	http://webvpn.ynufe.edu.cn/
-江苏	南京中医药大学	http://webvpn.njucm.edu.cn/
-吉林	吉林建筑大学	http://webvpn.jlju.edu.cn/
-黑龙江	哈尔滨金融学院	http://webvpn.hrbfu.edu.cn/
