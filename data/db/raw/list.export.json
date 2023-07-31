@@ -138,9 +138,6 @@
     "湖南": {
         "树达学院": {
             "host": "http://webvpn.sdw.hunnu.edu.cn/"
-        },
-        "湖南大学": {
-            "host": "https://webvpn.hnu.edu.cn/"
         }
     },
     "辽宁": {
@@ -157,7 +154,7 @@
         "汉江师范学院": {
             "host": "webvpn.hjnu.edu.cn",
             "crypt_key": "snmp-agentcommun",
-            "crypt_iv": "snmp-agentcommun"
+            "crypt_iv": "snmp-agentcommun安徽"
         }
     },
     "天津": {
