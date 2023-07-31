@@ -31,8 +31,7 @@
 广东 广东海洋大学 webvpn.gdou.edu.cn
 天津 天津城建大学 https://webvpn1.tcu.edu.cn/login wrdvpnisthebest! wrdvpnisthebest!
 天津 天津城建大学（教师） webvpn.tcu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
-湖南 湖南大学 https://webvpn.hnu.edu.cn/
 安徽 中国科学技术大学 https://wvpn.ustc.edu.cn/
 山东 潍坊医学院 webvpn.wfmc.edu.cn wrdvpnisthebest! wrdvpnisthebest!
 江苏 中国药科大学 webvpn.cpu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
-湖北 汉江师范学院 webvpn.hjnu.edu.cn snmp-agentcommun snmp-agentcommun
+湖北 汉江师范学院 webvpn.hjnu.edu.cn snmp-agentcommun snmp-agentcommun安徽 安徽大学 wvpn.ahu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
