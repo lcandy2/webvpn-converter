@@ -154,7 +154,7 @@
         "汉江师范学院": {
             "host": "webvpn.hjnu.edu.cn",
             "crypt_key": "snmp-agentcommun",
-            "crypt_iv": "snmp-agentcommun安徽"
+            "crypt_iv": "snmp-agentcommun"
         }
     },
     "天津": {
@@ -172,6 +172,11 @@
     "安徽": {
         "中国科学技术大学": {
             "host": "https://wvpn.ustc.edu.cn/"
+        },
+        "安徽大学": {
+            "host": "wvpn.ahu.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
         }
     }
 }

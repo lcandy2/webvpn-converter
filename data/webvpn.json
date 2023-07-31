@@ -24,6 +24,11 @@
       "host": "webvpn.ahmu.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "安徽大学": {
+      "host": "wvpn.ahu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "北京": {
@@ -196,7 +201,7 @@
     "汉江师范学院": {
       "host": "webvpn.hjnu.edu.cn",
       "crypt_key": "snmp-agentcommun",
-      "crypt_iv": "snmp-agentcommun安徽"
+      "crypt_iv": "snmp-agentcommun"
     },
     "湖北警官学院": {
       "host": "webvpn.hbpa.edu.cn"
