@@ -28,4 +28,4 @@ jobs:
       uses: actions-js/push@v1.4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        message: 'Update Universities Data from GitHub Actions'
+        message: 'action: Update Universities Data'

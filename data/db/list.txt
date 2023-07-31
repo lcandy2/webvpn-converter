@@ -34,4 +34,5 @@
 安徽 中国科学技术大学 https://wvpn.ustc.edu.cn/
 山东 潍坊医学院 webvpn.wfmc.edu.cn wrdvpnisthebest! wrdvpnisthebest!
 江苏 中国药科大学 webvpn.cpu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
-湖北 汉江师范学院 webvpn.hjnu.edu.cn snmp-agentcommun snmp-agentcommun安徽 安徽大学 wvpn.ahu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
+湖北 汉江师范学院 webvpn.hjnu.edu.cn snmp-agentcommun snmp-agentcommun
+安徽 安徽大学 wvpn.ahu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
