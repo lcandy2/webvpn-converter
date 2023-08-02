@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import ThemeWrapper from '../components/ThemeWrapper';
 import { useEffect } from 'react';
 import serviceWorker from '../lib/serviceWorker';
+import Gtag from '../lib/gtag'
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <ThemeWrapper>
+      <Gtag />
       <Box display="flex" flexDirection="column" minHeight="100vh">
         <Navigation />
         <Box flexGrow={1} display="flex" flexDirection="column">
