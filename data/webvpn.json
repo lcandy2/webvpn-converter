@@ -107,6 +107,11 @@
     },
     "兰州工业学院": {
       "host": "webvpn.lzit.edu.cn"
+    },
+    "兰州大学": {
+      "host": "vpnx.lzu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   },
   "广东": {
