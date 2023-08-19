@@ -182,6 +182,11 @@
             "host": "wvpn.ahu.edu.cn",
             "crypt_key": "wrdvpnisthebest!",
             "crypt_iv": "wrdvpnisthebest!"
+        },
+        "安徽工业大学": {
+            "host": "vpncas.ahut.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
         }
     }
 }
