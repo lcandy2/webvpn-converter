@@ -6,6 +6,7 @@ import ThemeWrapper from '../components/ThemeWrapper';
 import { useEffect } from 'react';
 import serviceWorker from '../lib/serviceWorker';
 import Gtag from '../lib/gtag'
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
         <Navigation />
         <Box flexGrow={1} display="flex" flexDirection="column">
           <Component {...pageProps} />
+          <Analytics />
         </Box>
         <Footer />
       </Box>
