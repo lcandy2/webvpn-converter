@@ -84,6 +84,9 @@
     },
     "中国传媒大学": {
       "host": "webvpn.cuc.edu.cn"
+    },
+    "北京工业大学": {
+      "host": "webvpn.bjut.edu.cn"
     }
   },
   "福建": {
