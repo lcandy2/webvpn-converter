@@ -38,3 +38,4 @@
 湖北 汉江师范学院 webvpn.hjnu.edu.cn snmp-agentcommun snmp-agentcommun
 安徽 安徽大学 wvpn.ahu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
 安徽 安徽工业大学 vpncas.ahut.edu.cn wrdvpnisthebest! wrdvpnisthebest!
+北京 北京工业大学 webvpn.bjut.edu.cn
