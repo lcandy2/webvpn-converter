@@ -1,0 +1,21 @@
+'use client';
+import { createComponent } from '@lit-labs/react';
+import React, { ReactNode } from 'react';
+import { MdIcon as MdIconWebComponent } from '@material/web/all';
+import 'material-symbols/outlined.css';
+
+const MdIcon = createComponent({
+  tagName: 'md-icon',
+  elementClass: MdIconWebComponent,
+  react: React,
+  events: {
+    onClick: 'click',
+  },
+});
+
+interface MdIconProps {
+  children?: ReactNode;
+  [x: string]: any;
+}
+
+export default MdIcon;

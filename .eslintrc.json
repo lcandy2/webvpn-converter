@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "alloy",
+    "alloy/react",
+    "alloy/typescript",
+    "next/core-web-vitals",
+    "prettier"
+  ]
+}
