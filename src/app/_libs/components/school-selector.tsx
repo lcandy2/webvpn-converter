@@ -3,7 +3,6 @@
 import {
   buildSchoolList,
   handleSchoolChange,
-  School,
   schoolListGroupby,
   schoolListIsOptionEqualToValue,
   schoolListLabel,
@@ -18,8 +17,6 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import '@material/web/checkbox/checkbox.js';
-import MdIcon from '@/app/_libs/ui/icon';
-import { materialSymbolsOutlined } from '@/app/_libs/ui/fonts';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 
