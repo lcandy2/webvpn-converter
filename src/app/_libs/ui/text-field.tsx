@@ -1,5 +1,5 @@
 'use client';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import React, { ReactNode } from 'react';
 import {
   MdFilledTextField as MdFilledTextFieldWebComponent,
@@ -12,26 +12,32 @@ const MdFilledTextField = createComponent({
   react: React,
 });
 
-const MdOutlinedTextField = createComponent({
+export const MdOutlinedTextField = createComponent({
   tagName: 'md-outlined-text-field',
   elementClass: MdOutlinedTextFieldWebComponent,
   react: React,
+  events: {
+    onChange: 'change',
+    onFocus: 'focus',
+    onBlur: 'blur',
+    onMouseDown: 'mousedown',
+  },
 });
 
-type TextFieldType = 'filled' | 'outlined';
+type TextFieldVariant = 'filled' | 'outlined';
 
 interface MdTextFieldProps {
-  varient?: TextFieldType;
+  variant?: TextFieldVariant;
   children?: ReactNode;
   [x: string]: any; // 其他任意属性
 }
 
 export default function MdTextField({
-  varient,
+  variant,
   children,
   ...props
 }: MdTextFieldProps) {
-  switch (varient) {
+  switch (variant) {
     case 'filled':
       if (children) {
         return <MdFilledTextField {...props}>{children}</MdFilledTextField>;

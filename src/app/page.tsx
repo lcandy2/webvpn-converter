@@ -1,48 +1,13 @@
-import MdButton from '@/app/_libs/ui/button';
-import Link from 'next/link';
-import Header from '@/app/_libs/components/header';
-import MdTextField from '@/app/_libs/ui/text-field';
+import InitSelectSchool from '@/app/_libs/hooks/init-select-school';
+import Title from '@/app/_libs/components/title';
+import UrlConverter from '@/app/_libs/components/url-converter/url-converter';
 
 export default function Home() {
   return (
     <>
-      <div className="">
-        <h1 className="text-xl font-bold mb-4">Title</h1>
-
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        <p>Main content goes here...</p>
-        {/* ...更多内容 */}
-      </div>
+      <InitSelectSchool />
+      <Title title="转换" />
+      <UrlConverter />
     </>
   );
 }

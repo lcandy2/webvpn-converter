@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/app/_libs/components/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
+import { DevTools } from 'jotai-devtools';
 
 const inter = Inter({ subsets: ['latin'] });
 

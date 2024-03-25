@@ -1,4 +1,6 @@
-import { createComponent } from '@lit-labs/react';
+'use client';
+
+import { createComponent } from '@lit/react';
 import { MdIconButton as MdIconButtonWebComponent } from '@material/web/iconbutton/icon-button';
 import React, { ReactNode } from 'react';
 import { MdFilledIconButton as MdFilledIconButtonWebComponent } from '@material/web/iconbutton/filled-icon-button';
@@ -23,10 +25,10 @@ const MdFilledTonalIconButton = createComponent({
   react: React,
 });
 
-type ButtonType = 'default' | 'filled' | 'filled-tonal' | 'outlined';
+type IconButtonVariant = 'default' | 'filled' | 'filled-tonal' | 'outlined';
 
 type MdIconButtonProps = {
-  type?: ButtonType;
+  variant?: IconButtonVariant;
   icon: string;
   selected?: boolean;
   children?: ReactNode;
@@ -34,14 +36,14 @@ type MdIconButtonProps = {
   [x: string]: any; // 其他任意属性
 };
 
-export default function IconButton({
-  type,
+export default function MdIconButton({
+  variant,
   icon,
   selected,
   children,
   ...props
 }: MdIconButtonProps) {
-  switch (type) {
+  switch (variant) {
     case 'filled':
       return (
         <MdFilledIconButton {...props}>

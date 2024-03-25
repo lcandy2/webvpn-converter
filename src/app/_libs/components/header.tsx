@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { Button } from '@mui/material-next';
+import HeaderTitleText from '@/app/_libs/components/header-title-text';
 
 export default function Header() {
   return (
     <header className="mx-4 my-3 min-h-12 h-24 sm:h-12 flex flex-col sm:flex-row flex-wrap justify-between">
       <div className="order-1 sm:order-first h-12 flex flex-col sm:flex-row items-start sm:items-center justify-between sm:justify-start">
         <Link href="/">
-          <h1 className="text-2xl mx-4">Web VPN Cornverter</h1>
+          <HeaderTitleText />
         </Link>
         <p className="text-inherit text-pretty mx-4">A @lcandy2 project.</p>
       </div>

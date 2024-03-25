@@ -1,5 +1,5 @@
 'use client';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import React from 'react';
 import { MdFab as MdFabWebComponent } from '@material/web/all';
 

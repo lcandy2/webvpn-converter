@@ -1,5 +1,5 @@
 'use client';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import React, { ReactNode } from 'react';
 import { MdIcon as MdIconWebComponent } from '@material/web/all';
 import 'material-symbols/outlined.css';

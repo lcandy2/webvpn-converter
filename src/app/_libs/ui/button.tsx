@@ -1,5 +1,5 @@
 'use client';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
 import React, { ReactNode } from 'react';
 import {
   MdElevatedButton as MdElevatedButtonWebComponent,
@@ -39,17 +39,25 @@ const MdTextButton = createComponent({
   react: React,
 });
 
-type ButtonType = 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text';
+type ButtonVariant =
+  | 'elevated'
+  | 'filled'
+  | 'filled-tonal'
+  | 'outlined'
+  | 'text';
 
 interface MdButtonProps {
-  type?: ButtonType;
+  variant?: ButtonVariant;
   children?: ReactNode;
-
   [x: string]: any; // 其他任意属性
 }
 
-export default function MdButton({ type, children, ...props }: MdButtonProps) {
-  switch (type) {
+export default function MdButton({
+  variant,
+  children,
+  ...props
+}: MdButtonProps) {
+  switch (variant) {
     case 'elevated':
       return <MdElevatedButton {...props}>{children}</MdElevatedButton>;
     case 'filled':
