@@ -1,23 +1,25 @@
 // Define the data structure of the school list from data source
 import type { School } from '@/app/_libs/types';
 
-interface SchoolDataStructure {
-  [province: string]: {
-    [schoolName: string]: {
+type SchoolDataStructure = Record<
+  string,
+  Record<
+    string,
+    {
       host: string;
       crypto_key?: string | null;
       crypto_iv?: string | null;
-    };
-  };
-}
+    }
+  >
+>;
 
 // Build the school list from data source
 export const buildSchoolList = (data: SchoolDataStructure): School[] => {
   const schoolList: School[] = [];
   for (const province in data) {
-    if (data.hasOwnProperty(province)) {
+    if (Object.prototype.hasOwnProperty.call(data, province)) {
       for (const school in data[province]) {
-        if (data[province].hasOwnProperty(school)) {
+        if (Object.prototype.hasOwnProperty.call(data[province], school)) {
           schoolList.push({
             province: province || '未知省份',
             name: school,
@@ -76,12 +78,4 @@ export const schoolListIsOptionEqualToValue = (
   value: School,
 ): boolean => {
   return option.host === value.host;
-};
-
-export const handleSchoolChange = (
-  event: React.ChangeEvent<{}>,
-  newValue: School | null,
-  setVirable: React.Dispatch<React.SetStateAction<School | null>>,
-) => {
-  setVirable(newValue);
 };

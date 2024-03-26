@@ -4,8 +4,6 @@ import './globals.css';
 import Header from '@/app/_libs/components/header/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
-import { DevTools } from 'jotai-devtools';
-import { SnackbarProvider } from 'notistack';
 import { ThemeProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 

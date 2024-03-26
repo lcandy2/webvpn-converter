@@ -1,7 +1,7 @@
 'use client';
 
-import { useAtom, useAtomValue } from 'jotai';
-import { firstTimeUseAtom, selectedSchoolAtom } from '@/app/_libs/atoms';
+import { useAtomValue } from 'jotai';
+import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
@@ -18,9 +18,11 @@ export default function InitSelectSchool() {
   useEffect(() => {
     if (hasMounted) {
       console.log(selectedSchool);
-      // redirect('/setup');
+      if (!selectedSchool) {
+        redirect('/setup');
+      }
     }
-  }, [hasMounted]);
+  }, [hasMounted, selectedSchool]);
 
   if (!hasMounted || selectedSchool) {
     return null;

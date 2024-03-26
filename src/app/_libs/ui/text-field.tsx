@@ -29,7 +29,6 @@ type TextFieldVariant = 'filled' | 'outlined';
 interface MdTextFieldProps {
   variant?: TextFieldVariant;
   children?: ReactNode;
-  [x: string]: any; // 其他任意属性
 }
 
 export default function MdTextField({

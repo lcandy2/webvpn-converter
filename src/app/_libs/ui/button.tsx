@@ -49,7 +49,6 @@ type ButtonVariant =
 interface MdButtonProps {
   variant?: ButtonVariant;
   children?: ReactNode;
-  [x: string]: any; // 其他任意属性
 }
 
 export default function MdButton({

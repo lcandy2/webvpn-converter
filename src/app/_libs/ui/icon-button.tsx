@@ -27,14 +27,12 @@ const MdFilledTonalIconButton = createComponent({
 
 type IconButtonVariant = 'default' | 'filled' | 'filled-tonal' | 'outlined';
 
-type MdIconButtonProps = {
+interface MdIconButtonProps {
   variant?: IconButtonVariant;
   icon: string;
   selected?: boolean;
   children?: ReactNode;
-
-  [x: string]: any; // 其他任意属性
-};
+}
 
 export default function MdIconButton({
   variant,

@@ -2,7 +2,6 @@
 
 import {
   buildSchoolList,
-  handleSchoolChange,
   schoolListGroupby,
   schoolListIsOptionEqualToValue,
   schoolListLabel,
@@ -10,20 +9,23 @@ import {
   schoolListSorter,
 } from '@/app/setup/_libs/hooks/school-select';
 import webvpnData from '@/data/webvpn.json';
-import {
-  Autocomplete,
-  AutocompleteRenderInputParams,
-  TextField,
-} from '@mui/material';
-import React, { useState } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
+import React from 'react';
 import '@material/web/checkbox/checkbox.js';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
-import { MdOutlinedTextField } from '@/app/_libs/ui/text-field';
+import { School } from '@/app/_libs/types';
 
 export default function SchoolSelector() {
   const schoolData = buildSchoolList(webvpnData);
   const [selectedSchool, setSelectedSchool] = useAtom(selectedSchoolAtom);
+
+  const handleSchoolChange = (
+    event: React.SyntheticEvent,
+    newValue: School | null,
+  ) => {
+    setSelectedSchool(newValue);
+  };
 
   return (
     <>
@@ -37,9 +39,7 @@ export default function SchoolSelector() {
         renderInput={schoolListRenderInput}
         value={selectedSchool}
         isOptionEqualToValue={schoolListIsOptionEqualToValue}
-        onChange={(event, newValue) => {
-          handleSchoolChange(event, newValue, setSelectedSchool);
-        }}
+        onChange={handleSchoolChange}
       />
     </>
   );

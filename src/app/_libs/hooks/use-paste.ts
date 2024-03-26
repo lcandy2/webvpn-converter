@@ -63,7 +63,7 @@ export function usePaste({ onPasteError }: UsePasteOption) {
         handlePasteError(error as Error);
       }
     },
-    [onPasteError, handlePasteError],
+    [handlePasteError],
   );
 
   const reset = useCallback(() => {

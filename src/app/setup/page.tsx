@@ -1,8 +1,5 @@
 import SchoolSelector from '@/app/setup/_libs/components/school-selector';
-import MdFab from '@/app/_libs/ui/floating-action-buttons';
-import MdIcon from '@/app/_libs/ui/icon';
 import type { Metadata } from 'next';
-import MdButton from '@/app/_libs/ui/button';
 import SchoolAction from '@/app/setup/_libs/components/school-action';
 import Title from '@/app/_libs/components/title';
 

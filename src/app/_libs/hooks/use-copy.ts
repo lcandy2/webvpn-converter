@@ -41,14 +41,14 @@ export default function useCopy({
         }, timeout);
       }
     },
-    [timeout],
+    [timeout, reset],
   );
 
   const handleCopyError = useCallback(
     (error: Error) => {
       console.error(error);
       setError(error);
-      let message = '复制失败！';
+      const message = '复制失败！';
       onCopyError?.(message);
       handleCopyResult(true);
     },
@@ -59,7 +59,7 @@ export default function useCopy({
     setCopied(true);
     onCopySuccess?.();
     handleCopyResult(true);
-  }, [handleCopyResult]);
+  }, [handleCopyResult, onCopySuccess]);
 
   const copy = useCallback(
     async ({ valueToCopy, inputRef }: CopyOption) => {
@@ -86,7 +86,7 @@ export default function useCopy({
         handleCopyError(error as Error);
       }
     },
-    [handleCopyResult, handleCopyError, handleCopySuccess],
+    [handleCopyError, handleCopySuccess],
   );
 
   const reset = useCallback(() => {

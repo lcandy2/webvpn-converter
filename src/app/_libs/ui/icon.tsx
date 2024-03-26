@@ -13,9 +13,4 @@ const MdIcon = createComponent({
   },
 });
 
-interface MdIconProps {
-  children?: ReactNode;
-  [x: string]: any;
-}
-
 export default MdIcon;

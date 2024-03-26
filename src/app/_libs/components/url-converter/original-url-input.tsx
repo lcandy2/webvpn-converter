@@ -3,9 +3,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { useAtom } from 'jotai';
 import { originalUrlAtom } from '@/app/_libs/atoms';
-import { InputAdornment } from '@mui/material-next';
-import { IconButton, TextField } from '@mui/material';
-import MdIcon from '@/app/_libs/ui/icon';
+import { InputAdornment, TextField } from '@mui/material';
 import MdIconButton from '@/app/_libs/ui/icon-button';
 import { enqueueSnackbar, SnackbarProvider } from 'notistack';
 import { usePaste } from '@/app/_libs/hooks/use-paste';
@@ -41,7 +39,7 @@ export default function OriginalUrlInput() {
 
   const handlePasteButtonClick = useCallback(() => {
     paste({ handleSetInputValue: handleSetOriginalUrl, inputRef });
-  }, [paste, setOriginalUrl, inputRef]);
+  }, [paste, inputRef, handleSetOriginalUrl]);
 
   useEffect(() => {
     if (inputRef.current) {

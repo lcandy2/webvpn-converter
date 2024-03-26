@@ -1,15 +1,18 @@
 'use client';
 
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { encryptedUrlAtom, originalUrlAtom } from '@/app/_libs/atoms';
-import { TextField, useMediaQuery, useTheme } from '@mui/material';
-import { InputAdornment } from '@mui/material-next';
+import {
+  InputAdornment,
+  TextField,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import MdIconButton from '@/app/_libs/ui/icon-button';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import useCopy from '@/app/_libs/hooks/use-copy';
 import { enqueueSnackbar } from 'notistack';
-import theme from 'tailwindcss/defaultTheme';
-import MuiTheme from '@/app/_libs/mui-theme';
+import Link from 'next/link';
 
 export default function ConvertedUrlInput() {
   const originalUrl = useAtomValue(originalUrlAtom);
@@ -19,7 +22,11 @@ export default function ConvertedUrlInput() {
   ); // ['encrypt', 'decrypt'
   const encryptedUrl = useAtomValue(encryptedUrlAtom);
   const inputValue = useMemo(() => {
-    return convertType === 'encrypt' ? encryptedUrl : originalUrl;
+    if (originalUrl) {
+      return convertType === 'encrypt' ? encryptedUrl : originalUrl;
+    } else {
+      return '';
+    }
   }, [convertType, encryptedUrl, originalUrl]);
   const { copy, reset, error, copied } = useCopy({
     onCopyError: (message) => {
@@ -38,34 +45,24 @@ export default function ConvertedUrlInput() {
 
   const InputAdornmentComponents = () => {
     return (
-      <>
-        {/*<Grid container direction={matches ? "column" : "row"} justify="center">*/}
-        {/*  <Grid item xs={6}>*/}
-        {/*    <IconButton onClick={handleCopy}>*/}
-        {/*      <ContentCopyIcon />*/}
-        {/*    </IconButton>*/}
+      <div className="flex flex-col sm:flex-row gap-0">
         <MdIconButton
           icon={error ? 'error' : copied ? 'done' : 'content_copy'}
           onClick={handleCopyButtonClick}
         />
-        {/*</Grid>*/}
-        {/*<Grid item xs={6}>*/}
-        {/*<IconButton onClick={handleOpen}>*/}
-        {/*  <OpenInNewIcon />*/}
-        {/*</IconButton>*/}
-        {/*  </Grid>*/}
-        {/*</Grid>*/}
-      </>
+        <Link href={`//${inputValue}`} target="_blank">
+          <MdIconButton icon="open_in_new" />
+        </Link>
+      </div>
     );
   };
 
   return (
-    inputValue &&
-    originalUrl && (
+    ((inputValue && originalUrl) || lgMediaQuery) && (
       <>
         <TextField
           inputRef={inputRef}
-          label="Web VPN 链接"
+          label={'Web VPN 链接' + (!inputValue ? '将会显示在这里' : '')}
           value={inputValue}
           variant="outlined"
           fullWidth
@@ -73,7 +70,7 @@ export default function ConvertedUrlInput() {
           margin="normal"
           InputProps={{
             readOnly: true,
-            startAdornment: lgMediaQuery && (
+            startAdornment: lgMediaQuery && inputValue && (
               <InputAdornment position="start">
                 <InputAdornmentComponents />
               </InputAdornment>
