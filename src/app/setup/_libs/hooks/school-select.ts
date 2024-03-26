@@ -22,8 +22,8 @@ export const buildSchoolList = (data: SchoolDataStructure): School[] => {
             province: province || '未知省份',
             name: school,
             host: data[province][school].host,
-            crypto_key: data[province][school].crypto_key || null,
-            crypto_iv: data[province][school].crypto_iv || null,
+            crypto_key: data[province][school].crypto_key || undefined,
+            crypto_iv: data[province][school].crypto_iv || undefined,
           });
         }
       }

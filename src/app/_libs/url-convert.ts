@@ -110,6 +110,7 @@ const extractUrl = (requiredUrl: string | URL): ExtrectedUrl => {
 
 export const encryptUrl = ({
   url: inputUrl,
+  schoolHost,
   key = KEY,
   iv = IV,
 }: ConvertConfig) => {
@@ -148,12 +149,17 @@ export const encryptUrl = ({
   //   host = ipv6;
   // }
 
+  if (!(key && iv)) {
+    key = KEY;
+    iv = IV;
+  }
+
   const encryptedHost = encryptHost({ text: host, key, iv });
 
   if (port !== '') {
-    return `/${protocol}-${port}/${encryptedHost}${path}`;
+    return `${schoolHost}/${protocol}-${port}/${encryptedHost}${path}`;
   } else {
-    return `/${protocol}/${encryptedHost}${path}`;
+    return `${schoolHost}/${protocol}/${encryptedHost}${path}`;
   }
 };
 

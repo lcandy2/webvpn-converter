@@ -6,6 +6,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
 import { DevTools } from 'jotai-devtools';
 import { SnackbarProvider } from 'notistack';
+import { ThemeProvider } from '@mui/material';
+import MuiTheme from '@/app/_libs/mui-theme';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -64,12 +66,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <section className="relative h-screen overflow-hidden bg-[#eff2fc]">
-            <Header />
-            <div className="transition-all absolute sm:left-[28px] sm:right-[16px] sm:bottom-[16px] top-[108px] sm:top-[72px] left-0 right-0 bottom-0 bg-white overflow-hidden rounded-t-[28px] sm:rounded-[28px] z-0 bg-[#fdfcff]">
-              <main className="overflow-auto h-full p-7 pr-5">{children}</main>
-            </div>
-          </section>
+          <ThemeProvider theme={MuiTheme}>
+            <section className="relative h-screen overflow-hidden bg-[#eff2fc]">
+              <Header />
+              <div className="transition-all absolute sm:left-[28px] sm:right-[16px] sm:bottom-[16px] top-[108px] sm:top-[72px] left-0 right-0 bottom-0 bg-white overflow-hidden rounded-t-[28px] sm:rounded-[28px] z-0 bg-[#fdfcff]">
+                <main className="overflow-auto h-full p-7 pr-5">
+                  {children}
+                </main>
+              </div>
+            </section>
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

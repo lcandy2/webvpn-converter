@@ -6,12 +6,9 @@ import ConvertedUrlInput from '@/app/_libs/components/url-converter/converted-ur
 
 export default function UrlConverter() {
   return (
-    // <MdOutlinedTextField ref={textAreaRef} type="textarea" rows="1" maxRows="4" label="原始链接" className="w-[100%]">
-    //   <MdIconButton icon="content_paste" slot="trailing-icon" />
-    // </MdOutlinedTextField>
-    <>
+    <div className="flex flex-col lg:flex-row gap-x-8">
       <OriginalUrlInput />
       <ConvertedUrlInput />
-    </>
+    </div>
   );
 }

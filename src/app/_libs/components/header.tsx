@@ -13,13 +13,13 @@ export default function Header() {
       </div>
       <div className="order-3 sm:order-last my-auto flex flex-row flex-nowrap justify-end sm:items-center">
         <Link href="https://afdian.net/a/Lcandy/plan" target="_blank">
-          <Button className="h-12">捐赠</Button>
+          {/*<Button className="h-12">捐赠</Button>*/}
         </Link>
         <Link
           href="https://github.com/lcandy2/webvpn-converter"
           target="_blank"
         >
-          <Button className="h-12">GitHub</Button>
+          {/*<Button className="h-12">GitHub</Button>*/}
         </Link>
       </div>
     </header>

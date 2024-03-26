@@ -3,8 +3,8 @@ export interface School {
   province: string | null;
   name: string;
   host: string;
-  crypto_key: string | null;
-  crypto_iv: string | null;
+  crypto_key?: string;
+  crypto_iv?: string;
 }
 
 export interface UrlConvertConfig {
@@ -18,6 +18,7 @@ type Protocol = 'http' | 'https' | 'ssh' | 'vnc' | 'telnet' | 'rdp';
 
 export interface ConvertConfig {
   url: string | URL;
+  schoolHost?: string;
   key?: string;
   iv?: string;
 }
