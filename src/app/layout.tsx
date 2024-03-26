@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/app/_libs/components/header';
+import Header from '@/app/_libs/components/header/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
 import { DevTools } from 'jotai-devtools';
