@@ -38,6 +38,9 @@ dependencies:
   '@mui/material-nextjs':
     specifier: ^5.15.11
     version: 5.15.11(@emotion/cache@11.11.0)(@mui/material@5.15.14)(@types/react@18.2.69)(next@14.1.4)(react@18.2.0)
+  aes-js:
+    specifier: ^3.1.2
+    version: 3.1.2
   jotai:
     specifier: ^2.7.1
     version: 2.7.1(@types/react@18.2.69)(react@18.2.0)
@@ -64,6 +67,9 @@ dependencies:
     version: 18.2.0(react@18.2.0)
 
 devDependencies:
+  '@types/aes-js':
+    specifier: ^3.1.4
+    version: 3.1.4
   '@types/node':
     specifier: ^20.11.30
     version: 20.11.30
@@ -2873,6 +2879,13 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@types/aes-js@3.1.4:
+    resolution:
+      {
+        integrity: sha512-v3D66IptpUqh+pHKVNRxY8yvp2ESSZXe0rTzsGdzUhEwag7ljVfgCllkWv2YgiYXDhWFBrEywll4A5JToyTNFA==,
+      }
+    dev: true
+
   /@types/base16@1.0.5:
     resolution:
       {
@@ -3281,6 +3294,13 @@ packages:
       }
     engines: { node: '>=0.4.0' }
     hasBin: true
+
+  /aes-js@3.1.2:
+    resolution:
+      {
+        integrity: sha512-e5pEa2kBnBOgR4Y/p20pskXI74UEz7de8ZGVo58asOtvSVG5YAbJeELPZxOmt+Bnz3rX753YKhfIn4X4l1PPRQ==,
+      }
+    dev: false
 
   /ajv-keywords@3.5.2(ajv@6.12.6):
     resolution:

@@ -6,3 +6,18 @@ export interface School {
   crypto_key: string | null;
   crypto_iv: string | null;
 }
+
+export interface UrlConvertConfig {
+  KEY: string;
+  IV: string;
+  PROTOCOLS: Protocol[];
+  ALGORITHM: string;
+}
+
+type Protocol = 'http' | 'https' | 'ssh' | 'vnc' | 'telnet' | 'rdp';
+
+export interface ConvertConfig {
+  url: string | URL;
+  key?: string;
+  iv?: string;
+}

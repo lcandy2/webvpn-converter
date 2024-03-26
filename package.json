@@ -21,6 +21,7 @@
     "@mui/material": "^5.15.14",
     "@mui/material-next": "6.0.0-alpha.126",
     "@mui/material-nextjs": "^5.15.11",
+    "aes-js": "^3.1.2",
     "jotai": "^2.7.1",
     "jotai-devtools": "^0.8.0",
     "lit": "^3.1.2",
@@ -31,6 +32,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/aes-js": "^3.1.4",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",

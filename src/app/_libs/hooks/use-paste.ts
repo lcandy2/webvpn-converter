@@ -13,11 +13,12 @@ interface PasteOption {
 
 export function usePaste({ onPasteError }: UsePasteOption) {
   const [pasted, setPasted] = useState<boolean>(false);
-  const [error, setError] = useState<Error | unknown | null>(null);
+  const [error, setError] = useState<Error | null>(null);
 
   const handlePasteError = useCallback(
-    (error: Error | unknown) => {
+    (error: Error) => {
       console.error('[WebVPN Converter] Paste failed: ', error);
+      setError(error);
       let message = '粘贴失败：可能未授予剪贴板权限或浏览器不支持！';
       if (error) {
         const errorString = error.toString();
@@ -31,7 +32,6 @@ export function usePaste({ onPasteError }: UsePasteOption) {
           message = '粘贴失败：未知错误';
         }
       }
-      setError(message);
       onPasteError?.(message);
     },
     [onPasteError],
@@ -50,17 +50,17 @@ export function usePaste({ onPasteError }: UsePasteOption) {
           const pasteCommand = document.execCommand('paste');
           if (!pasteCommand)
             throw new Error(
-              'The browser does not support both navigator.clipboard and execCommand. wpn_err@paste_2',
+              'The browser does not support both navigator.clipboard and execCommand. (wpn_err@paste_2)',
             );
         } else {
           handlePasteError(
             new Error(
-              'Neither navigator.clipboard supported nor input element found! wpn_err@paste_3',
+              'Neither navigator.clipboard supported nor input element found! (wpn_err@paste_3)',
             ),
           );
         }
       } catch (error) {
-        handlePasteError(error);
+        handlePasteError(error as Error);
       }
     },
     [onPasteError, handlePasteError],

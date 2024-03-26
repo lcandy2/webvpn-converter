@@ -1,6 +1,7 @@
 import type { School } from '@/app/_libs/types';
-import { atomWithStorage } from 'jotai/utils';
+import { atomWithReset, atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai';
+import { encryptUrl } from '@/app/_libs/url-convert';
 
 export const selectedSchoolAtom = atomWithStorage<School | null>(
   'selectedSchool',
@@ -9,5 +10,8 @@ export const selectedSchoolAtom = atomWithStorage<School | null>(
 
 export const firstTimeUseAtom = atomWithStorage<boolean>('firstTimeUse', true);
 
-export const originalUrlAtom = atom<string>('');
-export const convertedUrlAtom = atom<string>('');
+export const originalUrlAtom = atomWithReset<string>('');
+// export const convertedUrlAtom = atom<string>('');
+export const encryptedUrlAtom = atom<string>((get) =>
+  encryptUrl({ url: get(originalUrlAtom) }),
+);
