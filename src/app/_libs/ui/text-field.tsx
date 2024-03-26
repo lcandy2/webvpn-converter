@@ -1,10 +1,16 @@
 'use client';
+
 import { createComponent } from '@lit/react';
-import React, { ReactNode } from 'react';
+import React, {
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  ReactNode,
+} from 'react';
 import {
   MdFilledTextField as MdFilledTextFieldWebComponent,
   MdOutlinedTextField as MdOutlinedTextFieldWebComponent,
 } from '@material/web/all';
+import type { ReactWebComponent } from '@lit/react';
 
 const MdFilledTextField = createComponent({
   tagName: 'md-filled-text-field',
@@ -16,38 +22,41 @@ export const MdOutlinedTextField = createComponent({
   tagName: 'md-outlined-text-field',
   elementClass: MdOutlinedTextFieldWebComponent,
   react: React,
-  events: {
-    onChange: 'change',
-    onFocus: 'focus',
-    onBlur: 'blur',
-    onMouseDown: 'mousedown',
-  },
 });
 
-type TextFieldVariant = 'filled' | 'outlined';
-
-interface MdTextFieldProps {
-  variant?: TextFieldVariant;
+interface MdTextFieldProps extends ReactWebComponent<HTMLElement> {
+  variant?: 'filled' | 'outlined';
   children?: ReactNode;
 }
 
+// export default function MdTextField({
+//   variant,
+//   children,
+//   ...props
+// }: MdTextFieldProps) {
+//   switch (variant) {
+//     case 'filled':
+//       if (children) {
+//         return <MdFilledTextField {...props}>{children}</MdFilledTextField>;
+//       } else {
+//         return <MdFilledTextField {...props} />;
+//       }
+//     default:
+//       if (children) {
+//         return <MdOutlinedTextField {...props}>{children}</MdOutlinedTextField>;
+//       } else {
+//         return <MdOutlinedTextField {...props} />;
+//       }
+//   }
+// }
+
 export default function MdTextField({
-  variant,
+  variant = 'outlined',
   children,
   ...props
 }: MdTextFieldProps) {
-  switch (variant) {
-    case 'filled':
-      if (children) {
-        return <MdFilledTextField {...props}>{children}</MdFilledTextField>;
-      } else {
-        return <MdFilledTextField {...props} />;
-      }
-    default:
-      if (children) {
-        return <MdOutlinedTextField {...props}>{children}</MdOutlinedTextField>;
-      } else {
-        return <MdOutlinedTextField {...props} />;
-      }
-  }
+  const Component =
+    variant === 'filled' ? MdFilledTextField : MdOutlinedTextField;
+
+  return <Component {...props}>{children}</Component>;
 }

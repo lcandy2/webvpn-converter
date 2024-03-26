@@ -1,6 +1,10 @@
 'use client';
 import { createComponent } from '@lit/react';
-import React, { ReactNode } from 'react';
+import React, {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  ReactNode,
+} from 'react';
 import {
   MdElevatedButton as MdElevatedButtonWebComponent,
   MdFilledButton as MdFilledButtonWebComponent,
@@ -9,35 +13,33 @@ import {
   MdTextButton as MdTextButtonWebComponent,
 } from '@material/web/all';
 
-const MdElevatedButton = createComponent({
-  tagName: 'md-elevated-button',
-  elementClass: MdElevatedButtonWebComponent,
-  react: React,
-});
-
-const MdFilledButton = createComponent({
-  tagName: 'md-filled-button',
-  elementClass: MdFilledButtonWebComponent,
-  react: React,
-});
-
-const MdFilledTonalButton = createComponent({
-  tagName: 'md-filled-tonal-button',
-  elementClass: MdFilledTonalButtonWebComponent,
-  react: React,
-});
-
-const MdOutlinedButton = createComponent({
-  tagName: 'md-outlined-button',
-  elementClass: MdOutlinedButtonWebComponent,
-  react: React,
-});
-
-const MdTextButton = createComponent({
-  tagName: 'md-text-button',
-  elementClass: MdTextButtonWebComponent,
-  react: React,
-});
+const buttonComponents = {
+  elevated: createComponent({
+    tagName: 'md-elevated-button',
+    elementClass: MdElevatedButtonWebComponent,
+    react: React,
+  }),
+  filled: createComponent({
+    tagName: 'md-filled-button',
+    elementClass: MdFilledButtonWebComponent,
+    react: React,
+  }),
+  'filled-tonal': createComponent({
+    tagName: 'md-filled-tonal-button',
+    elementClass: MdFilledTonalButtonWebComponent,
+    react: React,
+  }),
+  outlined: createComponent({
+    tagName: 'md-outlined-button',
+    elementClass: MdOutlinedButtonWebComponent,
+    react: React,
+  }),
+  text: createComponent({
+    tagName: 'md-text-button',
+    elementClass: MdTextButtonWebComponent,
+    react: React,
+  }),
+};
 
 type ButtonVariant =
   | 'elevated'
@@ -46,28 +48,23 @@ type ButtonVariant =
   | 'outlined'
   | 'text';
 
-interface MdButtonProps {
+interface MdButtonProps
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   variant?: ButtonVariant;
   children?: ReactNode;
 }
 
 export default function MdButton({
-  variant,
+  variant = 'elevated',
   children,
   ...props
 }: MdButtonProps) {
-  switch (variant) {
-    case 'elevated':
-      return <MdElevatedButton {...props}>{children}</MdElevatedButton>;
-    case 'filled':
-      return <MdFilledButton {...props}>{children}</MdFilledButton>;
-    case 'filled-tonal':
-      return <MdFilledTonalButton {...props}>{children}</MdFilledTonalButton>;
-    case 'outlined':
-      return <MdOutlinedButton {...props}>{children}</MdOutlinedButton>;
-    case 'text':
-      return <MdTextButton {...props}>{children}</MdTextButton>;
-    default:
-      return <MdElevatedButton {...props}>{children}</MdElevatedButton>;
-  }
+  const ButtonComponent =
+    buttonComponents[variant] || buttonComponents['elevated'];
+
+  // @ts-expect-error can't find a way to type this
+  return <ButtonComponent {...props}>{children}</ButtonComponent>;
 }
