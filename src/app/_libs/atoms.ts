@@ -9,5 +9,5 @@ export const selectedSchoolAtom = atomWithStorage<School | null>(
 
 export const firstTimeUseAtom = atomWithStorage<boolean>('firstTimeUse', true);
 
-export const originalUrlAtom = atom<string | null>(null);
-export const convertedUrlAtom = atom<string | null>(null);
+export const originalUrlAtom = atom<string>('');
+export const convertedUrlAtom = atom<string>('');

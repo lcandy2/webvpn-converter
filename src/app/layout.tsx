@@ -5,6 +5,7 @@ import Header from '@/app/_libs/components/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
 import { DevTools } from 'jotai-devtools';
+import { SnackbarProvider } from 'notistack';
 
 const inter = Inter({ subsets: ['latin'] });
 
