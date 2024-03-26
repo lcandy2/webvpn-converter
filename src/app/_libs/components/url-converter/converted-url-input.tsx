@@ -7,6 +7,7 @@ import { InputAdornment } from '@mui/material-next';
 import MdIconButton from '@/app/_libs/ui/icon-button';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import useCopy from '@/app/_libs/hooks/use-copy';
+import { enqueueSnackbar } from 'notistack';
 
 export default function ConvertedUrlInput() {
   const originalUrl = useAtomValue(originalUrlAtom);
@@ -18,7 +19,15 @@ export default function ConvertedUrlInput() {
   const inputValue = useMemo(() => {
     return convertType === 'encrypt' ? encryptedUrl : originalUrl;
   }, [convertType, encryptedUrl, originalUrl]);
-  const { copy, reset, error, copied } = useCopy({});
+  const { copy, reset, error, copied } = useCopy({
+    onCopyError: (message) => {
+      enqueueSnackbar(message, {
+        variant: 'error',
+        preventDuplicate: true,
+        autoHideDuration: 3000,
+      });
+    },
+  });
   const handleCopyButtonClick = useCallback(() => {
     copy({ valueToCopy: inputValue, inputRef });
   }, [copy, inputValue, inputRef]);
@@ -45,7 +54,7 @@ export default function ConvertedUrlInput() {
                 {/*      <ContentCopyIcon />*/}
                 {/*    </IconButton>*/}
                 <MdIconButton
-                  icon="content_copy"
+                  icon={error ? 'error' : copied ? 'done' : 'content_copy'}
                   onClick={handleCopyButtonClick}
                 />
                 {/*</Grid>*/}

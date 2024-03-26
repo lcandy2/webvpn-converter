@@ -13,6 +13,7 @@ export class UseClipboardError extends Error {}
 interface UseClipboardOption {
   timeout?: number;
   onCopyError?: (message: string) => void;
+  onCopySuccess?: () => void;
 }
 
 interface CopyOption {
@@ -23,23 +24,22 @@ interface CopyOption {
 export default function useCopy({
   timeout = 1000,
   onCopyError,
+  onCopySuccess,
 }: UseClipboardOption = {}) {
   const [error, setError] = useState<Error | null>(null);
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<number | null>(null);
 
   const handleCopyResult = useCallback(
-    (isCopied: boolean) => {
+    (isTriggered: boolean) => {
       if (copyTimeoutRef.current) {
         clearTimeout(copyTimeoutRef.current);
       }
-      if (isCopied) {
-        copyTimeoutRef.current = window.setTimeout(
-          () => setCopied(false),
-          timeout,
-        );
+      if (isTriggered) {
+        copyTimeoutRef.current = window.setTimeout(() => {
+          reset();
+        }, timeout);
       }
-      setCopied(isCopied);
     },
     [timeout],
   );
@@ -50,16 +50,23 @@ export default function useCopy({
       setError(error);
       let message = '复制失败！';
       onCopyError?.(message);
+      handleCopyResult(true);
     },
-    [onCopyError],
+    [onCopyError, handleCopyResult],
   );
+
+  const handleCopySuccess = useCallback(() => {
+    setCopied(true);
+    onCopySuccess?.();
+    handleCopyResult(true);
+  }, [handleCopyResult]);
 
   const copy = useCallback(
     async ({ valueToCopy, inputRef }: CopyOption) => {
       try {
         if ('clipboard' in navigator) {
           await navigator.clipboard.writeText(valueToCopy);
-          handleCopyResult(true);
+          handleCopySuccess();
         } else if (inputRef && inputRef.current) {
           // Fallback for browsers that do not support Clipboard API
           inputRef.current.select();
@@ -69,7 +76,7 @@ export default function useCopy({
               'The browser does not support both navigator.clipboard and execCommand. (wpn_err@copy_2)',
             );
           }
-          handleCopyResult(true);
+          handleCopySuccess();
         } else {
           throw new UseClipboardError(
             'Neither navigator.clipboard supported nor input element found! (wpn_err@copy_3)',
@@ -79,7 +86,7 @@ export default function useCopy({
         handleCopyError(error as Error);
       }
     },
-    [handleCopyResult, handleCopyError],
+    [handleCopyResult, handleCopyError, handleCopySuccess],
   );
 
   const reset = useCallback(() => {
