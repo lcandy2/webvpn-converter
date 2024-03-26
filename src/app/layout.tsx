@@ -17,6 +17,9 @@ const APP_DESCRIPTION = 'Best PWA app in the world!';
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
+  icons: {
+    icon: '/favicon.png',
+  },
   title: {
     default: APP_DEFAULT_TITLE,
     template: APP_TITLE_TEMPLATE,
