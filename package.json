@@ -20,6 +20,7 @@
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
     "@mui/material-nextjs": "^5.15.11",
+    "@next/third-parties": "^14.1.4",
     "aes-js": "^3.1.2",
     "jotai": "^2.7.1",
     "jotai-devtools": "^0.8.0",
@@ -33,7 +34,7 @@
   "devDependencies": {
     "@types/aes-js": "^3.1.4",
     "@types/node": "^20.11.30",
-    "@types/react": "^18.2.69",
+    "@types/react": "^18.2.71",
     "@types/react-dom": "^18.2.22",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",

@@ -30,6 +30,14 @@ export default function useCopy({
   const [copied, setCopied] = useState(false);
   const copyTimeoutRef = useRef<number | null>(null);
 
+  const reset = useCallback(() => {
+    setCopied(false);
+    setError(null);
+    if (copyTimeoutRef.current) {
+      clearTimeout(copyTimeoutRef.current);
+    }
+  }, []);
+
   const handleCopyResult = useCallback(
     (isTriggered: boolean) => {
       if (copyTimeoutRef.current) {
@@ -88,14 +96,6 @@ export default function useCopy({
     },
     [handleCopyError, handleCopySuccess],
   );
-
-  const reset = useCallback(() => {
-    setCopied(false);
-    setError(null);
-    if (copyTimeoutRef.current) {
-      clearTimeout(copyTimeoutRef.current);
-    }
-  }, []);
 
   return { copy, reset, error, copied };
 }

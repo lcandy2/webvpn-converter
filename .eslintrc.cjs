@@ -13,5 +13,5 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unused-vars': 'off',
   },
-  ignorePatterns: ['public'],
+  ignorePatterns: ['public', '.eslintrc.cjs'],
 };

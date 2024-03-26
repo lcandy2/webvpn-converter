@@ -6,6 +6,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import manifest from '@/../public/manifest.json';
 import { ThemeProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -62,6 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={MuiTheme}>
