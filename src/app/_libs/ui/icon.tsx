@@ -8,9 +8,6 @@ const MdIcon = createComponent({
   tagName: 'md-icon',
   elementClass: MdIconWebComponent,
   react: React,
-  events: {
-    onClick: 'click',
-  },
 });
 
 export default MdIcon;

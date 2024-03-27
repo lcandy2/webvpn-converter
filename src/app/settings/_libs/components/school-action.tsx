@@ -2,7 +2,7 @@
 
 import MdFab from '@/app/_libs/ui/floating-action-buttons';
 import MdIcon from '@/app/_libs/ui/icon';
-import MdButton from '@/app/_libs/ui/button';
+import { MdTextButton } from '@/app/_libs/ui/button';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { useCallback, useEffect, useState } from 'react';
@@ -53,13 +53,12 @@ export default function SchoolAction() {
         </MdFab>
       )}
       {!isSchoolNotListed && (
-        <MdButton
-          variant="text"
+        <MdTextButton
           className="w-[100%] sm:w-auto"
           onClick={handleNotListedButtonClick}
         >
           {isSchoolSelected ? '自定义设置' : '列表上没有我的学校？'}
-        </MdButton>
+        </MdTextButton>
       )}
     </div>
   );

@@ -1,5 +1,9 @@
 'use client';
 
+/**
+ * temporary comment for better performance
+ *
+
 import { createComponent } from '@lit/react';
 import React, {
   DetailedHTMLProps,
@@ -63,3 +67,5 @@ export default function MdTextField({
 
   return <Component {...props}>{children}</Component>;
 }
+
+ */

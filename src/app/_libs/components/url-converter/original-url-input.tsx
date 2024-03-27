@@ -4,9 +4,11 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useAtom } from 'jotai';
 import { originalUrlAtom } from '@/app/_libs/atoms';
 import { InputAdornment, TextField } from '@mui/material';
-import MdIconButton from '@/app/_libs/ui/icon-button';
 import { enqueueSnackbar, SnackbarProvider } from 'notistack';
 import { usePaste } from '@/app/_libs/hooks/use-paste';
+import { MdIconButton } from '@/app/_libs/ui/icon-button';
+import ContentPasteIcon from '@mui/icons-material/ContentPaste';
+import MdIcon from '../../ui/icon';
 
 export default function OriginalUrlInput() {
   const inputRef = useRef<HTMLInputElement>(null!);
@@ -62,10 +64,9 @@ export default function OriginalUrlInput() {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <MdIconButton
-                icon="content_paste"
-                onClick={handlePasteButtonClick}
-              />
+              <MdIconButton onClick={handlePasteButtonClick}>
+                <ContentPasteIcon />
+              </MdIconButton>
             </InputAdornment>
           ),
         }}

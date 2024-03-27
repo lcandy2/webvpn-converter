@@ -1,17 +1,9 @@
-import MdButton from '@/app/_libs/ui/button';
+import { MdTextButton } from '@/app/_libs/ui/button';
 
 export const HeaderActionGitHub = () => {
-  return (
-    <MdButton variant="text" className="h-12">
-      GitHub
-    </MdButton>
-  );
+  return <MdTextButton className="h-12">GitHub</MdTextButton>;
 };
 
 export const HeaderActionSponsor = () => {
-  return (
-    <MdButton variant="text" className="h-12">
-      捐赠
-    </MdButton>
-  );
+  return <MdTextButton className="h-12">捐赠</MdTextButton>;
 };

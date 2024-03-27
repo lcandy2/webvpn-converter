@@ -1,18 +1,27 @@
 'use client';
 import { createComponent } from '@lit/react';
-import React, {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  ReactNode,
-} from 'react';
+import React from // ButtonHTMLAttributes,
+// DetailedHTMLProps,
+// ReactNode,
+'react';
 import {
-  MdElevatedButton as MdElevatedButtonWebComponent,
-  MdFilledButton as MdFilledButtonWebComponent,
-  MdFilledTonalButton as MdFilledTonalButtonWebComponent,
-  MdOutlinedButton as MdOutlinedButtonWebComponent,
+  // MdElevatedButton as MdElevatedButtonWebComponent,
+  // MdFilledButton as MdFilledButtonWebComponent,
+  // MdFilledTonalButton as MdFilledTonalButtonWebComponent,
+  // MdOutlinedButton as MdOutlinedButtonWebComponent,
   MdTextButton as MdTextButtonWebComponent,
 } from '@material/web/all';
 
+export const MdTextButton = createComponent({
+  tagName: 'md-text-button',
+  elementClass: MdTextButtonWebComponent,
+  react: React,
+});
+
+/**
+ * temporary comment for better performance
+ *
+ *
 const buttonComponents = {
   elevated: createComponent({
     tagName: 'md-elevated-button',
@@ -68,3 +77,5 @@ export default function MdButton({
   // @ts-expect-error can't find a way to type this
   return <ButtonComponent {...props}>{children}</ButtonComponent>;
 }
+
+ */

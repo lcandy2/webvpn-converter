@@ -17,6 +17,7 @@
     "@lit/react": "^1.0.4",
     "@material/material-color-utilities": "^0.2.7",
     "@material/web": "^1.4.0",
+    "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
     "@mui/material-nextjs": "^5.15.11",
     "@next/third-parties": "^14.1.4",

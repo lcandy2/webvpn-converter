@@ -11,6 +11,16 @@ import { MdFilledIconButton as MdFilledIconButtonWebComponent } from '@material/
 import { MdFilledTonalIconButton as MdFilledTonalIconButtonWebComponent } from '@material/web/iconbutton/filled-tonal-icon-button';
 import MdIcon from '@/app/_libs/ui/icon';
 
+export const MdIconButton = createComponent({
+  tagName: 'md-icon-button',
+  elementClass: MdIconButtonWebComponent,
+  react: React,
+});
+
+/**
+ * temporary comment for better performance
+ *
+ *
 const iconButtonVariants = {
   default: createComponent({
     tagName: 'md-icon-button',
@@ -56,3 +66,5 @@ export default function MdIconButton({
     </IconButtonComponent>
   );
 }
+
+ */

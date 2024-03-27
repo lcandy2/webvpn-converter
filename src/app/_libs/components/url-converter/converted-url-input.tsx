@@ -8,11 +8,15 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import MdIconButton from '@/app/_libs/ui/icon-button';
+import { MdIconButton } from '@/app/_libs/ui/icon-button';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import useCopy from '@/app/_libs/hooks/use-copy';
 import { enqueueSnackbar } from 'notistack';
 import Link from 'next/link';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ErrorIcon from '@mui/icons-material/Error';
+import DoneIcon from '@mui/icons-material/Done';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 export default function ConvertedUrlInput() {
   const originalUrl = useAtomValue(originalUrlAtom);
@@ -46,12 +50,13 @@ export default function ConvertedUrlInput() {
   const InputAdornmentComponents = () => {
     return (
       <div className="flex flex-col sm:flex-row gap-0">
-        <MdIconButton
-          icon={error ? 'error' : copied ? 'done' : 'content_copy'}
-          onClick={handleCopyButtonClick}
-        />
+        <MdIconButton onClick={handleCopyButtonClick}>
+          {error ? <ErrorIcon /> : copied ? <DoneIcon /> : <ContentCopyIcon />}
+        </MdIconButton>
         <Link href={`//${inputValue}`} target="_blank">
-          <MdIconButton icon="open_in_new" />
+          <MdIconButton>
+            <OpenInNewIcon />
+          </MdIconButton>
         </Link>
       </div>
     );

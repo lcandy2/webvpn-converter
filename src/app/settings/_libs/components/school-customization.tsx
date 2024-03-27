@@ -1,14 +1,14 @@
 'use client';
 
 import { isSchoolNotListedAtom } from '@/app/settings/_libs/atoms';
-import { MdOutlinedTextField } from '@/app/_libs/ui/text-field';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtom } from 'jotai';
 import { MdOutlinedCard } from '@/app/_libs/ui/card';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { TextField } from '@mui/material';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { School } from '@/app/_libs/types';
-import MdIconButton from '@/app/_libs/ui/icon-button';
+import CloseIcon from '@mui/icons-material/Close';
+import { MdIconButton } from '@/app/_libs/ui/icon-button';
 
 export default function SchoolCustomization() {
   const [isSchoolNotListed, setIsSchoolNotListed] = useAtom(
@@ -93,9 +93,10 @@ export default function SchoolCustomization() {
             <p className="text-2xl pb-4 order-first items-start">自定义</p>
             <MdIconButton
               className="order-last self-start"
-              icon="close"
               onClick={handleCloseButtonClick}
-            />
+            >
+              <CloseIcon />
+            </MdIconButton>
           </div>
           <TextField
             label="学校 Web VPN 网络地址"
