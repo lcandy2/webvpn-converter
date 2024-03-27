@@ -37,5 +37,5 @@ export const notoSansSC = Noto_Sans_SC({
 export const lxgwNeoZhiSong = localFont({
   src: './LXGWNeoZhiSong.woff2',
   display: 'swap',
-  variable: '--font-lxgw-neo-zhi-song',
+  // variable: '--font-lxgw-neo-zhi-song',
 });

@@ -27,11 +27,7 @@ export const TitleComponent = ({
 }: TitleComponentProps) => {
   const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-6';
   return (
-    <h1
-      className={`${marginBottomClass} text-7xl font-light ${lxgwNeoZhiSong.className}`}
-    >
-      {children}
-    </h1>
+    <h1 className={`${marginBottomClass} text-7xl font-normal`}>{children}</h1>
   );
 };
 
