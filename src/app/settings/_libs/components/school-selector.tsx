@@ -11,7 +11,7 @@ import {
 import webvpnData from '@/data/webvpn.json';
 import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import type { AutocompleteRenderInputParams } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import '@material/web/checkbox/checkbox.js';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
@@ -29,17 +29,31 @@ export default function SchoolSelector() {
   const isSelectorReady =
     (hasMounted || selectedSchool) && schoolData.length > 0;
 
-  const handleSchoolChange = (
-    _: React.SyntheticEvent,
-    newValue: School | null,
-  ) => {
-    setSelectedSchool(newValue);
-  };
+  const handleSchoolChange = useCallback(
+    (_: React.SyntheticEvent, newValue: School | null) => {
+      setSelectedSchool(newValue);
+    },
+    [setSelectedSchool],
+  );
+
+  const handleOptions = useMemo(() => {
+    const sortedSchoolData = [...schoolData].sort(schoolListSorter);
+    if (!selectedSchool) {
+      return sortedSchoolData;
+    }
+    const isSelectedSchoolInData = sortedSchoolData.find((school) =>
+      schoolListIsOptionEqualToValue(school, selectedSchool),
+    );
+    if (!isSelectedSchoolInData && selectedSchool) {
+      sortedSchoolData.unshift(selectedSchool);
+    }
+    return sortedSchoolData;
+  }, [schoolData, selectedSchool]);
 
   return (
     <>
       <Autocomplete
-        options={[...schoolData].sort(schoolListSorter)}
+        options={handleOptions}
         filterOptions={(options, { inputValue }) =>
           options.filter((option) => schoolListMatcher(option, inputValue))
         }

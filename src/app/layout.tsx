@@ -8,8 +8,7 @@ import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
 import Footer from './_libs/components/footer';
-
-const inter = Inter({ subsets: ['latin'] });
+import * as Fonts from '@/app/_libs/ui/fonts';
 
 const APP_NAME = APP_MANIFEST.name;
 const APP_DEFAULT_TITLE = APP_MANIFEST.name;
@@ -68,7 +67,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
-      <body className={inter.className}>
+      <body
+        className={`${Fonts.inter.className} ${Fonts.lustiana.variable} ${Fonts.notoSerifSC.variable}`}
+      >
         <AppRouterCacheProvider>
           <ThemeProvider theme={MuiTheme}>
             <section className="relative h-screen overflow-hidden bg-[#eff2fc]">

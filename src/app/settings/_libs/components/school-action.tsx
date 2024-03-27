@@ -42,7 +42,7 @@ export default function SchoolAction() {
   }, [setIsSchoolNotListed]);
 
   return (
-    <>
+    <div className="flex flex-row my-14 flex-wrap">
       {isSchoolSelected && (
         <MdFab
           label="确认"
@@ -58,9 +58,9 @@ export default function SchoolAction() {
           className="w-[100%] sm:w-auto"
           onClick={handleNotListedButtonClick}
         >
-          列表上没有我的学校？
+          {isSchoolSelected ? '自定义设置' : '列表上没有我的学校？'}
         </MdButton>
       )}
-    </>
+    </div>
   );
 }

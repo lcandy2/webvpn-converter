@@ -18,8 +18,6 @@ export default function Page() {
       <div className="flex flex-col gap-6">
         <SchoolSelector />
         <SchoolCustomization />
-      </div>
-      <div className="flex flex-row my-14 flex-wrap">
         <SchoolAction />
       </div>
     </div>

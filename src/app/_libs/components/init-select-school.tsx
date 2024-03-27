@@ -32,35 +32,37 @@ export default function InitSelectSchool() {
 
   return (
     <>
-      <div className="flex flex-col">
-        <TitleComponent marginBottom={false}>
-          {handleComponentVisible ? (
-            <Skeleton variant="rounded" height={78} width={300} />
-          ) : (
-            '欢迎使用'
-          )}
-        </TitleComponent>
-        <SubtitleComponent>
-          {handleComponentVisible ? (
-            <Skeleton variant="rounded" height={30} />
-          ) : (
-            '请选择学校以继续。'
-          )}
-        </SubtitleComponent>
-        <p className="mb-96">
-          {handleComponentVisible ? (
-            <Skeleton variant="rounded" height={48} />
-          ) : (
-            <>
-              页面将会自动跳转，如果没有跳转，请点击
-              <Link href="/settings/setup" className="text-blue-600">
-                这里
-              </Link>
-              。
-            </>
-          )}
-        </p>
-      </div>
+      {!selectedSchool && hasMounted && (
+        <div className="flex flex-col">
+          <TitleComponent marginBottom={false}>
+            {handleComponentVisible ? (
+              <Skeleton variant="rounded" height={78} width={300} />
+            ) : (
+              '欢迎使用'
+            )}
+          </TitleComponent>
+          <SubtitleComponent>
+            {handleComponentVisible ? (
+              <Skeleton variant="rounded" height={30} />
+            ) : (
+              '请选择学校以继续。'
+            )}
+          </SubtitleComponent>
+          <p className="mb-96">
+            {handleComponentVisible ? (
+              <Skeleton variant="rounded" height={48} />
+            ) : (
+              <>
+                页面将会自动跳转，如果没有跳转，请点击
+                <Link href="/settings/setup" className="text-blue-600">
+                  这里
+                </Link>
+                。
+              </>
+            )}
+          </p>
+        </div>
+      )}
     </>
   );
 }
