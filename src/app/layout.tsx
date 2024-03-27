@@ -67,9 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={Fonts.notoSansSC.className}>
       {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
-      <body
-        className={`${Fonts.inter.className} ${Fonts.lxgwNeoZhiSong.variable}`}
-      >
+      <body className={`${Fonts.inter.className}`}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={MuiTheme}>
             <section className="relative h-screen overflow-hidden bg-[#eff2fc]">

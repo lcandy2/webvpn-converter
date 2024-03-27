@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: {
         lustiana: ['var(--font-lustiana)'],
         'noto-serif-sc': ['var(--font-noto-serif-sc)'],
-        'lxgw-neo-zhi-song': ['var(--font-lxgw-neo-zhi-song)'],
+        // 'lxgw-neo-zhi-song': ['var(--font-lxgw-neo-zhi-song)'],
       },
     },
   },

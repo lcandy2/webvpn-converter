@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { lxgwNeoZhiSong } from '@/app/_libs/fonts/fonts';
 
 export default function Title({
   title,
@@ -27,7 +28,7 @@ export const TitleComponent = ({
   const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-6';
   return (
     <h1
-      className={`${marginBottomClass} text-7xl font-light font-lustiana font-lxgw-neo-zhi-song`}
+      className={`${marginBottomClass} text-7xl font-light ${lxgwNeoZhiSong.className}`}
     >
       {children}
     </h1>
