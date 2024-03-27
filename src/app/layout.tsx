@@ -3,17 +3,17 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/app/_libs/components/header/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import manifest from '@/../public/manifest.json';
 import { ThemeProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { APP_MANIFEST } from '@/app/_libs/config';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const APP_NAME = manifest.name;
-const APP_DEFAULT_TITLE = manifest.name;
-const APP_TITLE_TEMPLATE = '%s - ' + manifest.name;
-const APP_DESCRIPTION = 'Best PWA app in the world!';
+const APP_NAME = APP_MANIFEST.name;
+const APP_DEFAULT_TITLE = APP_MANIFEST.name;
+const APP_TITLE_TEMPLATE = '%s - ' + APP_MANIFEST.name;
+const APP_DESCRIPTION = APP_MANIFEST.description;
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,

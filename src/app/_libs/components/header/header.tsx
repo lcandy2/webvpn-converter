@@ -24,7 +24,7 @@ export default function Header() {
         </Link>
         <p className="text-inherit text-pretty mx-4">A @lcandy2 project.</p>
       </div>
-      <div className="order-3 sm:order-last my-auto flex flex-row flex-nowrap justify-end sm:items-center">
+      <nav className="order-3 sm:order-last my-auto flex flex-row flex-nowrap justify-end sm:items-center">
         <Link href="https://afdian.net/a/Lcandy/plan" target="_blank">
           <HeaderActionSponsor />
         </Link>
@@ -34,7 +34,7 @@ export default function Header() {
         >
           <HeaderActionGitHub />
         </Link>
-      </div>
+      </nav>
     </header>
   );
 }

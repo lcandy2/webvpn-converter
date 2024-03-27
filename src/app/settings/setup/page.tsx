@@ -1,6 +1,6 @@
-import SchoolSelector from '@/app/setup/_libs/components/school-selector';
+import SchoolSelector from '@/app/settings/_libs/components/school-selector';
 import type { Metadata } from 'next';
-import SchoolAction from '@/app/setup/_libs/components/school-action';
+import SchoolAction from '@/app/settings/_libs/components/school-action';
 import Title from '@/app/_libs/components/title';
 
 export const metadata: Metadata = {

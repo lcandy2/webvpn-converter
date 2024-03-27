@@ -7,7 +7,7 @@ import {
   schoolListLabel,
   schoolListMatcher,
   schoolListSorter,
-} from '@/app/setup/_libs/hooks/school-select';
+} from '@/app/settings/_libs/hooks/school-select';
 import webvpnData from '@/data/webvpn.json';
 import { Autocomplete, TextField } from '@mui/material';
 import type { AutocompleteRenderInputParams } from '@mui/material';

@@ -19,7 +19,7 @@ export default function InitSelectSchool() {
     if (hasMounted) {
       console.log(selectedSchool);
       if (!selectedSchool) {
-        redirect('/setup');
+        redirect('/settings/setup');
       }
     }
   }, [hasMounted, selectedSchool]);
@@ -33,11 +33,9 @@ export default function InitSelectSchool() {
       {!selectedSchool && (
         <div className="flex flex-col">
           <Title title={'欢迎使用'} subtitle={'请选择学校以继续。'} />
-          {/*<h1 className="mt-14 mb-4 text-7xl">欢迎使用</h1>*/}
-          {/*<p className="text-3xl mb-14">请选择学校以继续。</p>*/}
           <p className="mb-96">
             页面将会自动跳转，如果没有跳转，请点击
-            <Link href="/setup" className="text-blue-600">
+            <Link href="/settings/setup" className="text-blue-600">
               这里
             </Link>
             。
