@@ -22,7 +22,7 @@ interface TitleComponentProps {
 
 export const TitleComponent = ({
   children,
-  marginBottom = false,
+  marginBottom = true,
 }: TitleComponentProps) => {
   const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-4';
   return <h1 className={`${marginBottomClass} text-7xl`}>{children}</h1>;

@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
+import Footer from './_libs/components/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -76,13 +77,7 @@ export default function RootLayout({
                 <div className="overflow-auto h-full p-7 pr-5">
                   <div className="flex flex-col min-h-[100%]">
                     <main className="grow">{children}</main>
-                    <footer className="text-center text-xs text-gray-500 flex flex-row flex-wrap divide-x">
-                      <p className="px-2">MIT License</p>
-                      <p className="px-2">
-                        甜檸Cirtron🍋 &copy; 2023 - {new Date().getFullYear()}
-                      </p>
-                      <p className="px-2">Privacy</p>
-                    </footer>
+                    <Footer />
                   </div>
                 </div>
               </div>

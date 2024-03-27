@@ -12,16 +12,6 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: APP_MANIFEST.theme_color,
     icons: [
       {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
-      },
-      {
-        src: '/favicon.png',
-        sizes: 'any',
-        type: 'image/png',
-      },
-      {
         src: '/icons/192x192.png',
         sizes: '192x192',
         type: 'image/png',
@@ -35,6 +25,16 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         src: '/icons/512x512.png',
         sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+      },
+      {
+        src: '/favicon.png',
+        sizes: 'any',
         type: 'image/png',
       },
     ],
