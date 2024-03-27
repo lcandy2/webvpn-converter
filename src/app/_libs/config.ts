@@ -5,5 +5,4 @@ export const URL_CONVERT_CONFIG: UrlConvertConfig = {
   KEY: 'wrdvpnisthebest!',
   IV: 'wrdvpnisthebest!',
   PROTOCOLS: ['http', 'https', 'ssh', 'vnc', 'telnet', 'rdp'],
-  ALGORITHM: 'aes-128-cfb',
 };

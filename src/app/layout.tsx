@@ -73,9 +73,18 @@ export default function RootLayout({
             <section className="relative h-screen overflow-hidden bg-[#eff2fc]">
               <Header />
               <div className="transition-all absolute sm:left-[28px] sm:right-[16px] sm:bottom-[16px] top-[108px] sm:top-[72px] left-0 right-0 bottom-0 bg-white overflow-hidden rounded-t-[28px] sm:rounded-[28px] z-0 bg-[#fdfcff]">
-                <main className="overflow-auto h-full p-7 pr-5">
-                  {children}
-                </main>
+                <div className="overflow-auto h-full p-7 pr-5">
+                  <div className="flex flex-col min-h-[100%]">
+                    <main className="grow">{children}</main>
+                    <footer className="text-center text-xs text-gray-500 flex flex-row flex-wrap divide-x">
+                      <p className="px-2">MIT License</p>
+                      <p className="px-2">
+                        甜檸Cirtron🍋 &copy; 2023 - {new Date().getFullYear()}
+                      </p>
+                      <p className="px-2">Privacy</p>
+                    </footer>
+                  </div>
+                </div>
               </div>
             </section>
           </ThemeProvider>

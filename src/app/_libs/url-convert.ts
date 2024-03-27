@@ -1,16 +1,11 @@
 import { URL_CONVERT_CONFIG } from '@/app/_libs/config';
 import { ConvertConfig } from '@/app/_libs/types';
 import aesjs from 'aes-js';
-// import * as nodeUrl from 'node:url';
 
-// const KEY = 'wrdvpnisthebest!';
-// const IV = 'wrdvpnisthebest!';
-// const PROTOCOLS = ['http', 'https', 'ssh', 'vnc', 'telnet', 'rdp'];
 const utf8 = aesjs.utils.utf8;
 const hex = aesjs.utils.hex;
 const AesCfb = aesjs.ModeOfOperation.cfb;
-
-const { KEY, IV, PROTOCOLS, ALGORITHM } = URL_CONVERT_CONFIG;
+const { KEY, IV, PROTOCOLS } = URL_CONVERT_CONFIG;
 
 const textRightAppend = (text: string, mode: 'utf8' | string) => {
   const segmentByteSize = mode === 'utf8' ? 16 : 32;
@@ -92,16 +87,26 @@ const extractUrl = (requiredUrl: string | URL): ExtrectedUrl => {
     return { url, host, path, port, protocol };
   };
 
-  if (URL.canParse(requiredUrl)) {
+  try {
     url = new URL(requiredUrl);
+    // if (url) {
     return extractFromURL(url);
-  } else {
+    // } else {
+    //   const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
+    //   if (URL.canParse(urlWithProtocol)) {
+    //     url = new URL(urlWithProtocol);
+    //     return extractFromURL(url);
+    //   } else {
+    //     // url = nodeUrl.parse(urlWithProtocol);
+    //     return { url: '', host: '', path: '', port: '', protocol: '' };
+    //   }
+    // }
+  } catch (e1) {
     const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
-    if (URL.canParse(urlWithProtocol)) {
+    try {
       url = new URL(urlWithProtocol);
       return extractFromURL(url);
-    } else {
-      // url = nodeUrl.parse(urlWithProtocol);
+    } catch (e2) {
       return { url: '', host: '', path: '', port: '', protocol: '' };
     }
   }
