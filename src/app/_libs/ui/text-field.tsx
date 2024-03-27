@@ -22,6 +22,9 @@ export const MdOutlinedTextField = createComponent({
   tagName: 'md-outlined-text-field',
   elementClass: MdOutlinedTextFieldWebComponent,
   react: React,
+  events: {
+    onChange: 'change',
+  },
 });
 
 interface MdTextFieldProps extends ReactWebComponent<HTMLElement> {

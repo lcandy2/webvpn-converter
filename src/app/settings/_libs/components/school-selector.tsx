@@ -9,9 +9,9 @@ import {
   schoolListSorter,
 } from '@/app/settings/_libs/hooks/school-select';
 import webvpnData from '@/data/webvpn.json';
-import { Autocomplete, TextField } from '@mui/material';
+import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import type { AutocompleteRenderInputParams } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '@material/web/checkbox/checkbox.js';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
@@ -20,9 +20,17 @@ import { School } from '@/app/_libs/types';
 export default function SchoolSelector() {
   const schoolData = buildSchoolList(webvpnData);
   const [selectedSchool, setSelectedSchool] = useAtom(selectedSchoolAtom);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  const isSelectorReady =
+    (hasMounted || selectedSchool) && schoolData.length > 0;
 
   const handleSchoolChange = (
-    event: React.SyntheticEvent,
+    _: React.SyntheticEvent,
     newValue: School | null,
   ) => {
     setSelectedSchool(newValue);
@@ -37,16 +45,25 @@ export default function SchoolSelector() {
         }
         getOptionLabel={schoolListLabel}
         groupBy={schoolListGroupby}
-        renderInput={schoolListRenderInput}
+        renderInput={(params) =>
+          schoolListRenderInput({ params, loading: !isSelectorReady })
+        }
         value={selectedSchool}
         isOptionEqualToValue={schoolListIsOptionEqualToValue}
         onChange={handleSchoolChange}
+        loading={!isSelectorReady}
       />
     </>
   );
 }
 
-const schoolListRenderInput = (params: AutocompleteRenderInputParams) => {
+const schoolListRenderInput = ({
+  params,
+  loading,
+}: {
+  params: AutocompleteRenderInputParams;
+  loading?: boolean;
+}) => {
   return (
     // <div ref={params.InputProps.ref}>
     //   <MdOutlinedTextField {...params.inputProps} label="选择学校" />
@@ -56,7 +73,12 @@ const schoolListRenderInput = (params: AutocompleteRenderInputParams) => {
       label="选择学校"
       InputProps={{
         ...params.InputProps,
-        endAdornment: <>{params.InputProps.endAdornment}</>,
+        endAdornment: (
+          <>
+            {loading ? <CircularProgress color="inherit" size={20} /> : null}
+            {params.InputProps.endAdornment}
+          </>
+        ),
       }}
     />
   );
