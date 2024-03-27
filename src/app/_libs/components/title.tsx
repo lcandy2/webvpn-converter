@@ -24,10 +24,10 @@ export const TitleComponent = ({
   children,
   marginBottom = true,
 }: TitleComponentProps) => {
-  const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-4';
+  const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-6';
   return (
     <h1
-      className={`${marginBottomClass} text-7xl font-bold font-noto-serif-sc font-lustiana`}
+      className={`${marginBottomClass} text-7xl font-light font-lustiana font-lxgw-neo-zhi-song`}
     >
       {children}
     </h1>
@@ -39,5 +39,5 @@ interface SubtitleComponentProps {
 }
 
 export const SubtitleComponent = ({ children }: SubtitleComponentProps) => {
-  return <p className="text-3xl mb-14 font-light">{children}</p>;
+  return <p className="text-3xl mb-14 font-normal">{children}</p>;
 };

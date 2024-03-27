@@ -8,7 +8,7 @@ import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
 import Footer from './_libs/components/footer';
-import * as Fonts from '@/app/_libs/ui/fonts';
+import * as Fonts from '@/app/_libs/fonts/fonts';
 
 const APP_NAME = APP_MANIFEST.name;
 const APP_DEFAULT_TITLE = APP_MANIFEST.name;
@@ -65,10 +65,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={Fonts.notoSansSC.className}>
       {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
       <body
-        className={`${Fonts.inter.className} ${Fonts.lustiana.variable} ${Fonts.notoSerifSC.variable}`}
+        className={`${Fonts.inter.className} ${Fonts.lustiana.variable} ${Fonts.lxgwNeoZhiSong.variable}`}
       >
         <AppRouterCacheProvider>
           <ThemeProvider theme={MuiTheme}>
