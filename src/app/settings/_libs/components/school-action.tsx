@@ -6,13 +6,16 @@ import MdButton from '@/app/_libs/ui/button';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { useCallback, useEffect, useState } from 'react';
-import Link from 'next/link';
 import { sendGAEvent } from '@next/third-parties/google';
 import { useRouter } from 'next/navigation';
+import { isSchoolNotListedAtom } from '@/app/settings/_libs/atoms';
 
 export default function SchoolAction() {
   const [selectedSchool] = useAtom(selectedSchoolAtom);
   const [isSchoolSelected, setIsSchoolSelected] = useState(false);
+  const [isSchoolNotListed, setIsSchoolNotListed] = useAtom(
+    isSchoolNotListedAtom,
+  );
   const router = useRouter();
 
   const handleSchoolListButton = useCallback(() => {
@@ -33,6 +36,11 @@ export default function SchoolAction() {
     router.push('/');
   }, [router]);
 
+  const handleNotListedButtonClick = useCallback(() => {
+    sendGAEvent({ event: 'buttonClicked', value: 'school-select-not-listed' });
+    setIsSchoolNotListed(true);
+  }, [setIsSchoolNotListed]);
+
   return (
     <>
       {isSchoolSelected && (
@@ -44,9 +52,15 @@ export default function SchoolAction() {
           <MdIcon slot="icon">done</MdIcon>
         </MdFab>
       )}
-      <MdButton variant="text" className="w-[100%] sm:w-auto">
-        列表上没有我的学校？
-      </MdButton>
+      {!isSchoolNotListed && (
+        <MdButton
+          variant="text"
+          className="w-[100%] sm:w-auto"
+          onClick={handleNotListedButtonClick}
+        >
+          列表上没有我的学校？
+        </MdButton>
+      )}
     </>
   );
 }

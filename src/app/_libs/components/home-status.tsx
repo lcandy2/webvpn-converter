@@ -8,5 +8,5 @@ export default function HomeStatus() {
   const selectedSchool = useAtomValue(selectedSchoolAtom);
   const subtitleText =
     selectedSchool && `${selectedSchool.name} (${selectedSchool.host})`;
-  return subtitleText && <SubtitleComponent subtitle={subtitleText} />;
+  return subtitleText && <SubtitleComponent>{subtitleText}</SubtitleComponent>;
 }

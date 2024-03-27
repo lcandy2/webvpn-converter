@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export default function Title({
   title,
   subtitle,
@@ -7,40 +9,29 @@ export default function Title({
 }) {
   return (
     <>
-      {subtitle ? (
-        <>
-          <TitleComponent title={title} marginBottom={false} />
-          <SubtitleComponent subtitle={subtitle} />
-        </>
-      ) : (
-        <>
-          <TitleComponent title={title} marginBottom={true} />
-        </>
-      )}
+      <TitleComponent marginBottom={!subtitle}>{title}</TitleComponent>
+      {subtitle && <SubtitleComponent> {subtitle} </SubtitleComponent>}
     </>
   );
 }
 
 interface TitleComponentProps {
-  title: string;
+  children?: ReactNode;
   marginBottom?: boolean;
 }
 
 export const TitleComponent = ({
-  title,
+  children,
   marginBottom = false,
 }: TitleComponentProps) => {
-  return marginBottom ? (
-    <h1 className="my-14 text-7xl">{title}</h1>
-  ) : (
-    <h1 className="mt-14 mb-4 text-7xl">{title}</h1>
-  );
+  const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-4';
+  return <h1 className={`${marginBottomClass} text-7xl`}>{children}</h1>;
 };
 
 interface SubtitleComponentProps {
-  subtitle: string;
+  children?: ReactNode;
 }
 
-export const SubtitleComponent = ({ subtitle }: SubtitleComponentProps) => {
-  return <p className="text-3xl mb-14">{subtitle}</p>;
+export const SubtitleComponent = ({ children }: SubtitleComponentProps) => {
+  return <p className="text-3xl mb-14">{children}</p>;
 };

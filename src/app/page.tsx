@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <InitSelectSchool />
-      <TitleComponent title="转换" marginBottom={false} />
+      <TitleComponent marginBottom={false}>转换</TitleComponent>
       <HomeStatus />
       <UrlConverter />
     </>
