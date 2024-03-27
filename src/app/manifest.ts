@@ -29,14 +29,14 @@ export default function manifest(): MetadataRoute.Manifest {
       },
       {
         src: '/favicon.ico',
-        sizes: 'any',
+        sizes: '32x32',
         type: 'image/x-icon',
       },
-      {
-        src: '/favicon.png',
-        sizes: 'any',
-        type: 'image/png',
-      },
+      // {
+      //   src: '/favicon.png',
+      //   sizes: '64x64',
+      //   type: 'image/png',
+      // },
     ],
   };
 }

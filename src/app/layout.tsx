@@ -68,7 +68,7 @@ export default function RootLayout({
     <html lang="en" className={Fonts.notoSansSC.className}>
       {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
       <body
-        className={`${Fonts.inter.className} ${Fonts.lustiana.variable} ${Fonts.lxgwNeoZhiSong.variable}`}
+        className={`${Fonts.inter.className} ${Fonts.lxgwNeoZhiSong.variable}`}
       >
         <AppRouterCacheProvider>
           <ThemeProvider theme={MuiTheme}>
