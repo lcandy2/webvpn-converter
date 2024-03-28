@@ -40,3 +40,4 @@
 安徽 安徽工业大学 vpncas.ahut.edu.cn wrdvpnisthebest! wrdvpnisthebest!
 北京 北京工业大学 webvpn.bjut.edu.cn
 浙江 浙江师范大学 webvpn.zjnu.edu.cn wrdvpnisthebest! wrdvpnisthebest!
+山东 青岛科技大学 wvpn.qust.edu.cn
