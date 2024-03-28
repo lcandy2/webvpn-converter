@@ -13,6 +13,9 @@ export default function Navigation() {
         </Typography>
 
         <Box sx={{ display: 'flex' }}>
+          <Button color="primary" href="https://webvpn-converter-git-next-lcandy.vercel.app/" rel="noopener noreferrer">
+            访问新版 (Beta)
+          </Button>
           <Button color="primary" href="https://afdian.net/a/Lcandy/plan" target="_blank" rel="noopener noreferrer">
             赞助
           </Button>
