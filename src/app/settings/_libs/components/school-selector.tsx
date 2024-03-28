@@ -66,6 +66,7 @@ export default function SchoolSelector() {
         isOptionEqualToValue={schoolListIsOptionEqualToValue}
         onChange={handleSchoolChange}
         loading={!isSelectorReady}
+        className="pt-6"
       />
     </>
   );

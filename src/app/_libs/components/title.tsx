@@ -25,9 +25,13 @@ export const TitleComponent = ({
   children,
   marginBottom = true,
 }: TitleComponentProps) => {
-  const marginBottomClass = marginBottom ? 'my-14' : 'mt-14 mb-6';
+  const marginBottomClass = marginBottom ? 'my-10' : 'mt-10 mb-4';
   return (
-    <h1 className={`${marginBottomClass} text-7xl font-normal`}>{children}</h1>
+    <h1
+      className={`${marginBottomClass} box-border overflow-x-auto block text-display-xl text-on-surface`}
+    >
+      {children}
+    </h1>
   );
 };
 
@@ -36,5 +40,7 @@ interface SubtitleComponentProps {
 }
 
 export const SubtitleComponent = ({ children }: SubtitleComponentProps) => {
-  return <p className="text-3xl mb-14 font-normal">{children}</p>;
+  return (
+    <h2 className="text-3xl mb-4 font-normal text-on-surface">{children}</h2>
+  );
 };

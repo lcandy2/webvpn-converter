@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="text-center text-xs text-gray-500 flex flex-row flex-wrap divide-x pt-8">
+    <footer className="text-center text-xs text-on-surface-variant flex flex-row flex-wrap divide-x pb-8 pt-14 box-border">
       <Link
         href="https://webvpn-converter-git-legacy-lcandy.vercel.app/"
         className="underline"

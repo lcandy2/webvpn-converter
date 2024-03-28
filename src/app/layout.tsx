@@ -3,7 +3,11 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/app/_libs/components/header/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { ThemeProvider } from '@mui/material';
+import {
+  Experimental_CssVarsProvider,
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
@@ -67,21 +71,44 @@ export default function RootLayout({
   return (
     <html lang="en" className={Fonts.notoSansSC.className}>
       {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
-      <body className={`${Fonts.inter.className}`}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={MuiTheme}>
-            <section className="relative h-screen overflow-hidden bg-[#eff2fc]">
-              <Header />
-              <div className="transition-all absolute sm:left-[28px] sm:right-[16px] sm:bottom-[16px] top-[108px] sm:top-[72px] left-0 right-0 bottom-0 bg-white overflow-hidden rounded-t-[28px] sm:rounded-[28px] z-0 bg-[#fdfcff]">
-                <div className="overflow-auto h-full p-7 pr-5">
-                  <div className="flex flex-col min-h-[100%]">
-                    <main className="grow">{children}</main>
-                    <Footer />
+      <body className={`${Fonts.inter.className} bg-surface-container`}>
+        <AppRouterCacheProvider
+          options={{
+            key: 'css',
+            prepend: true,
+          }}
+        >
+          <Experimental_CssVarsProvider theme={MuiTheme}>
+            <section className="flex flex-col sm:mb-l">
+              <div className="h-header block">
+                <Header />
+              </div>
+              {/*<section className="relative h-screen overflow-hidden bg-[#eff2fc]">*/}
+              {/*  <Header />*/}
+              {/*  <div className="transition-all absolute sm:left-[28px] sm:right-[16px] sm:bottom-[16px] top-[108px] sm:top-[72px] left-0 right-0 bottom-0 bg-white rounded-t-[28px] sm:rounded-[28px] z-0 bg-[#fdfcff]">*/}
+              {/*    <div className="overflow-auto h-full p-7 pr-5">*/}
+              {/*      <div className="flex flex-col min-h-[100%]">*/}
+              {/*        <main className="grow">{children}</main>*/}
+              {/*        <Footer />*/}
+              {/*      </div>*/}
+              {/*    </div>*/}
+              {/*  </div>*/}
+              {/*</section>*/}
+              {/*{children}*/}
+              <div className="grow flex flex-col justify-start sm:ml-xl sm:mr-l transition-all duration-md ease-md">
+                <div className="grow transition-all duration-md ease-md box-border overflow-auto w-full h-content bg-surface rounded-shape-xl">
+                  <div className="pt-xl scrollbar scrollbar-track-primary scrollbar-thin overflow-y-auto h-full rounded-[inherit] box-border">
+                    <div className="grow flex flex-row items-start box-border px-xl w-full h-full">
+                      <div className="flex flex-col w-full h-full text-on-surface">
+                        <main className="grow block w-full">{children}</main>
+                        <Footer />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
-          </ThemeProvider>
+          </Experimental_CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

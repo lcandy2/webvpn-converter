@@ -29,7 +29,7 @@ export default function Page() {
         Copyright (c) 2024 甜檸Cirtron(lcandy2)
       </SubtitleComponent>
       {license.split('\n').map((line, index) => (
-        <p key={index} className="text-sm">
+        <p key={index} className="text-sm text-on-surface">
           {line === '' ? <br /> : line}
         </p>
       ))}
