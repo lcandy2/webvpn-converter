@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { lxgwNeoZhiSong } from '@/app/_libs/fonts/fonts';
+// import { lxgwNeoZhiSong } from '@/app/_libs/fonts/fonts';
 
 export default function Title({
   title,
