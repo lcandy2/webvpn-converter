@@ -1,10 +1,39 @@
 {
   "name": "webvpn-converter",
   "version": "2.0.0",
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@8.15.5",
+  "author": {
+    "name": "lcandy2",
+    "email": "vanilla@citrons.cc",
+    "url": "https://github.com/lcandy2"
+  },
+  "private": true,
+  "description": "轻松访问校内网络资源，无需繁琐设置，只需粘贴链接，常规网址即刻转化为您学校的Web VPN网址。",
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "webvpn",
+    "react",
+    "material-ui",
+    "university",
+    "school",
+    "college",
+    "converter"
+  ],
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lcandy2/webvpn-converter.git"
+  },
+  "homepage": "https://wpn.citrons.cc",
+  "bugs": {
+    "url": "https://github.com/lcandy2/webvpn-converter/issues"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm-run-all --sequential build:bookmarklet build:next",
+    "build:next": "next build",
+    "build:bookmarklet": "pnpm --filter @webvpn-converter/bookmarklet run build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
@@ -47,6 +76,7 @@
     "eslint-plugin-unused-imports": "^3.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.38",
     "prettier": "3.2.5",
     "tailwindcss": "^3.4.3",
@@ -61,5 +91,8 @@
   "prettier": {
     "semi": true,
     "singleQuote": true
-  }
+  },
+  "workspaces": [
+    "packages/bookmarklet"
+  ]
 }

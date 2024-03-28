@@ -1,0 +1,1 @@
+javascript:(function()%7B%2F******%2F%20(()%20%3D%3E%20%7B%20%2F%2F%20webpackBootstrap%0Avar%20__webpack_exports__%20%3D%20%7B%7D%3B%0Aconsole.log(%22Hello%20from%20bookmarklet!%22)%0A%0A%2F******%2F%20%7D)()%0A%3B%7D)()
