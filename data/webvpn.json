@@ -514,6 +514,11 @@
       "host": "webvpn.shufe-zj.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "浙江师范大学": {
+      "host": "webvpn.zjnu.edu.cn",
+      "crypt_key": "wrdvpnisthebest!",
+      "crypt_iv": "wrdvpnisthebest!"
     }
   }
 }

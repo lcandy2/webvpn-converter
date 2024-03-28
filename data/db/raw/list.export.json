@@ -19,6 +19,9 @@
         },
         "中国传媒大学": {
             "host": "http://webvpn.cuc.edu.cn/"
+        },
+        "北京工业大学": {
+            "host": "webvpn.bjut.edu.cn"
         }
     },
     "广东": {
@@ -185,6 +188,13 @@
         },
         "安徽工业大学": {
             "host": "vpncas.ahut.edu.cn",
+            "crypt_key": "wrdvpnisthebest!",
+            "crypt_iv": "wrdvpnisthebest!"
+        }
+    },
+    "浙江": {
+        "浙江师范大学": {
+            "host": "webvpn.zjnu.edu.cn",
             "crypt_key": "wrdvpnisthebest!",
             "crypt_iv": "wrdvpnisthebest!"
         }
