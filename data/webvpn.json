@@ -391,6 +391,9 @@
       "host": "webvpn.wfmc.edu.cn",
       "crypt_key": "wrdvpnisthebest!",
       "crypt_iv": "wrdvpnisthebest!"
+    },
+    "青岛科技大学": {
+      "host": "wvpn.qust.edu.cn"
     }
   },
   "上海": {
