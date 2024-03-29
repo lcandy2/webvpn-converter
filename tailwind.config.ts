@@ -24,9 +24,6 @@ const config: Config = {
       transitionTimingFunction: {
         md: 'cubic-bezier(0.3, 0, 0, 1)',
       },
-      // transitionProperty: {
-      //   all: 'all'
-      // },
       borderRadius: {
         'shape-xl': '28px',
       },
@@ -68,7 +65,7 @@ const config: Config = {
           },
         ],
         'display-xl-sm': [
-          '72px',
+          '55px',
           {
             lineHeight: 'normal',
             fontWeight: '400',

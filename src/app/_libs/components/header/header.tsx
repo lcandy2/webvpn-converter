@@ -18,9 +18,11 @@ export default function Header() {
               width={48}
               height={48}
             />
-            <div className="flex flex-col  px-3">
-              <h1 className="text-primary">Web VPN Converter</h1>
-              <p className="text-title-s text-secondary">A @lcandy2 project.</p>
+            <div className="flex flex-col px-3 ">
+              <h1 className="text-primary leading-5">Web VPN Converter</h1>
+              <p className="transition-all duration-md ease-md text-title-s sm:text-title-m text-secondary text-nowrap">
+                A @lcandy2 project.
+              </p>
             </div>
           </div>
         </Link>

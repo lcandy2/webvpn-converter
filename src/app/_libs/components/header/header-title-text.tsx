@@ -10,5 +10,5 @@
 // }
 
 export default function HeaderTitleText() {
-  return <h1 className="text-2xl mx-4">Web VPN Cornverter</h1>;
+  return <h1 className="mx-4">Web VPN Cornverter</h1>;
 }
