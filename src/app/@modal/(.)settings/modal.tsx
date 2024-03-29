@@ -26,14 +26,17 @@ export function Modal({ children }: { children: React.ReactNode }) {
     setOpen(false);
     handleClose();
   }, [setOpen, handleClose]);
-
-  return createPortal(
-    <Dialog onClose={handleClose} open={open} className="rounded-shape-xl">
-      {children}
-      <DialogActions className="p-6 pt-4">
-        <MdTextButton onClick={handleDoneButtonClick}>确认</MdTextButton>
-      </DialogActions>
-    </Dialog>,
-    document.getElementById('modal-root')!,
-  );
+  if (open) {
+    return createPortal(
+      <Dialog onClose={handleClose} open={open} className="rounded-shape-xl">
+        {children}
+        <DialogActions className="p-6 pt-4">
+          <MdTextButton onClick={handleDoneButtonClick}>确认</MdTextButton>
+        </DialogActions>
+      </Dialog>,
+      document.getElementById('modal-root')!,
+    );
+  } else {
+    return null;
+  }
 }
