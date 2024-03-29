@@ -11,6 +11,7 @@ export interface UrlConvertConfig {
   KEY: string;
   IV: string;
   PROTOCOLS: Protocol[];
+  DECRYPT_FAILED_SEPARATOR: string;
 }
 
 type Protocol = 'http' | 'https' | 'ssh' | 'vnc' | 'telnet' | 'rdp';

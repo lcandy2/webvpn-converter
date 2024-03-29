@@ -5,7 +5,7 @@ import aesjs from 'aes-js';
 const utf8 = aesjs.utils.utf8;
 const hex = aesjs.utils.hex;
 const AesCfb = aesjs.ModeOfOperation.cfb;
-const { KEY, IV, PROTOCOLS } = URL_CONVERT_CONFIG;
+const { KEY, IV, PROTOCOLS, DECRYPT_FAILED_SEPARATOR } = URL_CONVERT_CONFIG;
 
 const textRightAppend = (text: string, mode: 'utf8' | string) => {
   const segmentByteSize = mode === 'utf8' ? 16 : 32;
@@ -18,22 +18,6 @@ export interface ConvertHostConfig {
   key: string;
   iv: string;
 }
-
-// const encryptHost = ({ text, key, iv }: ConvertHostConfig): string => {
-//   const cipher = crypto.createCipheriv(
-//     ALGORITHM,
-//     Buffer.from(key),
-//     Buffer.from(iv),
-//   );
-//   // Since the first argument is a Buffer, we don't need to specify 'utf8' here
-//   let encrypted = cipher.update(
-//     textRightAppend(text, 'utf8'),
-//     undefined,
-//     'hex',
-//   );
-//   encrypted += cipher.final('hex');
-//   return encrypted;
-// };
 
 const createAesCfb = (key: string, iv: string) => {
   return new AesCfb(utf8.toBytes(key), utf8.toBytes(iv), 16);
@@ -50,16 +34,15 @@ const encryptHost = ({ text, key, iv }: ConvertHostConfig): string => {
   );
 };
 
-// const decryptHost = ({ text, key, iv }: ConvertHostConfig) => {
-//   const decipher = crypto.createDecipheriv(
-//     ALGORITHM,
-//     Buffer.from(key),
-//     Buffer.from(iv)
-//   );
-//   let decrypted = decipher.update(text, 'hex', 'utf8');
-//   decrypted += decipher.final('utf8');
-//   return decrypted.trimEnd('\0'); // Remove the padding zeros
-// };
+const decryptText = ({ text, key, iv }: ConvertHostConfig): string => {
+  const aesCfb = createAesCfb(key, iv);
+  const textLength = (text.length - iv.length * 2) / 2;
+  const decryptBytes = aesCfb.decrypt(
+    hex.toBytes(textRightAppend(text.slice(IV.length * 2), 'hex')),
+  );
+
+  return utf8.fromBytes(decryptBytes).slice(0, textLength);
+};
 
 interface ExtrectedUrl {
   url: URL | string;
@@ -112,46 +95,69 @@ const extractUrl = (requiredUrl: string | URL): ExtrectedUrl => {
   }
 };
 
+const extractUrlLegacy = (requiredUrl: string | URL): ExtrectedUrl => {
+  const url: string = requiredUrl.toString().trim();
+  let protocol = 'http';
+  let host: string;
+  let path = '';
+  let port = '';
+
+  let urlString = url;
+
+  /** Extract protocol */
+  for (const p of PROTOCOLS) {
+    const protoLength = protocol.length + 3;
+    const url = urlString;
+    if (url.substring(0, protoLength).toLowerCase() === protocol + '://') {
+      protocol = p;
+      urlString = url.substring(protoLength);
+    }
+  }
+
+  /** Extract host and path */
+  const segments = urlString.split('?')[0].split(':');
+  if (segments.length > 1) {
+    port = segments[1].split('/')[0];
+    urlString =
+      urlString.substring(0, segments[0].length) +
+      urlString.substring(segments[0].length + port.length + 1);
+  }
+
+  const pathStart = urlString.indexOf('/');
+  if (pathStart !== -1) {
+    host = urlString.slice(0, pathStart);
+    path = urlString.slice(pathStart);
+  } else {
+    host = urlString;
+  }
+
+  return { url, host, path, port, protocol };
+};
+
 export const encryptUrl = ({
   url: inputUrl,
   schoolHost,
   key = KEY,
   iv = IV,
-}: ConvertConfig) => {
+}: ConvertConfig): string => {
+  /** Extract URL
+   *  Use Legacy instead
+   const {
+   url: extractedUrl,
+   host,
+   path,
+   port,
+   protocol
+   } = extractUrl(inputUrl);
+   */
+
   const {
     url: extractedUrl,
     host,
     path,
     port,
     protocol,
-  } = extractUrl(inputUrl);
-
-  /** ipv6 is not supported */
-  // let ipv6 = '';
-  // urlString = urlString.replace(/\[[0-9a-fA-F:]+?\]/, (match) => {
-  //   ipv6 = match;
-  //   return '';
-  // });
-
-  // let segments = urlString.split('?')[0].split(':');
-  // let port = '';
-  // if (segments.length > 1) {
-  //   port = segments[1].split('/')[0];
-  //   urlString =
-  //     urlString.substring(0, segments[0].length) +
-  //     urlString.substring(segments[0].length + port.length + 1);
-  // }
-  //
-  // const i = urlString.indexOf('/');
-  // let host = urlString;
-  // let path = '';
-  // if (i !== -1) {
-  //   host = urlString.slice(0, i);
-  //   path = urlString.slice(i);
-  // }
-  // if (ipv6 !== '') {
-  //   host = ipv6;
-  // }
+  } = extractUrlLegacy(inputUrl);
 
   if (!(key && iv)) {
     key = KEY;
@@ -160,6 +166,8 @@ export const encryptUrl = ({
 
   const encryptedHost = encryptHost({ text: host, key, iv });
 
+  schoolHost = schoolHost || '';
+
   if (port !== '') {
     return `${schoolHost}/${protocol}-${port}/${encryptedHost}${path}`;
   } else {
@@ -167,22 +175,37 @@ export const encryptUrl = ({
   }
 };
 
-// export const decryptUrl = (rawUrl, key = KEY, iv = IV) => {
-//   try {
-//     if (!rawUrl) return { url: '', error: null };
-//
-//     const url = new URL(rawUrl);
-//     const segments = url.pathname.split('/');
-//     const [protocol, port] = segments[1].split('-');
-//     const decryptedHost = decryptText(segments[2], key, iv);
-//     const remainingSegments = segments.slice(3).join('/');
-//
-//     return `${protocol}://${decryptedHost}${port ? ':' + port : ''}/${remainingSegments}`;
-//   } catch (error) {
-//     return 'Unknown error, check your URL.';
-//   }
-// }
-// ;
+export const decryptUrl = ({
+  url: inputUrl,
+  key = KEY,
+  iv = IV,
+}: ConvertConfig): string => {
+  let result = '';
+  try {
+    if (!inputUrl) throw new Error('URL is required!');
+
+    const { path } = extractUrlLegacy(inputUrl);
+
+    const segments = path.split('/');
+    const [protocol, port] = segments[1].split('-');
+    const decryptedHost = decryptText({ text: segments[2], key, iv });
+    const remainingSegments = segments.slice(3).join('/');
+
+    result = `${protocol}://${decryptedHost}${port ? ':' + port : ''}/${remainingSegments}`;
+
+    if (!(decryptedHost !== ''))
+      throw new Error(
+        'Decrypted host is empty, decryption might be failed! Check if your url, key, iv is correct.',
+      );
+  } catch (error) {
+    result =
+      'Decryption failed: ' +
+      (error as Error).toString() +
+      DECRYPT_FAILED_SEPARATOR +
+      result;
+  }
+  return result;
+};
 
 // export const keys = (type) => {
 //   if (type === 'KEY') return KEY;
