@@ -28,3 +28,9 @@ type UrlConvertMode = 'encrypt' | 'decrypt';
 export interface ConverterConfig {
   mode?: UrlConvertMode;
 }
+
+type SettingsMode = 'settings' | 'init';
+
+export interface SettingsConfig {
+  mode?: SettingsMode;
+}
