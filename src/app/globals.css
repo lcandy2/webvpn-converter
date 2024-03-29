@@ -18,6 +18,16 @@
   --mui-palette-common-onBackgroundChannel: var(--md-sys-color-on-background);
   --mui-palette-FilledInput-bg: var(--md-sys-color-surface-container-highest);
   --mui-palette-FilledInput-hoverBg: var(--md-sys-color-surface-container-high);
+  --mui-palette-action-hover: var(--md-sys-color-on-surface-08);
+  --mui-palette-background-paper: var(--md-sys-color-surface);
+}
+
+.MuiAutocomplete-option[aria-selected='true'] {
+  background-color: var(--md-sys-color-primary-12) !important;
+}
+
+.MuiAutocomplete-option[aria-selected='true'].Mui-focused {
+  background-color: var(--md-sys-color-primary-16) !important;
 }
 
 @media (prefers-color-scheme: light) {
@@ -34,6 +44,7 @@
     --md-sys-color-surface-container-high: #f1e6e5;
     --md-sys-color-surface-container-highest: #ebe0df;
     --md-sys-color-on-surface: #201a1a;
+    --md-sys-color-on-surface-08: #201a1a08;
     --md-sys-color-surface-variant: #f3dedd;
     --md-sys-color-on-surface-variant: #514343;
     --md-sys-color-inverse-surface: #352f2f;
@@ -44,6 +55,8 @@
     --md-sys-color-scrim: #000000;
     --md-sys-color-surface-tint: #845051;
     --md-sys-color-primary: #845051;
+    --md-sys-color-primary-12: #84505112;
+    --md-sys-color-primary-16: #84505116;
     --md-sys-color-on-primary: #ffffff;
     --md-sys-color-primary-container: #febaba;
     --md-sys-color-on-primary-container: #592c2d;
@@ -77,6 +90,7 @@
     --md-sys-color-surface-container-high: #2e2928;
     --md-sys-color-surface-container-highest: #393333;
     --md-sys-color-on-surface: #ebe0df;
+    --md-sys-color-on-surface-08: #ebe0df08;
     --md-sys-color-surface-variant: #514343;
     --md-sys-color-on-surface-variant: #d6c2c1;
     --md-sys-color-inverse-surface: #ebe0df;
@@ -87,6 +101,8 @@
     --md-sys-color-scrim: #000000;
     --md-sys-color-surface-tint: #f9b5b5;
     --md-sys-color-primary: #ffe3e2;
+    --md-sys-color-primary-12: #ffe3e212;
+    --md-sys-color-primary-16: #ffe3e216;
     --md-sys-color-on-primary: #4e2325;
     --md-sys-color-primary-container: #f1aeae;
     --md-sys-color-on-primary-container: #4f2425;

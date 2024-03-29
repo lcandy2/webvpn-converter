@@ -66,6 +66,10 @@ export default function SchoolSelector() {
         isOptionEqualToValue={schoolListIsOptionEqualToValue}
         onChange={handleSchoolChange}
         loading={!isSelectorReady}
+        openOnFocus
+        autoSelect
+        blurOnSelect="mouse"
+        disableCloseOnSelect
         className="pt-6"
       />
     </>
