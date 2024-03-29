@@ -17,8 +17,9 @@ export default function NotFound() {
           label="返回首页"
           className="w-[100%] sm:w-36 mb-8 sm:mr-8 sm:mb-0"
         >
-          {/*<MdIcon slot="icon">home</MdIcon>*/}
-          <HomeIcon />
+          <span slot="icon">
+            <HomeIcon />
+          </span>
         </MdFab>
       </Link>
     </>

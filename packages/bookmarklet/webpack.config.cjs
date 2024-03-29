@@ -15,15 +15,28 @@ class AssetToBookmarkletPlugin {
           stage: webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL,
         },
         (assets) => {
-          // Emit a new .bookmarklet
+          // Emit a new .bookmarklet and a corresponding .js module
           for (const assetName in assets) {
             const asset = assets[assetName];
-            const content =
+            const bookmarkletContent =
               'javascript:' +
               encodeURIComponent('(function(){' + asset.source() + '})()');
+            // Emit .bookmarklet file
+            // compilation.emitAsset(
+            //   assetName + '.bookmarklet',
+            //   new webpack.sources.RawSource(bookmarkletContent),
+            // );
+            // Emit .js module file
+            // const jsModuleContent = `const bookmarklet = \`${bookmarkletContent}\`;\nexport default bookmarklet;`;
+            // compilation.emitAsset(
+            //   assetName + '.bookmarklet.export.js',
+            //   new webpack.sources.RawSource(jsModuleContent),
+            // );
+            // Emit .ts module file
+            const tsModuleContent = `const bookmarklet:string = \`${bookmarkletContent}\`;\nexport default bookmarklet;`;
             compilation.emitAsset(
-              assetName + '.bookmarklet',
-              new webpack.sources.RawSource(content),
+              assetName + '.bookmarklet.export.ts',
+              new webpack.sources.RawSource(tsModuleContent),
             );
           }
         },
@@ -39,6 +52,13 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '~': path.resolve(__dirname, '../../'),
+      '@': path.resolve(__dirname, '../../src/'),
+    },
   },
   target: 'web',
   module: {
@@ -61,6 +81,20 @@ module.exports = {
             options: { minimize: true }, // Minify CSS as well
           },
         ],
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              compilerOptions: {
+                noEmit: false,
+              },
+            },
+          },
+        ],
+        exclude: /node_modules/,
       },
     ],
   },

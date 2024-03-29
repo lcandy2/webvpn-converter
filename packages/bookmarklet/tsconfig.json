@@ -6,9 +6,9 @@
     "outDir": "./dist/",
     /* Modules */
     "module": "esnext",
-    "rootDir": "./",
+    "rootDir": "../../",
     "moduleResolution": "bundler",
-    "baseUrl": "./",
+    "baseUrl": "../../",
     "resolveJsonModule": true,
     /* JavaScript Support */
     "allowJs": false,
@@ -21,6 +21,10 @@
     /* Type Checking */
     "strict": true,
     /* Completeness */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./*"]
+    }
   }
 }

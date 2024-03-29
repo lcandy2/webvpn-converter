@@ -87,8 +87,8 @@
     "webpack": "^5.91.0"
   },
   "lint-staged": {
-    "**/*": "prettier --ignore-unknown --ignore-path ./.gitignore --write",
-    "**/*.{js,jsx,ts,tsx}": "eslint --cache --fix --ignore-path ./.gitignore"
+    "**/*": "prettier --ignore-unknown --write",
+    "**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
   },
   "prettier": {
     "semi": true,
@@ -96,5 +96,9 @@
   },
   "workspaces": [
     "packages/bookmarklet"
+  ],
+  "eslintIgnore": [
+    "public",
+    "dist"
   ]
 }

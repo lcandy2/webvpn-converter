@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import {
-  HeaderActionGitHub,
-  HeaderActionSponsor,
-} from '@/app/_libs/components/header/header-actions';
 import Image from 'next/image';
+import { MdTextButton } from '@/app/_libs/ui/button';
+import { GitHub } from '@mui/icons-material';
+import { HeaderActionBookmarklet } from '@/app/_libs/components/header/header-actions';
+import { Badge } from '@mui/material';
 
 export default function Header() {
   return (
@@ -25,16 +25,22 @@ export default function Header() {
             </div>
           </div>
         </Link>
-        <section className="order-last grow flex flex-row justify-end">
-          {/*<nav className="order-3 sm:order-last my-auto flex flex-row flex-nowrap justify-end sm:items-center">*/}
+        <section className="order-last grow flex flex-row justify-end items-center">
+          <Link href="/bookmarklet" prefetch={true}>
+            <Badge badgeContent="New" color="primary">
+              <HeaderActionBookmarklet />
+            </Badge>
+          </Link>
           <Link href="https://afdian.net/a/Lcandy/plan" target="_blank">
-            <HeaderActionSponsor />
+            <MdTextButton className="h-12">捐赠</MdTextButton>
           </Link>
           <Link
             href="https://github.com/lcandy2/webvpn-converter"
             target="_blank"
           >
-            <HeaderActionGitHub />
+            <MdTextButton className="h-12 w-12">
+              <GitHub />
+            </MdTextButton>
           </Link>
         </section>
         {/*</nav>*/}

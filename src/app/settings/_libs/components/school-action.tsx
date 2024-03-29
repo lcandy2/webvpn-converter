@@ -42,7 +42,7 @@ export default function SchoolAction({
     } else {
       router.push('/');
     }
-  }, [router]);
+  }, [router, mode]);
 
   const handleNotListedButtonClick = useCallback(() => {
     sendGAEvent({ event: 'buttonClicked', value: 'school-select-not-listed' });
@@ -57,8 +57,9 @@ export default function SchoolAction({
           className="w-[100%] sm:w-36 mb-6 sm:mr-8 sm:mb-0"
           onClick={handleConfirmButtonClick}
         >
-          {/*<MdIcon slot="icon">done</MdIcon>*/}
-          <DoneIcon />
+          <span slot="icon">
+            <DoneIcon />
+          </span>
         </MdFab>
       )}
       {!isSchoolNotListed && mode === 'init' && (

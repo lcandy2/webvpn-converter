@@ -15,7 +15,7 @@ export default function GoBackButton() {
   const handleButtonClicked = useCallback(() => {
     setButtonClicked(true);
     router.back();
-  }, [setButtonClicked]);
+  }, [setButtonClicked, router]);
 
   const handleInit = useCallback(() => {
     setButtonClicked(false);

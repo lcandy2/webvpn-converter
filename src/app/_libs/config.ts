@@ -16,3 +16,11 @@ export const APP_MANIFEST = {
   theme_color: '#fff',
   background_color: '#fff',
 };
+
+export const BOOKMARKLET_CONFIG = {
+  HOST_SEPRATOR: '__WEBVPN_CONVERTER_BOOKMARKLET_HOST',
+  KEY_SEPRATOR: '__WEBVPN_CONVERTER_BOOKMARKLET_KEY',
+  IV_SEPRATOR: '__WEBVPN_CONVERTER_BOOKMARKLET_IV',
+  START_SEPRATOR: '#',
+  END_SEPARATOR: '/',
+};
