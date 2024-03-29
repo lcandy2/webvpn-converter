@@ -15,6 +15,7 @@ const config: Config = {
       },
       height: {
         header: '72px',
+        'content-sm': 'calc(100dvh - theme("height.header"))',
         content: 'calc(100dvh - theme("height.header") -  theme("spacing.l"))',
       },
       transitionDuration: {
@@ -60,6 +61,14 @@ const config: Config = {
         ],
         'display-xl': [
           '88px',
+          {
+            lineHeight: 'normal',
+            fontWeight: '400',
+            letterSpacing: '-0.04em',
+          },
+        ],
+        'display-xl-sm': [
+          '72px',
           {
             lineHeight: 'normal',
             fontWeight: '400',

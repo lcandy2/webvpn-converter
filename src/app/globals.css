@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root,
+:host {
+  --mui-palette-primary-main: var(--md-sys-color-primary);
+  --mui-palette-primary-light: var(--md-sys-color-primary-container);
+  --mui-palette-primary-dark: var(--md-sys-color-inverse-primary);
+  --mui-palette-primary-contrastText: var(--md-sys-color-on-primary);
+  --mui-palette-text-primary: var(--md-sys-color-on-background);
+  --mui-palette-text-secondary: var(--md-sys-color-on-surface-variant);
+  --mui-palette-text-primaryChannel: var(--md-sys-color-on-surface-variant);
+  --mui-palette-text-secondaryChannel: var(--md-sys-color-on-surface-variant);
+  --mui-palette-common-background: var(--md-sys-color-background);
+  --mui-palette-common-onBackground: var(--md-sys-color-on-background);
+  --mui-palette-common-backgroundChannel: var(--md-sys-color-background);
+  --mui-palette-common-onBackgroundChannel: var(--md-sys-color-on-background);
+  --mui-palette-FilledInput-bg: var(--md-sys-color-surface-container-highest);
+  --mui-palette-FilledInput-hoverBg: var(--md-sys-color-surface-container-high);
+}
+
 @media (prefers-color-scheme: light) {
   :root,
   :host {

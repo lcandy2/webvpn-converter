@@ -49,9 +49,15 @@ export default function ConvertedUrlInput() {
 
   const InputAdornmentComponents = () => {
     return (
-      <div className="flex flex-col sm:flex-row gap-0">
+      <div className="flex flex-col sm:flex-row lg:flex-col gap-0">
         <MdIconButton onClick={handleCopyButtonClick}>
-          {error ? <ErrorIcon /> : copied ? <DoneIcon /> : <ContentCopyIcon />}
+          {error ? (
+            <ErrorIcon color="error" />
+          ) : copied ? (
+            <DoneIcon color="success" />
+          ) : (
+            <ContentCopyIcon />
+          )}
         </MdIconButton>
         <Link href={`//${inputValue}`} target="_blank">
           <MdIconButton>
@@ -69,9 +75,10 @@ export default function ConvertedUrlInput() {
           inputRef={inputRef}
           label={'Web VPN 链接' + (!inputValue ? '将会显示在这里' : '')}
           value={inputValue}
-          variant="outlined"
+          variant="filled"
           fullWidth
           multiline
+          minRows={lgMediaQuery ? 4 : ''}
           margin="normal"
           InputProps={{
             readOnly: true,

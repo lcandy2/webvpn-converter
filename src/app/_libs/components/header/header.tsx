@@ -8,11 +8,8 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    // <section className="sticky top-0 mx-4 my-3 min-h-12 h-24 sm:h-12 flex flex-col sm:flex-row flex-wrap justify-between">
-    // <section className="fixed inset-0 right-auto flex flex-row z-10 py-3 px-4 items-center box-border h-20">
     <header className="fixed h-header inset-x-0 bottom-auto top-0 flex flex-row items-center box-border py-3 px-4 bg-surface-container z-10">
       <nav className="w-full flex flex-row items-center text-title-l">
-        {/*<div className="order-1 sm:order-first h-12 flex flex-col sm:flex-row items-start sm:items-center justify-between sm:justify-start">*/}
         <Link href="/" className="order-first">
           <div className="flex flex-row flex-nowrap items-center">
             <Image

@@ -28,7 +28,7 @@ export const TitleComponent = ({
   const marginBottomClass = marginBottom ? 'my-10' : 'mt-10 mb-4';
   return (
     <h1
-      className={`${marginBottomClass} box-border overflow-x-auto block text-display-xl text-on-surface`}
+      className={`${marginBottomClass} box-border overflow-x-auto block text-display-xl-sm sm:text-display-xl text-on-surface`}
     >
       {children}
     </h1>
@@ -41,6 +41,8 @@ interface SubtitleComponentProps {
 
 export const SubtitleComponent = ({ children }: SubtitleComponentProps) => {
   return (
-    <h2 className="text-3xl mb-4 font-normal text-on-surface">{children}</h2>
+    <h2 className="text-2xl sm:text-3xl mb-4 font-normal text-on-surface">
+      {children}
+    </h2>
   );
 };
