@@ -57,7 +57,7 @@ export default function BookmarkletClient() {
     try {
       const replacedHost = bookmarkletRaw.replace(
         BOOKMARKLET_CONFIG.HOST_SEPRATOR,
-        selectedSchool?.name || '',
+        selectedSchool?.host || '',
       );
       const replacedKey = replacedHost.replace(
         BOOKMARKLET_CONFIG.KEY_SEPRATOR,
