@@ -8,7 +8,7 @@ import {
   schoolListMatcher,
   schoolListSorter,
 } from '@/app/settings/_libs/hooks/school-select';
-import webvpnData from '@/data/webvpn.json';
+import webvpnData from '~/data/webvpn.json';
 import type { AutocompleteRenderInputParams } from '@mui/material';
 import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';

@@ -25,7 +25,7 @@ export default function ToggleConvertButton() {
     } else {
       setHref('/decrypt');
     }
-  }, [isDecrypt, pathname]);
+  }, [isDecrypt]);
 
   const handleInit = useCallback(() => {
     setHref(null);
