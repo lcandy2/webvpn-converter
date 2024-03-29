@@ -116,6 +116,6 @@ const config: Config = {
       'on-error-container': 'var(--md-sys-color-on-error-container)',
     },
   },
-  plugins: [require('tailwind-scrollbar')],
+  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],
 };
 export default config;

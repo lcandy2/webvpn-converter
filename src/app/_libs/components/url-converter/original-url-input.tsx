@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { useAtom } from 'jotai';
 import { originalUrlAtom } from '@/app/_libs/atoms';
 import { InputAdornment, TextField, useMediaQuery } from '@mui/material';
@@ -10,11 +10,16 @@ import { MdIconButton } from '@/app/_libs/ui/icon-button';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import MdIcon from '../../ui/icon';
 import muiTheme from '@/app/_libs/mui-theme';
+import { ConverterConfig } from '@/app/_libs/types';
 
-export default function OriginalUrlInput() {
+export default function OriginalUrlInput({
+  mode = 'encrypt',
+}: ConverterConfig) {
   const inputRef = useRef<HTMLInputElement>(null!);
   const [originalUrl, setOriginalUrl] = useAtom(originalUrlAtom);
   const lgMediaQuery = useMediaQuery(muiTheme.breakpoints.up('lg'));
+
+  const isDecryptMode = useMemo(() => mode === 'decrypt', [mode]);
 
   const { paste } = usePaste({
     onPasteError: (message) => {
@@ -55,7 +60,7 @@ export default function OriginalUrlInput() {
     <>
       <TextField
         inputRef={inputRef}
-        label="原始链接"
+        label={isDecryptMode ? 'Web VPN 链接' : '原始链接'}
         value={originalUrl}
         onChange={handleInputChange}
         variant="outlined"

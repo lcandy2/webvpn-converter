@@ -6,9 +6,9 @@ import { GitHub } from '@mui/icons-material';
 export const HeaderActionGitHub = () => {
   // return <MdTextButton className="h-12">GitHub</MdTextButton>;
   return (
-    <MdIconButton className="h-12">
+    <MdTextButton className="h-12 w-12">
       <GitHub />
-    </MdIconButton>
+    </MdTextButton>
   );
 };
 

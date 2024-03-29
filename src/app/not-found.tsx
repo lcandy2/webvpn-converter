@@ -2,6 +2,11 @@ import Title from '@/app/_libs/components/title';
 import MdFab from '@/app/_libs/ui/floating-action-buttons';
 import MdIcon from '@/app/_libs/ui/icon';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '404 Not Found',
+};
 
 export default function NotFound() {
   return (

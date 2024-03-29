@@ -22,3 +22,9 @@ export interface ConvertConfig {
   key?: string;
   iv?: string;
 }
+
+type UrlConvertMode = 'encrypt' | 'decrypt';
+
+export interface ConverterConfig {
+  mode?: UrlConvertMode;
+}

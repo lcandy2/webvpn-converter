@@ -1,7 +1,7 @@
 import type { School } from '@/app/_libs/types';
 import { atomWithReset, atomWithStorage } from 'jotai/utils';
 import { atom } from 'jotai';
-import { encryptUrl } from '@/app/_libs/url-convert';
+import { decryptUrl, encryptUrl } from '@/app/_libs/url-convert';
 
 export const selectedSchoolAtom = atomWithStorage<School | null>(
   'selectedSchool',
@@ -21,4 +21,13 @@ export const encryptedUrlAtom = atom<string>((get) => {
     iv: selectedSchool?.crypto_iv,
   });
   return encryptedPath;
+});
+export const decryptedUrlAtom = atom<string>((get) => {
+  const selectedSchool = get(selectedSchoolAtom);
+  const decryptedPath = decryptUrl({
+    url: get(originalUrlAtom),
+    key: selectedSchool?.crypto_key,
+    iv: selectedSchool?.crypto_iv,
+  });
+  return decryptedPath;
 });

@@ -163,15 +163,20 @@ export const encryptUrl = ({
     key = KEY;
     iv = IV;
   }
+  try {
+    const encryptedHost = encryptHost({ text: host, key, iv });
 
-  const encryptedHost = encryptHost({ text: host, key, iv });
+    schoolHost = schoolHost || '';
 
-  schoolHost = schoolHost || '';
-
-  if (port !== '') {
-    return `${schoolHost}/${protocol}-${port}/${encryptedHost}${path}`;
-  } else {
-    return `${schoolHost}/${protocol}/${encryptedHost}${path}`;
+    if (port !== '') {
+      return `${schoolHost}/${protocol}-${port}/${encryptedHost}${path}`;
+    } else {
+      return `${schoolHost}/${protocol}/${encryptedHost}${path}`;
+    }
+  } catch (error) {
+    const errorMessage = (error as Error).toString();
+    console.error('[WebVPN Converter] Encryption failed: ', error);
+    return `转换失败: ${errorMessage}`;
   }
 };
 
@@ -206,9 +211,3 @@ export const decryptUrl = ({
   }
   return result;
 };
-
-// export const keys = (type) => {
-//   if (type === 'KEY') return KEY;
-//   else if (type === 'IV') return IV;
-//   else return 'error';
-// };
