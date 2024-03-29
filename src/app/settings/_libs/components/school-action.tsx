@@ -37,7 +37,11 @@ export default function SchoolAction({
 
   const handleConfirmButtonClick = useCallback(() => {
     sendGAEvent({ event: 'buttonClicked', value: 'school-select-confirm' });
-    router.push('/');
+    if (mode === 'settings') {
+      router.back();
+    } else {
+      router.push('/');
+    }
   }, [router]);
 
   const handleNotListedButtonClick = useCallback(() => {

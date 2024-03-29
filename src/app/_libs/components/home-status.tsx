@@ -27,9 +27,13 @@ export default function HomeStatus() {
     setEditButtonClicked(true);
   }, [setEditButtonClicked]);
 
-  useEffect(() => {
+  const handleInit = useCallback(() => {
     setEditButtonClicked(false);
-  }, []);
+  }, [setEditButtonClicked]);
+
+  useEffect(() => {
+    handleInit();
+  }, [handleInit]);
 
   const handleInitialEditButtonClicked = useCallback(() => {
     if (!pathname.includes('settings')) {
@@ -54,7 +58,11 @@ export default function HomeStatus() {
         {subtitleText ? (
           <>
             {subtitleText}
-            <Link href={settingsHref} onClick={handleEditButtonClicked}>
+            <Link
+              href={settingsHref}
+              onClick={handleEditButtonClicked}
+              prefetch={true}
+            >
               <MdIconButton>
                 {editButtonClicked ? (
                   <CircularProgress color="inherit" size={20} />

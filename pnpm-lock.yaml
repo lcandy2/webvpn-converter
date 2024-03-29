@@ -143,6 +143,9 @@ importers:
 
   packages/bookmarklet:
     devDependencies:
+      ts-loader:
+        specifier: ^9.5.1
+        version: 9.5.1(typescript@5.4.3)(webpack@5.91.0)
       webpack-cli:
         specifier: ^5.1.4
         version: 5.1.4(webpack@5.91.0)
@@ -8448,6 +8451,14 @@ packages:
       }
     engines: { node: '>=0.10.0' }
 
+  /source-map@0.7.4:
+    resolution:
+      {
+        integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==,
+      }
+    engines: { node: '>= 8' }
+    dev: true
+
   /source-map@0.8.0-beta.0:
     resolution:
       {
@@ -8957,6 +8968,25 @@ packages:
       {
         integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==,
       }
+    dev: true
+
+  /ts-loader@9.5.1(typescript@5.4.3)(webpack@5.91.0):
+    resolution:
+      {
+        integrity: sha512-rNH3sK9kGZcH9dYzC7CewQm4NtxJTjSEVRJ2DyBZR7f8/wcta+iV44UPCXc5+nzDzivKtlzV6c9P4e+oFhDLYg==,
+      }
+    engines: { node: '>=12.0.0' }
+    peerDependencies:
+      typescript: '*'
+      webpack: ^5.0.0
+    dependencies:
+      chalk: 4.1.2
+      enhanced-resolve: 5.16.0
+      micromatch: 4.0.5
+      semver: 7.6.0
+      source-map: 0.7.4
+      typescript: 5.4.3
+      webpack: 5.91.0(webpack-cli@5.1.4)
     dev: true
 
   /tsconfig-paths@3.15.0:

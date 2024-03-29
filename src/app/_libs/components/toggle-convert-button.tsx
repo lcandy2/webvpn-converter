@@ -42,6 +42,7 @@ export default function ToggleConvertButton() {
       href={(!loading || '') && (href || '')}
       onClick={handleButtonClicked}
       className="inline-flex"
+      prefetch={true}
     >
       <MdTextButton disabled={loading}>
         {loading ? (
