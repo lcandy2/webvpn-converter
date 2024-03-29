@@ -1,7 +1,6 @@
 'use client';
 
 import MdFab from '@/app/_libs/ui/floating-action-buttons';
-import MdIcon from '@/app/_libs/ui/icon';
 import { MdTextButton } from '@/app/_libs/ui/button';
 import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
@@ -9,8 +8,13 @@ import { useCallback, useEffect, useState } from 'react';
 import { sendGAEvent } from '@next/third-parties/google';
 import { useRouter } from 'next/navigation';
 import { isSchoolNotListedAtom } from '@/app/settings/_libs/atoms';
+import { SettingsConfig } from '@/app/_libs/types';
+import DoneIcon from '@mui/icons-material/Done';
 
-export default function SchoolAction() {
+export default function SchoolAction({
+  mode = 'settings',
+  type = 'page',
+}: SettingsConfig) {
   const [selectedSchool] = useAtom(selectedSchoolAtom);
   const [isSchoolSelected, setIsSchoolSelected] = useState(false);
   const [isSchoolNotListed, setIsSchoolNotListed] = useAtom(
@@ -49,10 +53,11 @@ export default function SchoolAction() {
           className="w-[100%] sm:w-36 mb-6 sm:mr-8 sm:mb-0"
           onClick={handleConfirmButtonClick}
         >
-          <MdIcon slot="icon">done</MdIcon>
+          {/*<MdIcon slot="icon">done</MdIcon>*/}
+          <DoneIcon />
         </MdFab>
       )}
-      {!isSchoolNotListed && (
+      {!isSchoolNotListed && mode === 'init' && (
         <MdTextButton
           className="w-[100%] sm:w-auto h-14 sm:h-auto min-w-36"
           onClick={handleNotListedButtonClick}

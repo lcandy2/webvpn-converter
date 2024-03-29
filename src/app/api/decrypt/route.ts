@@ -1,6 +1,5 @@
 import { URL_CONVERT_CONFIG } from '@/app/_libs/config';
-import { selectedSchoolAtom } from '@/app/_libs/atoms';
-import { decryptUrl, encryptUrl } from '@/app/_libs/url-convert';
+import { decryptUrl } from '@/app/_libs/url-convert';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

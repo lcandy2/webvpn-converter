@@ -6,7 +6,7 @@
 
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 export class UseClipboardError extends Error {}
 

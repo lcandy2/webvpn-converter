@@ -2,10 +2,10 @@
 
 import { useAtomValue } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import Title, {
+import {
   SubtitleComponent,
   TitleComponent,
 } from '@/app/_libs/components/title';

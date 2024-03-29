@@ -9,8 +9,8 @@ import {
   schoolListSorter,
 } from '@/app/settings/_libs/hooks/school-select';
 import webvpnData from '@/data/webvpn.json';
-import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import type { AutocompleteRenderInputParams } from '@mui/material';
+import { Autocomplete, CircularProgress, TextField } from '@mui/material';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import '@material/web/checkbox/checkbox.js';
 import { useAtom } from 'jotai';

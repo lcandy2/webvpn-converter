@@ -13,7 +13,7 @@ import {
   useTheme,
 } from '@mui/material';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import useCopy from '@/app/_libs/hooks/use-copy';
 import { enqueueSnackbar } from 'notistack';
 import Link from 'next/link';
@@ -39,7 +39,7 @@ export default function ConvertedUrlInput({
     } else {
       return '';
     }
-  }, [isDecryptMode, encryptedUrl, originalUrl]);
+  }, [isDecryptMode, encryptedUrl, decryptedUrl, originalUrl]);
 
   const { copy, reset, error, copied } = useCopy({
     onCopyError: (message) => {

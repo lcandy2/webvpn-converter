@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import HeaderTitleText from '@/app/_libs/components/header/header-title-text';
 import {
   HeaderActionGitHub,
   HeaderActionSponsor,
@@ -8,7 +7,7 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <header className="fixed h-header inset-x-0 bottom-auto top-0 flex flex-row items-center box-border py-3 px-4 bg-surface-container z-10">
+    <header className="fixed h-header inset-x-0 bottom-auto top-0 flex flex-row items-center box-border py-3 px-4 bg-surface-container z-2">
       <nav className="w-full flex flex-row items-center text-title-l">
         <Link href="/" className="order-first">
           <div className="flex flex-row flex-nowrap items-center">

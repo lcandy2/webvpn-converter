@@ -8,7 +8,6 @@ import { enqueueSnackbar, SnackbarProvider } from 'notistack';
 import { usePaste } from '@/app/_libs/hooks/use-paste';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
-import MdIcon from '../../ui/icon';
 import muiTheme from '@/app/_libs/mui-theme';
 import { ConverterConfig } from '@/app/_libs/types';
 

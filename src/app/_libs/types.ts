@@ -30,7 +30,9 @@ export interface ConverterConfig {
 }
 
 type SettingsMode = 'settings' | 'init';
+type SettingsType = 'page' | 'modal';
 
 export interface SettingsConfig {
   mode?: SettingsMode;
+  type?: SettingsType;
 }

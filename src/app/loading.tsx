@@ -3,7 +3,6 @@ import {
   TitleComponent,
 } from '@/app/_libs/components/title';
 import { Skeleton } from '@mui/material';
-import Link from 'next/link';
 
 export default function Loading() {
   // You can add any UI inside Loading, including a Skeleton.

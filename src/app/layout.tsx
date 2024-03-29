@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/app/_libs/components/header/header';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import {
-  Experimental_CssVarsProvider,
-  StyledEngineProvider,
-  ThemeProvider,
-} from '@mui/material';
+import { Experimental_CssVarsProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
@@ -65,8 +60,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en" className={Fonts.notoSansSC.className}>
@@ -88,7 +85,10 @@ export default function RootLayout({
                   <div className="pt-xl scrollbar scrollbar-track-primary scrollbar-thin overflow-y-auto h-full rounded-[inherit] box-border">
                     <div className="grow flex flex-row items-start box-border px-xl w-full h-full">
                       <div className="flex flex-col w-full h-full text-on-surface">
-                        <main className="grow block w-full">{children}</main>
+                        <main className="grow block w-full">
+                          {children}
+                          {modal}
+                        </main>
                         <Footer />
                       </div>
                     </div>
@@ -96,6 +96,7 @@ export default function RootLayout({
                 </div>
               </div>
             </section>
+            <section id="modal-root" />
           </Experimental_CssVarsProvider>
         </AppRouterCacheProvider>
       </body>

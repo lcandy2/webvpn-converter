@@ -6,11 +6,14 @@ import { MdOutlinedCard } from '@/app/_libs/ui/card';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { TextField } from '@mui/material';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
-import { School } from '@/app/_libs/types';
+import { School, SettingsConfig } from '@/app/_libs/types';
 import CloseIcon from '@mui/icons-material/Close';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
 
-export default function SchoolCustomization() {
+export default function SchoolCustomization({
+  mode = 'settings',
+  type = 'page',
+}: SettingsConfig) {
   const [isSchoolNotListed, setIsSchoolNotListed] = useAtom(
     isSchoolNotListedAtom,
   );
@@ -39,12 +42,16 @@ export default function SchoolCustomization() {
     };
   }, [host, key, iv]);
 
+  const handleInputChanged = useCallback(() => {
+    setChanged(true);
+  }, [setChanged]);
+
   const handleHostChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setHost(e.target.value);
       handleInputChanged();
     },
-    [setHost],
+    [handleInputChanged, setHost],
   );
 
   const handleKeyChange = useCallback(
@@ -52,7 +59,7 @@ export default function SchoolCustomization() {
       setKey(e.target.value);
       handleInputChanged();
     },
-    [setKey],
+    [handleInputChanged, setKey],
   );
 
   const handleIvChange = useCallback(
@@ -60,12 +67,8 @@ export default function SchoolCustomization() {
       setIv(e.target.value);
       handleInputChanged();
     },
-    [setIv],
+    [handleInputChanged, setIv],
   );
-
-  const handleInputChanged = useCallback(() => {
-    setChanged(true);
-  }, [setChanged]);
 
   const handleSetCustomSchool = useCallback(() => {
     setSchoolSelected(buildCustomSchool);
@@ -73,30 +76,34 @@ export default function SchoolCustomization() {
 
   useEffect(() => {
     initConfig();
-  }, [schoolSelected]);
+  }, [schoolSelected, initConfig]);
 
   useEffect(() => {
     if (changed) {
       handleSetCustomSchool();
     }
-  }, [host, key, iv, changed]);
+  }, [handleSetCustomSchool, host, key, iv, changed]);
 
   const handleCloseButtonClick = useCallback(() => {
     setIsSchoolNotListed(false);
   }, [setIsSchoolNotListed]);
 
-  if (isSchoolNotListed) {
+  if (isSchoolNotListed || mode === 'settings') {
     return (
       <>
         <MdOutlinedCard className="p-6 flex flex-col gap-4">
           <div className="flex flex-row justify-between">
-            <p className="text-2xl pb-4 order-first items-start">自定义</p>
-            <MdIconButton
-              className="order-last self-start"
-              onClick={handleCloseButtonClick}
-            >
-              <CloseIcon />
-            </MdIconButton>
+            <p className="text-title-l sm:text-2xl pb-4 order-first items-start">
+              自定义
+            </p>
+            {mode === 'init' && (
+              <MdIconButton
+                className="order-last self-start"
+                onClick={handleCloseButtonClick}
+              >
+                <CloseIcon />
+              </MdIconButton>
+            )}
           </div>
           <TextField
             label="学校 Web VPN 网络地址"

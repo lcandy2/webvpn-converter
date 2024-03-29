@@ -1,5 +1,4 @@
 import { URL_CONVERT_CONFIG } from '@/app/_libs/config';
-import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { encryptUrl } from '@/app/_libs/url-convert';
 
 export async function GET(request: Request) {

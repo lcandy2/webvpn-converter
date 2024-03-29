@@ -1,5 +1,4 @@
-import { Inter, Lusitana, Noto_Sans_SC, Noto_Serif_SC } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Inter, Noto_Sans_SC } from 'next/font/google';
 
 // export const lustiana = Lusitana({
 //   weight: ['400', '700'],

@@ -1,7 +1,6 @@
-import { MdTextButton } from '@/app/_libs/ui/button';
-import { MdIconButton } from '@/app/_libs/ui/icon-button';
-import Image from 'next/image';
+'use client';
 import { GitHub } from '@mui/icons-material';
+import { MdTextButton } from '../../ui/button';
 
 export const HeaderActionGitHub = () => {
   // return <MdTextButton className="h-12">GitHub</MdTextButton>;
