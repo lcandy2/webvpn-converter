@@ -90,6 +90,7 @@
     "**/*": "prettier --ignore-unknown --write",
     "**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
   },
+  "sideEffects": false,
   "prettier": {
     "semi": true,
     "singleQuote": true

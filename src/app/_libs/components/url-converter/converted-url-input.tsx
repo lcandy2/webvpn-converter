@@ -98,6 +98,10 @@ export default function ConvertedUrlInput({
           margin="normal"
           type="url"
           InputProps={{
+            type: 'url',
+            autoCapitalize: 'none',
+            autoCorrect: 'off',
+            spellCheck: false,
             readOnly: true,
             startAdornment: lgMediaQuery && inputValue && (
               <InputAdornment position="start">

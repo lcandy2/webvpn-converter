@@ -70,6 +70,10 @@ export default function OriginalUrlInput({
         margin="normal"
         type="url"
         InputProps={{
+          type: 'url',
+          autoCapitalize: 'none',
+          autoCorrect: 'off',
+          spellCheck: false,
           endAdornment: (
             <InputAdornment position="end">
               <MdIconButton onClick={handlePasteButtonClick}>
