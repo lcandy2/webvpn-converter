@@ -1,0 +1,163 @@
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
+import Header from '@/app/_libs/components/header/header';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { Experimental_CssVarsProvider } from '@mui/material';
+import MuiTheme from '@/app/_libs/mui-theme';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { APP_MANIFEST } from '@/app/_libs/config';
+import Footer from './_libs/components/footer';
+import * as Fonts from '@/app/_libs/fonts/fonts';
+
+const APP_NAME = APP_MANIFEST.name;
+const APP_DEFAULT_TITLE = APP_MANIFEST.name;
+const APP_TITLE_TEMPLATE = '%s - ' + APP_MANIFEST.name;
+const APP_DESCRIPTION = APP_MANIFEST.description;
+
+export const metadata: Metadata = {
+  applicationName: APP_NAME,
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/icons/192x192.png',
+    apple: [
+      { url: '/icons/192x192.png' },
+      { url: '/icons/384x384.png', sizes: '384x384', type: 'image/png' },
+      { url: '/icons/512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/icons/384x384.png',
+    },
+  },
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
+  },
+  keywords: [
+    'nextjs',
+    'webvpn',
+    'react',
+    'material-ui',
+    'university',
+    'school',
+    'college',
+    'converter',
+    'webvpn-converter',
+    'pwa',
+    'progressive web app',
+    'webvpn 转换器',
+    '大学',
+    '学校',
+    '学院',
+    '转换器',
+    'webvpn 转换',
+    'vpn',
+    'web-application',
+  ],
+  authors: {
+    name: '甜檸Citron🍋 (lcandy2)',
+    url: 'https://github.com/lcandy2',
+  },
+  creator: '甜檸Citron🍋 (lcandy2)',
+  description: APP_DESCRIPTION,
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: APP_DEFAULT_TITLE,
+    startupImage: ['/icons/192x192.png'],
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  openGraph: {
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    type: 'website',
+    siteName: APP_NAME,
+    description: APP_DESCRIPTION,
+    url: 'https://wpn.citrons.cc',
+    images: [
+      {
+        url: 'https://wrdvpn.vercel.app/promotion/promotion2.png',
+        width: 1280,
+        height: 640,
+        alt: 'Web VPN Converter',
+      },
+      {
+        url: 'https://wrdvpn.vercel.app/promotion/promotion.png',
+        width: 2638,
+        height: 1024,
+        alt: 'Web VPN Converter',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    description: APP_DESCRIPTION,
+    creator: '@vanillaCirtron',
+    images: ['https://wrdvpn.vercel.app/promotion/promotion2.png'],
+  },
+  robots: 'all',
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f7ebea' },
+    { media: '(prefers-color-scheme: dark)', color: '#241e1e' },
+  ],
+  colorScheme: 'light dark',
+};
+export default function RootLayout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={Fonts.notoSansSC.className}>
+      {process.env.GAID && <GoogleAnalytics gaId={process.env.GAID} />}
+      <body className={`${Fonts.inter.className} bg-surface-container`}>
+        <AppRouterCacheProvider
+          options={{
+            key: 'css',
+            prepend: true,
+          }}
+        >
+          <Experimental_CssVarsProvider theme={MuiTheme}>
+            <section className="flex flex-col sm:mb-l">
+              <div className="h-header block">
+                <Header />
+              </div>
+              <div className="grow flex flex-col justify-start sm:ml-xl sm:mr-l transition-all duration-md ease-md">
+                <div className="grow transition-all duration-md ease-md box-border overflow-auto w-full h-content-sm sm:h-content bg-surface sm:rounded-shape-xl rounded-t-shape-xl">
+                  <div className="pt-xl scrollbar scrollbar-track-primary scrollbar-thin overflow-y-auto h-full rounded-[inherit] box-border">
+                    <div className="grow flex flex-row items-start box-border px-xl w-full h-full">
+                      <div className="flex flex-col w-full h-full text-on-surface">
+                        <main className="grow block w-full">
+                          {children}
+                          {modal}
+                        </main>
+                        <Footer />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="modal-root" />
+          </Experimental_CssVarsProvider>
+        </AppRouterCacheProvider>
+      </body>
+    </html>
+  );
+}

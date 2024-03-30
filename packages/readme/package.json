@@ -1,0 +1,13 @@
+{
+  "name": "@webvpn-converter/readme",
+  "version": "1.0.0",
+  "description": "A package for making webvpn infomation, see webvpn-converter for more information.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsx ./index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.1"
+  }
+}

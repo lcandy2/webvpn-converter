@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "./dist/",
+    /* Modules */
+    "module": "esnext",
+    "rootDir": "../../",
+    "moduleResolution": "bundler",
+    "baseUrl": "../../",
+    "resolveJsonModule": true,
+    /* JavaScript Support */
+    "allowJs": false,
+    "noEmit": true,
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    /* Type Checking */
+    "strict": true,
+    /* Completeness */
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./*"]
+    }
+  }
+}

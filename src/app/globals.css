@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './_libs/styles/mui.css';
+@import './_libs/styles/theme.css';

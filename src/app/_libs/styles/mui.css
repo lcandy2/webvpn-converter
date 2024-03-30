@@ -1,0 +1,31 @@
+:root,
+:host {
+  --mui-palette-primary-main: var(--md-sys-color-primary);
+  --mui-palette-primary-light: var(--md-sys-color-primary-container);
+  --mui-palette-primary-dark: var(--md-sys-color-inverse-primary);
+  --mui-palette-primary-contrastText: var(--md-sys-color-on-primary);
+  --mui-palette-text-primary: var(--md-sys-color-on-background);
+  --mui-palette-text-secondary: var(--md-sys-color-on-surface-variant);
+  --mui-palette-text-primaryChannel: var(--md-sys-color-on-surface-variant);
+  --mui-palette-text-secondaryChannel: var(--md-sys-color-on-surface-variant);
+  --mui-palette-common-background: var(--md-sys-color-background);
+  --mui-palette-common-onBackground: var(--md-sys-color-on-background);
+  --mui-palette-common-backgroundChannel: var(--md-sys-color-background);
+  --mui-palette-common-onBackgroundChannel: var(--md-sys-color-on-background);
+  --mui-palette-FilledInput-bg: var(--md-sys-color-surface-container-highest);
+  --mui-palette-FilledInput-hoverBg: var(--md-sys-color-surface-container-high);
+  --mui-palette-action-hover: var(--md-sys-color-on-surface-08);
+  --mui-palette-background-paper: var(--md-sys-color-surface);
+}
+
+.MuiAutocomplete-option[aria-selected='true'] {
+  background-color: var(--md-sys-color-primary-12) !important;
+}
+
+.MuiAutocomplete-option[aria-selected='true'].Mui-focused {
+  background-color: var(--md-sys-color-primary-16) !important;
+}
+
+.MuiDialog-paper {
+  border-radius: 28px !important;
+}

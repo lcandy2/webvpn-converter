@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -23,6 +23,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env*.local
@@ -34,6 +35,25 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-**/public/workbox-*.js
-**/public/sw.js
-**/public/worker-*.js
+# idea
+.idea
+
+# rollup
+.rollup.cache
+
+# next-pwa
+**/public/swe-worker**
+**/public/sw**
+**/public/workbox**
+**/public/worker**
+**/public/fallback**
+**/public/precache**
+
+# vscode
+.vscode
+
+# eslint
+.eslintcache
+
+# bookmarklet
+**/bookmarklet/dist/*

@@ -1,2 +1,0 @@
-河北	河北建材职业技术学院	http://webvpn.hbjcxy.com/	Error [ERR_FR_TOO_MANY_REDIRECTS]: Maximum number of redirects exceeded
-河北	河北地质大学	http://webvpn.hgu.edu.cn/	Error [ERR_FR_TOO_MANY_REDIRECTS]: Maximum number of redirects exceeded
