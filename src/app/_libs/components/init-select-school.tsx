@@ -1,6 +1,6 @@
 'use client';
 
-import { useAtomValue } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -21,9 +21,33 @@ export default function InitSelectSchool() {
 
   useEffect(() => {
     if (hasMounted) {
-      console.log(selectedSchool);
+      // console.log(selectedSchool);
       if (!selectedSchool) {
-        redirect('/settings/setup');
+        /** Support for old version config
+         *  for testing: localStorage.setItem('selectedSchool',{"province":"","name":"","url":"","key":"","iv":""})
+         */
+        const oldSchool = JSON.parse(
+          localStorage.getItem('selectedSchool')?.toString() || '{}',
+        );
+        if (
+          Object.prototype.hasOwnProperty.call(oldSchool, 'url') ||
+          Object.prototype.hasOwnProperty.call(oldSchool, 'key') ||
+          Object.prototype.hasOwnProperty.call(oldSchool, 'iv')
+        ) {
+          localStorage.setItem(
+            'selectedSchool',
+            JSON.stringify({
+              province: oldSchool.province,
+              name: oldSchool.name,
+              host: oldSchool.url,
+              crypto_key: oldSchool.key,
+              crypto_iv: oldSchool.iv,
+            }),
+          );
+          console.log(oldSchool);
+        } else {
+          redirect('/settings/setup');
+        }
       }
     }
   }, [hasMounted, selectedSchool]);
