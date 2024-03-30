@@ -6,6 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: APP_MANIFEST.name,
     short_name: APP_MANIFEST.short_name,
     description: APP_MANIFEST.description,
+    categories: ['utilities', 'productivity', 'education'],
     start_url: '/',
     display: 'standalone',
     background_color: APP_MANIFEST.background_color,
@@ -27,16 +28,33 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: '512x512',
         type: 'image/png',
       },
+    ],
+    screenshots: [
       {
-        src: '/favicon.ico',
-        sizes: '32x32',
-        type: 'image/x-icon',
+        src: '/screenshot/encrypt.png',
+        sizes: '2544x1824',
+        type: 'image/png',
       },
-      // {
-      //   src: '/favicon.png',
-      //   sizes: '64x64',
-      //   type: 'image/png',
-      // },
+      {
+        src: '/screenshot/decrypt.png',
+        sizes: '2544x1824',
+        type: 'image/png',
+      },
+      {
+        src: '/screenshot/bookmarklet.png',
+        sizes: '2544x1824',
+        type: 'image/png',
+      },
+      {
+        src: '/screenshot/settings.png',
+        sizes: '2544x1824',
+        type: 'image/png',
+      },
+      {
+        src: '/screenshot/responsive.png',
+        sizes: '1222x1824',
+        type: 'image/png',
+      },
     ],
   };
 }
