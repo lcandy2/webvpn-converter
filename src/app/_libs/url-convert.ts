@@ -115,9 +115,9 @@ const extractUrlLegacy = (requiredUrl: string | URL): ExtrectedUrl => {
 
   /** Extract protocol */
   for (const p of PROTOCOLS) {
-    const protoLength = protocol.length + 3;
+    const protoLength = p.length + 3;
     const url = urlString;
-    if (url.substring(0, protoLength).toLowerCase() === protocol + '://') {
+    if (url.substring(0, protoLength).toLowerCase() === p + '://') {
       protocol = p;
       urlString = url.substring(protoLength);
     }
