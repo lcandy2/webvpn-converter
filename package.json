@@ -42,7 +42,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npm-run-all --sequential build:readme build:bookmarklet build:next",
+    "build": "npm-run-all --sequential build:bookmarklet build:next",
     "build:next": "next build",
     "build:bookmarklet": "pnpm --filter @webvpn-converter/bookmarklet run build",
     "build:readme": "pnpm --filter @webvpn-converter/readme run build",

@@ -38,7 +38,7 @@ const api = async () => {
 };
 
 const credits = async () => {
-  const credits = readFileSync(assetsDir + './CREDITS.md', 'utf-8');
+  const credits = readFileSync(assetsDir + './credits.md', 'utf-8');
   return credits;
 };
 
