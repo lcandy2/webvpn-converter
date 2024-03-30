@@ -24,24 +24,32 @@ const createAesCfb = (key: string, iv: string) => {
 };
 
 const encryptHost = ({ text, key, iv }: ConvertHostConfig): string => {
-  const aesCfb = createAesCfb(key, iv);
-  const textBytes = utf8.toBytes(textRightAppend(text, 'utf8'));
-  const encryptBytes = aesCfb.encrypt(textBytes);
+  try {
+    const aesCfb = createAesCfb(key, iv);
+    const textBytes = utf8.toBytes(textRightAppend(text, 'utf8'));
+    const encryptBytes = aesCfb.encrypt(textBytes);
 
-  return (
-    hex.fromBytes(utf8.toBytes(iv)) +
-    hex.fromBytes(encryptBytes).slice(0, text.length * 2)
-  );
+    return (
+      hex.fromBytes(utf8.toBytes(iv)) +
+      hex.fromBytes(encryptBytes).slice(0, text.length * 2)
+    );
+  } catch (e) {
+    return (e as Error).toString();
+  }
 };
 
 const decryptText = ({ text, key, iv }: ConvertHostConfig): string => {
-  const aesCfb = createAesCfb(key, iv);
-  const textLength = (text.length - iv.length * 2) / 2;
-  const decryptBytes = aesCfb.decrypt(
-    hex.toBytes(textRightAppend(text.slice(IV.length * 2), 'hex')),
-  );
+  try {
+    const aesCfb = createAesCfb(key, iv);
+    const textLength = (text.length - iv.length * 2) / 2;
+    const decryptBytes = aesCfb.decrypt(
+      hex.toBytes(textRightAppend(text.slice(IV.length * 2), 'hex')),
+    );
 
-  return utf8.fromBytes(decryptBytes).slice(0, textLength);
+    return utf8.fromBytes(decryptBytes).slice(0, textLength);
+  } catch (e) {
+    return (e as Error).toString();
+  }
 };
 
 interface ExtrectedUrl {
@@ -52,48 +60,49 @@ interface ExtrectedUrl {
   protocol: string;
 }
 
-const extractUrl = (requiredUrl: string | URL): ExtrectedUrl => {
-  let url: URL;
-  let protocol: string;
-  let host: string;
-  let path: string;
-  let port: string;
+/**
+ const extractUrl = (requiredUrl: string | URL): ExtrectedUrl => {
+ let url: URL;
+ let protocol: string;
+ let host: string;
+ let path: string;
+ let port: string;
 
-  const extractFromURL = (url: URL) => {
-    const protocol = url.protocol.slice(0, -1);
-    const host = url.host;
-    const href = url.href;
-    const hostIndex = href.indexOf(host);
-    const hostLength = host.length;
-    const path = url.href.slice(hostIndex + hostLength);
-    const port = url.port;
-    return { url, host, path, port, protocol };
-  };
+ const extractFromURL = (url: URL) => {
+ const protocol = url.protocol.slice(0, -1);
+ const host = url.host;
+ const href = url.href;
+ const hostIndex = href.indexOf(host);
+ const hostLength = host.length;
+ const path = url.href.slice(hostIndex + hostLength);
+ const port = url.port;
+ return { url, host, path, port, protocol };
+ };
 
-  try {
-    url = new URL(requiredUrl);
-    // if (url) {
-    return extractFromURL(url);
-    // } else {
-    //   const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
-    //   if (URL.canParse(urlWithProtocol)) {
-    //     url = new URL(urlWithProtocol);
-    //     return extractFromURL(url);
-    //   } else {
-    //     // url = nodeUrl.parse(urlWithProtocol);
-    //     return { url: '', host: '', path: '', port: '', protocol: '' };
-    //   }
-    // }
-  } catch (e1) {
-    const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
-    try {
-      url = new URL(urlWithProtocol);
-      return extractFromURL(url);
-    } catch (e2) {
-      return { url: '', host: '', path: '', port: '', protocol: '' };
-    }
-  }
-};
+ try {
+ url = new URL(requiredUrl);
+ // if (url) {
+ return extractFromURL(url);
+ // } else {
+ //   const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
+ //   if (URL.canParse(urlWithProtocol)) {
+ //     url = new URL(urlWithProtocol);
+ //     return extractFromURL(url);
+ //   } else {
+ //     // url = nodeUrl.parse(urlWithProtocol);
+ //     return { url: '', host: '', path: '', port: '', protocol: '' };
+ //   }
+ // }
+ } catch (e1) {
+ const urlWithProtocol = 'http://' + requiredUrl.toString().trim();
+ try {
+ url = new URL(urlWithProtocol);
+ return extractFromURL(url);
+ } catch (e2) {
+ return { url: '', host: '', path: '', port: '', protocol: '' };
+ }
+ }
+ };*/
 
 const extractUrlLegacy = (requiredUrl: string | URL): ExtrectedUrl => {
   const url: string = requiredUrl.toString().trim();
@@ -193,15 +202,18 @@ export const decryptUrl = ({
 
     const segments = path.split('/');
     const [protocol, port] = segments[1].split('-');
-    const decryptedHost = decryptText({ text: segments[2], key, iv });
+    const host = segments[2];
+    const decryptedHost = decryptText({ text: host, key, iv });
     const remainingSegments = segments.slice(3).join('/');
 
     result = `${protocol}://${decryptedHost}${port ? ':' + port : ''}/${remainingSegments}`;
 
-    if (!(decryptedHost !== ''))
+    if (!(decryptedHost !== '') || !(host !== ''))
       throw new Error(
         'Decrypted host is empty, decryption might be failed! Check if your url, key, iv is correct.',
       );
+
+    new URL(result);
   } catch (error) {
     result =
       'Decryption failed: ' +
