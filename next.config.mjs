@@ -1,5 +1,5 @@
 // @ts-check
-import withPWAInit, { runtimeCaching } from '@ducanh2912/next-pwa';
+import withSerwistInit from '@serwist/next';
 
 /**
  * @type {import('next').NextConfig}
@@ -9,17 +9,15 @@ const nextConfig = {
   swcMinify: true,
 };
 
-const withPWA = withPWAInit({
-  cacheOnFrontendNav: true,
-  aggressiveFrontEndNavCaching: true,
-  cacheStartUrl: true,
+const withSerwist = withSerwistInit({
+  swSrc: './src/app/sw.ts',
+  swDest: 'public/sw.js',
+  cacheOnFrontEndNav: true,
   disable: process.env.NODE_ENV === 'development',
-  dest: 'public',
   scope: '/',
   register: true,
-  reloadOnOnline: false,
-  skipWaiting: true,
+  reloadOnOnline: true,
   maximumFileSizeToCacheInBytes: 3000000,
 });
 
-export default withPWA({ nextConfig });
+export default withSerwist({ nextConfig });
