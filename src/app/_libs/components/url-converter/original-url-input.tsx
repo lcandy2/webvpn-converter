@@ -68,6 +68,7 @@ export default function OriginalUrlInput({
         maxRows={lgMediaQuery ? '' : 4}
         minRows={lgMediaQuery ? 4 : ''}
         margin="normal"
+        type="url"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">

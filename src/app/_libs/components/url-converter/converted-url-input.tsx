@@ -96,6 +96,7 @@ export default function ConvertedUrlInput({
           multiline
           minRows={lgMediaQuery ? 4 : smMediaQuery ? '' : 3}
           margin="normal"
+          type="url"
           InputProps={{
             readOnly: true,
             startAdornment: lgMediaQuery && inputValue && (
