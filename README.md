@@ -1,4 +1,4 @@
-# ![Web VPN Converter (Web VPN 网址转换工具)](https://repository-images.githubusercontent.com/671581964/fbadedc1-a493-4702-8af8-23e11a408a32)
+# <img src="https://repository-images.githubusercontent.com/671581964/fbadedc1-a493-4702-8af8-23e11a408a32" alt="Web VPN Converter (Web VPN 网址转换工具)" height="256">
 
 轻松访问校内网络资源，无需繁琐设置，只需粘贴链接，常规网址即刻转化为您学校的Web VPN网址。
 
