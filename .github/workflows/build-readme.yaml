@@ -1,0 +1,37 @@
+name: Build README
+
+permissions: # Global permissions configuration starts here
+  contents: read # 'read' access to repository contents
+  pull-requests: write # 'write' access to pull requests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: '8'
+
+      - name: Install dependencies
+        run: pnpm --filter @webvpn-converter/readme install
+
+      - name: Build
+        run: pnpm --filter @webvpn-converter/readme build
+
+      - name: Commit and push
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'action: build README.md'

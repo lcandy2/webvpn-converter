@@ -12,7 +12,7 @@ export default function Header() {
         <Link href="/" className="order-first">
           <div className="flex flex-row flex-nowrap items-center">
             <Image
-              src={'/icon.webp'}
+              src={'/logo/logo2.png'}
               alt={'Web VPN Converter Icon'}
               width={48}
               height={48}
