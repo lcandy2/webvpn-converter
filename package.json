@@ -57,7 +57,7 @@
     "@lit/react": "^1.0.4",
     "@material/web": "^1.4.0",
     "@mui/icons-material": "^5.15.14",
-    "@mui/material": "^5.15.14",
+    "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.11",
     "@next/third-parties": "^14.1.4",
     "@serwist/next": "^8.4.4",
