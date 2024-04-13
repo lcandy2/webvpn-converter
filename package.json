@@ -64,7 +64,7 @@
     "@serwist/precaching": "^8.4.4",
     "@serwist/sw": "^8.4.4",
     "aes-js": "^3.1.2",
-    "jotai": "^2.7.2",
+    "jotai": "^2.8.0",
     "lit": "^3.1.2",
     "next": "14.1.4",
     "notistack": "^3.0.1",
