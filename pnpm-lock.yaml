@@ -33,8 +33,8 @@ importers:
         specifier: ^5.15.11
         version: 5.15.11(@emotion/cache@11.11.0)(@mui/material@5.15.15)(@types/react@18.2.73)(next@14.1.4)(react@18.2.0)
       '@next/third-parties':
-        specifier: ^14.1.4
-        version: 14.1.4(next@14.1.4)(react@18.2.0)
+        specifier: ^14.2.1
+        version: 14.2.1(next@14.1.4)(react@18.2.0)
       '@serwist/next':
         specifier: ^8.4.4
         version: 8.4.4(next@14.1.4)(webpack@5.91.0)
@@ -1012,8 +1012,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/third-parties@14.1.4(next@14.1.4)(react@18.2.0):
-    resolution: {integrity: sha512-e/kpEFq5/ZPhHkxpJkvhMfLp3OC6KCBou0/BV8BvgjXAPgEo6sa0ZXe0l4ZEb3wcA7NIEHIpqCmjU5Z7QAHcKQ==}
+  /@next/third-parties@14.2.1(next@14.1.4)(react@18.2.0):
+    resolution: {integrity: sha512-iHVq3uHT1BLR4O8LXJ/AJeRCATnsxWNq5S223BYhrQMceMUr/5TtKIroQwJpXrbwxkOr7SFX72mZqPTXxd/TnQ==}
     peerDependencies:
       next: ^13.0.0 || ^14.0.0
       react: ^18.2.0
