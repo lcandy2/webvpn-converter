@@ -62,7 +62,7 @@
     "@next/third-parties": "^14.2.2",
     "@serwist/next": "^8.4.4",
     "@serwist/precaching": "^8.4.4",
-    "@serwist/sw": "^8.4.4",
+    "@serwist/sw": "^9.0.1",
     "aes-js": "^3.1.2",
     "jotai": "^2.8.0",
     "lit": "^3.1.2",

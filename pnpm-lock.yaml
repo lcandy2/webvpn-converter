@@ -42,8 +42,8 @@ importers:
         specifier: ^8.4.4
         version: 8.4.4
       '@serwist/sw':
-        specifier: ^8.4.4
-        version: 8.4.4
+        specifier: ^9.0.1
+        version: 9.0.1(typescript@5.4.3)
       aes-js:
         specifier: ^3.1.2
         version: 3.1.2
@@ -1221,12 +1221,6 @@ packages:
       '@serwist/strategies': 8.4.4
     dev: false
 
-  /@serwist/navigation-preload@8.4.4:
-    resolution: {integrity: sha512-cMna+4avA66mHuZeVBxRYViy7/O+fR+NLSLkSl5TRdx6jdDFBnsBVj6LOWcohuGmtJ/XUV0ycpxyGSUxJCjVag==}
-    dependencies:
-      '@serwist/core': 8.4.4
-    dev: false
-
   /@serwist/next@8.4.4(next@14.1.4)(webpack@5.91.0):
     resolution: {integrity: sha512-WUTMTqjGl4uEO61olHkbqTWCV8bsNSYpzHNmhWksg+RXJJKCENU3Io+UcJlPX+oBJVzlIHP0cHtPsQZx7I+2sw==}
     peerDependencies:
@@ -1250,12 +1244,6 @@ packages:
       '@serwist/strategies': 8.4.4
     dev: false
 
-  /@serwist/range-requests@8.4.4:
-    resolution: {integrity: sha512-1VVhL42XnjFJKszAhgwkCUjcK4j28eudWhfGaYey5NYBk0xNqXNGTOuPBjvr5mLMo/NkmapiwDI/htAqOuK7Wg==}
-    dependencies:
-      '@serwist/core': 8.4.4
-    dev: false
-
   /@serwist/routing@8.4.4:
     resolution: {integrity: sha512-TimZ54n5UpQoJMjGdLIXQ1VJlQ669yfJ8scdfZKwRjggILJ3f1rI13N8vicetwZMGqveTz2Q9sVYIXaeQuFmQg==}
     dependencies:
@@ -1268,20 +1256,16 @@ packages:
       '@serwist/core': 8.4.4
     dev: false
 
-  /@serwist/sw@8.4.4:
-    resolution: {integrity: sha512-TyFlhoJpo/S1hj7+j1iiELwoU4idKvqvITBYFzpYEUK3h/qXJ+eiNiGT1hl2R0znz8p35Hp3hxbyGYFt4BYpKw==}
+  /@serwist/sw@9.0.1(typescript@5.4.3):
+    resolution: {integrity: sha512-mH7XknVGlesXciyqw7PEKrpP9pyz7K84zEinLROEnVIofG01UqVbOXLK0eyqLoXV1ewl8i/zOxCTleCP4D5hlQ==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     dependencies:
-      '@serwist/background-sync': 8.4.4
-      '@serwist/broadcast-update': 8.4.4
-      '@serwist/cacheable-response': 8.4.4
-      '@serwist/core': 8.4.4
-      '@serwist/expiration': 8.4.4
-      '@serwist/google-analytics': 8.4.4
-      '@serwist/navigation-preload': 8.4.4
-      '@serwist/precaching': 8.4.4
-      '@serwist/range-requests': 8.4.4
-      '@serwist/routing': 8.4.4
-      '@serwist/strategies': 8.4.4
+      serwist: 9.0.0(typescript@5.4.3)
+      typescript: 5.4.3
     dev: false
 
   /@serwist/webpack-plugin@8.4.4(webpack@5.91.0):
@@ -4691,6 +4675,18 @@ packages:
     dependencies:
       randombytes: 2.1.0
 
+  /serwist@9.0.0(typescript@5.4.3):
+    resolution: {integrity: sha512-YAgic7iS+t48TRg5XMRI781lAiY3bIN8Brr7tQDYaFnbO3Ces4fCyHMFhfOuTCXc7PqlmGYHfiquqHnIXTDawA==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      idb: 8.0.0
+      typescript: 5.4.3
+    dev: false
+
   /set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -5259,7 +5255,6 @@ packages:
     resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
