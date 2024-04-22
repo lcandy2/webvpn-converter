@@ -39,8 +39,8 @@ importers:
         specifier: ^8.4.4
         version: 8.4.4(next@14.1.4)(webpack@5.91.0)
       '@serwist/precaching':
-        specifier: ^8.4.4
-        version: 8.4.4
+        specifier: ^9.0.1
+        version: 9.0.1(typescript@5.4.3)
       '@serwist/sw':
         specifier: ^8.4.4
         version: 8.4.4
@@ -1244,10 +1244,23 @@ packages:
 
   /@serwist/precaching@8.4.4:
     resolution: {integrity: sha512-2HUiDKRpHxNirH37UnIuLx6Zc6HaIAgpTE2qWT6BfzqX1Fbmn2Zk67tvBTfCITWemCw1/dUH8VzI1k6vC3XmtA==}
+    deprecated: This package has been deprecated. Please use serwist instead.
     dependencies:
       '@serwist/core': 8.4.4
       '@serwist/routing': 8.4.4
       '@serwist/strategies': 8.4.4
+    dev: false
+
+  /@serwist/precaching@9.0.1(typescript@5.4.3):
+    resolution: {integrity: sha512-0tEmLlAgSO/Yb7e26mKWZSTMw122L+kr2I2eQU/ClPTREAE0o+m1D8onWQQZ7EN8ivRU7tprUIxJptVSuYa1aA==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      serwist: 9.0.0(typescript@5.4.3)
+      typescript: 5.4.3
     dev: false
 
   /@serwist/range-requests@8.4.4:
@@ -4691,6 +4704,18 @@ packages:
     dependencies:
       randombytes: 2.1.0
 
+  /serwist@9.0.0(typescript@5.4.3):
+    resolution: {integrity: sha512-YAgic7iS+t48TRg5XMRI781lAiY3bIN8Brr7tQDYaFnbO3Ces4fCyHMFhfOuTCXc7PqlmGYHfiquqHnIXTDawA==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      idb: 8.0.0
+      typescript: 5.4.3
+    dev: false
+
   /set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -5259,7 +5284,6 @@ packages:
     resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
