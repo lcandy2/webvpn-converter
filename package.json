@@ -55,7 +55,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@lit/react": "^1.0.4",
-    "@material/web": "^1.4.0",
+    "@material/web": "^1.4.1",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.11",
