@@ -8,6 +8,6 @@
     "build": "tsx ./index.ts"
   },
   "devDependencies": {
-    "tsx": "^4.7.1"
+    "tsx": "^4.7.3"
   }
 }
