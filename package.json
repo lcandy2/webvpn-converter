@@ -63,13 +63,15 @@
     "@serwist/next": "^8.4.4",
     "@serwist/precaching": "^8.4.4",
     "@serwist/sw": "^8.4.4",
+    "@vercel/analytics": "^1.2.2",
     "aes-js": "^3.1.2",
     "jotai": "^2.8.0",
     "lit": "^3.1.2",
     "next": "14.1.4",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-microsoft-clarity": "^1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.12",

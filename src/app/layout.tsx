@@ -8,6 +8,8 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
 import Footer from './_libs/components/footer';
 import * as Fonts from '@/app/_libs/fonts/fonts';
+import { Analytics } from '@vercel/analytics/react';
+import Script from 'next/script';
 
 const APP_NAME = APP_MANIFEST.name;
 const APP_DEFAULT_TITLE = APP_MANIFEST.name;
@@ -140,7 +142,7 @@ export default function RootLayout({
               </div>
               <div className="grow flex flex-col justify-start sm:ml-xl sm:mr-l transition-all duration-md ease-md">
                 <div className="grow transition-all duration-md ease-md box-border overflow-auto w-full h-content-sm sm:h-content bg-surface sm:rounded-shape-xl rounded-t-shape-xl">
-                  <div className="pt-xl scrollbar scrollbar-track-primary scrollbar-thin overflow-y-auto h-full rounded-[inherit] box-border">
+                  <div className="pt-xl scrollbar-track-primary scrollbar-thin overflow-y-auto h-full rounded-[inherit] box-border">
                     <div className="grow flex flex-row items-start box-border px-xl w-full h-full">
                       <div className="flex flex-col w-full h-full text-on-surface">
                         <main className="grow block w-full">
@@ -155,6 +157,27 @@ export default function RootLayout({
               </div>
             </section>
             <section id="modal-root" />
+            <Analytics />
+            {process.env.CFTOKEN && (
+              <Script
+                defer
+                src="https://static.cloudflareinsights.com/beacon.min.js"
+                data-cf-beacon={`{"token": "${process.env.CFTOKEN}"}`}
+              ></Script>
+            )}
+            {process.env.MSID && (
+              <Script
+                type="text/javascript"
+                strategy="lazyOnload"
+                id="clarity-script"
+              >
+                {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${process.env.MSID}");`}
+              </Script>
+            )}
           </Experimental_CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
