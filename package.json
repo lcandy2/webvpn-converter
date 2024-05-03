@@ -58,7 +58,7 @@
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.11",
-    "@next/third-parties": "^14.2.2",
+    "@next/third-parties": "^14.2.3",
     "@serwist/next": "^8.4.4",
     "@serwist/precaching": "^8.4.4",
     "@serwist/sw": "^8.4.4",
