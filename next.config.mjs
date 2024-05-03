@@ -1,12 +1,13 @@
 // @ts-check
 import withSerwistInit from '@serwist/next';
+import million from 'million/compiler';
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: true
 };
 
 const withSerwist = withSerwistInit({
@@ -17,7 +18,11 @@ const withSerwist = withSerwistInit({
   scope: '/',
   register: true,
   reloadOnOnline: true,
-  maximumFileSizeToCacheInBytes: 3000000,
+  maximumFileSizeToCacheInBytes: 3000000
 });
 
-export default withSerwist({ nextConfig });
+const millionConfig = {
+  auto: true// if you're using RSC: auto: { rsc: true },
+};
+
+export default withSerwist({ nextConfig: million.next(nextConfig, millionConfig) });
