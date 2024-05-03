@@ -60,7 +60,7 @@
     "@mui/material-nextjs": "^5.15.11",
     "@next/third-parties": "^14.2.2",
     "@serwist/next": "^8.4.4",
-    "@serwist/precaching": "^8.4.4",
+    "@serwist/precaching": "^9.0.2",
     "@serwist/sw": "^8.4.4",
     "@vercel/analytics": "^1.2.2",
     "aes-js": "^3.1.2",
