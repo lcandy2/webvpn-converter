@@ -17,7 +17,7 @@ import { useAtom } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { School } from '@/app/_libs/types';
 
-export default async function SchoolSelector() {
+export default function SchoolSelector() {
   const schoolData = buildSchoolList(webvpnData);
   const [selectedSchool, setSelectedSchool] = useAtom(selectedSchoolAtom);
   const [hasMounted, setHasMounted] = useState(false);

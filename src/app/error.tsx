@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import Title from '@/app/_libs/components/title';
 import Link from 'next/link';
 import MdFab from '@/app/_libs/ui/floating-action-buttons';

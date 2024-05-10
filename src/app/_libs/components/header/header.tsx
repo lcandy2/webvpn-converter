@@ -38,8 +38,8 @@ export default function Header() {
             href="https://github.com/lcandy2/webvpn-converter"
             target="_blank"
           >
-            <MdTextButton className="h-12 w-12">
-              <GitHub />
+            <MdTextButton title="GitHub" className="h-12 w-12">
+              <GitHub titleAccess="GitHub" />
             </MdTextButton>
           </Link>
         </section>

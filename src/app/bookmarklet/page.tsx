@@ -1,4 +1,3 @@
-import InitSelectSchool from '@/app/_libs/components/init-select-school';
 import {
   SubtitleComponent,
   TitleComponent,

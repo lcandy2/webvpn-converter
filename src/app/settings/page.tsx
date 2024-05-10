@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Title, { TitleComponent } from '@/app/_libs/components/title';
+import { TitleComponent } from '@/app/_libs/components/title';
 import SettingsUI from './_libs/ui/settings-ui';
 import GoBackButton from './_libs/components/go-back-button';
 

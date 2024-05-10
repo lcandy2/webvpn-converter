@@ -90,45 +90,47 @@ export default function SchoolCustomization({
 
   if (isSchoolNotListed || mode === 'settings') {
     return (
-      <>
-        <MdOutlinedCard className="p-6 flex flex-col gap-4">
-          <div className="flex flex-row justify-between">
-            <p className="text-title-l sm:text-2xl pb-4 order-first items-start">
-              自定义
+      type && (
+        <>
+          <MdOutlinedCard className="p-6 flex flex-col gap-4">
+            <div className="flex flex-row justify-between">
+              <p className="text-title-l sm:text-2xl pb-4 order-first items-start">
+                自定义
+              </p>
+              {mode === 'init' && (
+                <MdIconButton
+                  className="order-last self-start"
+                  onClick={handleCloseButtonClick}
+                >
+                  <CloseIcon />
+                </MdIconButton>
+              )}
+            </div>
+            <TextField
+              label="学校 Web VPN 网络地址"
+              value={host}
+              onChange={handleHostChange}
+            />
+            <div className="flex flex-row gap-4 flex-wrap">
+              <TextField
+                label="KEY"
+                className="flex-1"
+                value={key}
+                onChange={handleKeyChange}
+              />
+              <TextField
+                label="IV"
+                className="flex-1"
+                value={iv}
+                onChange={handleIvChange}
+              />
+            </div>
+            <p className="text-sm text-gray-500 font-normal">
+              注: KEY 或 IV 留空 将使用默认值 wrdvpnisthebest!
             </p>
-            {mode === 'init' && (
-              <MdIconButton
-                className="order-last self-start"
-                onClick={handleCloseButtonClick}
-              >
-                <CloseIcon />
-              </MdIconButton>
-            )}
-          </div>
-          <TextField
-            label="学校 Web VPN 网络地址"
-            value={host}
-            onChange={handleHostChange}
-          />
-          <div className="flex flex-row gap-4 flex-wrap">
-            <TextField
-              label="KEY"
-              className="flex-1"
-              value={key}
-              onChange={handleKeyChange}
-            />
-            <TextField
-              label="IV"
-              className="flex-1"
-              value={iv}
-              onChange={handleIvChange}
-            />
-          </div>
-          <p className="text-sm text-gray-500 font-normal">
-            注: KEY 或 IV 留空 将使用默认值 wrdvpnisthebest!
-          </p>
-        </MdOutlinedCard>
-      </>
+          </MdOutlinedCard>
+        </>
+      )
     );
   } else {
     return null;

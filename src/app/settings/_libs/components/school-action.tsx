@@ -50,26 +50,28 @@ export default function SchoolAction({
   }, [setIsSchoolNotListed]);
 
   return (
-    <div className="flex flex-row flex-wrap">
-      {isSchoolSelected && (
-        <MdFab
-          label="确认"
-          className="w-[100%] sm:w-36 mb-6 sm:mr-8 sm:mb-0"
-          onClick={handleConfirmButtonClick}
-        >
-          <span slot="icon">
-            <DoneIcon />
-          </span>
-        </MdFab>
-      )}
-      {!isSchoolNotListed && mode === 'init' && (
-        <MdTextButton
-          className="w-[100%] sm:w-auto h-14 sm:h-auto min-w-36"
-          onClick={handleNotListedButtonClick}
-        >
-          {isSchoolSelected ? '自定义设置' : '列表上没有我的学校？'}
-        </MdTextButton>
-      )}
-    </div>
+    type && (
+      <div className="flex flex-row flex-wrap">
+        {isSchoolSelected && (
+          <MdFab
+            label="确认"
+            className="w-[100%] sm:w-36 mb-6 sm:mr-8 sm:mb-0"
+            onClick={handleConfirmButtonClick}
+          >
+            <span slot="icon">
+              <DoneIcon />
+            </span>
+          </MdFab>
+        )}
+        {!isSchoolNotListed && mode === 'init' && (
+          <MdTextButton
+            className="w-[100%] sm:w-auto h-14 sm:h-auto min-w-36"
+            onClick={handleNotListedButtonClick}
+          >
+            {isSchoolSelected ? '自定义设置' : '列表上没有我的学校？'}
+          </MdTextButton>
+        )}
+      </div>
+    )
   );
 }

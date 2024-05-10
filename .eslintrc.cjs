@@ -10,8 +10,8 @@ module.exports = {
     'plugin:@typescript-eslint/stylistic',
     'prettier',
   ],
-  rules: {
-    '@typescript-eslint/no-unused-vars': 'off',
-  },
+  // rules: {
+  //   '@typescript-eslint/no-unused-vars': 'off',
+  // },
   ignorePatterns: ['public', '.eslintrc.cjs'],
 };

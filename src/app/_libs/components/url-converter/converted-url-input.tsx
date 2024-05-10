@@ -41,7 +41,7 @@ export default function ConvertedUrlInput({
     }
   }, [isDecryptMode, encryptedUrl, decryptedUrl, originalUrl]);
 
-  const { copy, reset, error, copied } = useCopy({
+  const { copy, error, copied } = useCopy({
     onCopyError: (message) => {
       enqueueSnackbar(message, {
         variant: 'error',
@@ -62,13 +62,16 @@ export default function ConvertedUrlInput({
   const InputAdornmentComponents = () => {
     return (
       <div className="flex flex-col sm:flex-row lg:flex-col gap-0">
-        <MdIconButton onClick={handleCopyButtonClick}>
+        <MdIconButton
+          title={error ? '复制失败' : copied ? '复制成功' : '复制'}
+          onClick={handleCopyButtonClick}
+        >
           {error ? (
-            <ErrorIcon color="error" />
+            <ErrorIcon color="error" titleAccess="复制失败" />
           ) : copied ? (
-            <DoneIcon color="success" />
+            <DoneIcon color="success" titleAccess="复制成功" />
           ) : (
-            <ContentCopyIcon />
+            <ContentCopyIcon titleAccess="复制" />
           )}
         </MdIconButton>
         <Link href={`//${inputValue}`} target="_blank">

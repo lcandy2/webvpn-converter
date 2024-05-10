@@ -6,7 +6,7 @@
 'use client';
 
 import { createComponent } from '@lit/react';
-import React, { ComponentProps, ReactNode } from 'react';
+import React, { ComponentProps } from 'react';
 import { MdFilledButton as _MdFilledButton } from '@material/web/button/filled-button';
 import { MdOutlinedButton as _MdOutlinedButton } from '@material/web/button/outlined-button';
 import { MdTextButton as _MdTextButton } from '@material/web/button/text-button';

@@ -1,6 +1,6 @@
 'use client';
 
-import { useAtomValue, useSetAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';

@@ -24,7 +24,7 @@ export function SyncLocalStorageWithCookie({
     } else {
       Cookies.remove('selectedSchool');
     }
-  }, [selectedSchool]);
+  }, [selectedSchool, withRedirect]);
 
   return <></>;
 }

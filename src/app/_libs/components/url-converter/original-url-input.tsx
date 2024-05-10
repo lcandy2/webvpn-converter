@@ -76,8 +76,8 @@ export default function OriginalUrlInput({
           spellCheck: false,
           endAdornment: (
             <InputAdornment position="end">
-              <MdIconButton onClick={handlePasteButtonClick}>
-                <ContentPasteIcon />
+              <MdIconButton title="粘贴" onClick={handlePasteButtonClick}>
+                <ContentPasteIcon titleAccess="粘贴" />
               </MdIconButton>
             </InputAdornment>
           ),

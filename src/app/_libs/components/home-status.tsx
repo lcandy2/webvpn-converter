@@ -63,11 +63,11 @@ export default function HomeStatus() {
               onClick={handleEditButtonClicked}
               prefetch={true}
             >
-              <MdIconButton>
+              <MdIconButton title="编辑">
                 {editButtonClicked ? (
                   <CircularProgress color="inherit" size={20} />
                 ) : (
-                  <EditIcon />
+                  <EditIcon titleAccess="编辑" />
                 )}
               </MdIconButton>
             </Link>

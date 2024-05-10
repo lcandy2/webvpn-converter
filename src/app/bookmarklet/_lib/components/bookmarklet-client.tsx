@@ -22,7 +22,6 @@ import { enqueueSnackbar, SnackbarProvider } from 'notistack';
 import ErrorIcon from '@mui/icons-material/Error';
 import DoneIcon from '@mui/icons-material/Done';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
-import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import HomeStatus from '@/app/_libs/components/home-status';
 
 export default async function BookmarkletClient() {
@@ -43,7 +42,7 @@ export default async function BookmarkletClient() {
     [bookmarkletHref, hasMounted, selectedSchool, bookmarkletRaw],
   );
 
-  const { copy, reset, error, copied } = useCopy({
+  const { copy, error, copied } = useCopy({
     onCopyError: (message) => {
       enqueueSnackbar(message, {
         variant: 'error',

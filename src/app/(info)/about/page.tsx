@@ -1,7 +1,4 @@
-import {
-  SubtitleComponent,
-  TitleComponent,
-} from '@/app/_libs/components/title';
+import { TitleComponent } from '@/app/_libs/components/title';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
