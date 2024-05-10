@@ -56,4 +56,4 @@ next-env.d.ts
 .eslintcache
 
 # bookmarklet
-**/bookmarklet/dist/*
+#**/bookmarklet/dist/*
