@@ -3,6 +3,7 @@ import SchoolCustomization from '@/app/settings/_libs/components/school-customiz
 import SchoolAction from '@/app/settings/_libs/components/school-action';
 import { SettingsConfig } from '@/app/_libs/types';
 import JumpToFullscreen from '@/app/settings/_libs/components/jump-to-fullscreen';
+import { SyncLocalStorageWithCookie } from '@/app/settings/_libs/components/sync-localstorage-with-cookie';
 
 export default async function SettingsUI({
   mode = 'settings',
@@ -10,6 +11,7 @@ export default async function SettingsUI({
 }: SettingsConfig) {
   return (
     <div className="flex flex-col gap-6 w-full">
+      <SyncLocalStorageWithCookie withRedirect={mode === 'init'} />
       {type === 'modal' && <JumpToFullscreen />}
       <SchoolSelector />
       <SchoolCustomization mode={mode} type={type} />

@@ -14,17 +14,17 @@ export function SyncLocalStorageWithCookie({
   withRedirect = false,
 }: SyncLocalStorageWithCookieProps) {
   const [selectedSchool] = useAtom(selectedSchoolAtom);
-
+  const { host } = selectedSchool || {};
   useEffect(() => {
-    if (selectedSchool) {
-      Cookies.set('selectedSchool', selectedSchool.host);
+    if (host) {
+      Cookies.set('selectedSchool', host);
       if (withRedirect) {
         redirect('/');
       }
     } else {
       Cookies.remove('selectedSchool');
     }
-  }, [selectedSchool, withRedirect]);
+  }, [host, withRedirect]);
 
   return <></>;
 }
