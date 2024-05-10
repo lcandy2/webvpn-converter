@@ -25,7 +25,7 @@ import { MdIconButton } from '@/app/_libs/ui/icon-button';
 import ContentPasteIcon from '@mui/icons-material/ContentPaste';
 import HomeStatus from '@/app/_libs/components/home-status';
 
-export default function BookmarkletClient() {
+export default async function BookmarkletClient() {
   const selectedSchool = useAtomValue(selectedSchoolAtom);
   const bookmarkletRaw = BookmarkletRaw;
   const [bookmarkletHref, setBookmarkletHref] = useState<string>('');

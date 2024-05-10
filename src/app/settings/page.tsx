@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: '设置',
 };
 
-export default function Page() {
+export default async function Page() {
   return (
     <div className="flex flex-col">
       <TitleComponent marginBottom={false}>

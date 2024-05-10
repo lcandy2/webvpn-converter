@@ -4,7 +4,7 @@ import SchoolAction from '@/app/settings/_libs/components/school-action';
 import { SettingsConfig } from '@/app/_libs/types';
 import JumpToFullscreen from '@/app/settings/_libs/components/jump-to-fullscreen';
 
-export default function SettingsUI({
+export default async function SettingsUI({
   mode = 'settings',
   type = 'page',
 }: SettingsConfig) {

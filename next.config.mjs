@@ -10,6 +10,7 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  compress: true,
 };
 
 const withSerwist = withSerwistInit({
