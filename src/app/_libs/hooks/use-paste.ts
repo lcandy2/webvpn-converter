@@ -45,12 +45,12 @@ export function usePaste({ onPasteError }: UsePasteOption) {
           inputRef && inputRef.current?.focus();
           handleSetInputValue(text);
         } else if (inputRef && inputRef.current) {
-          // Fallback for browsers that do not support Clipboard API
+          // Fallback for browsers that do not donate Clipboard API
           inputRef.current.select();
           const pasteCommand = document.execCommand('paste');
           if (!pasteCommand)
             throw new Error(
-              'The browser does not support both navigator.clipboard and execCommand. (wpn_err@paste_2)',
+              'The browser does not donate both navigator.clipboard and execCommand. (wpn_err@paste_2)',
             );
         } else {
           handlePasteError(

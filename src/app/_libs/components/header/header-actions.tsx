@@ -14,7 +14,7 @@ export const HeaderActionGitHub = () => {
 };
 
 export const HeaderActionSponsor = () => {
-  return <MdTextButton className="h-12">捐赠</MdTextButton>;
+  return <MdTextButton className="h-12">支持与捐赠</MdTextButton>;
 };
 
 export const HeaderActionBookmarklet = () => {

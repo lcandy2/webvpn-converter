@@ -76,12 +76,12 @@ export default function useCopy({
           await navigator.clipboard.writeText(valueToCopy);
           handleCopySuccess();
         } else if (inputRef && inputRef.current) {
-          // Fallback for browsers that do not support Clipboard API
+          // Fallback for browsers that do not donate Clipboard API
           inputRef.current.select();
           const copyCommand = document.execCommand('copy');
           if (!copyCommand) {
             throw new Error(
-              'The browser does not support both navigator.clipboard and execCommand. (wpn_err@copy_2)',
+              'The browser does not donate both navigator.clipboard and execCommand. (wpn_err@copy_2)',
             );
           }
           handleCopySuccess();
