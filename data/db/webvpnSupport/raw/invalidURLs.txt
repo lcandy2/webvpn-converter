@@ -11,7 +11,6 @@
 北京	中国传媒大学	http://vpn.cuc.edu.cn/	AxiosError: timeout of 5000ms exceeded
 北京	中国消防救援学院	http://vpn.cfri.edu.cn/	AxiosError: timeout of 5000ms exceeded
 北京	外交学院	http://vpn.cfau.edu.cn/	AxiosError: timeout of 5000ms exceeded
-北京	中国人民公安大学	http://vpn.cppsu.edu.cn/	AxiosError: timeout of 5000ms exceeded
 北京	国际关系学院	http://vpn.uir.cn/	AxiosError: timeout of 5000ms exceeded
 北京	北京体育大学	http://vpn.bsu.edu.cn/	AxiosError: timeout of 5000ms exceeded
 北京	中央美术学院	http://vpn.cafa.edu.cn/	AxiosError: timeout of 5000ms exceeded
