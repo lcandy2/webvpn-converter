@@ -103,6 +103,9 @@
     },
     "北京理工大学": {
       "host": "http://webvpn.bit.edu.cn/"
+    },
+    "中国人民公安大学": {
+      "host": "http://webvpn.ppsuc.edu.cn/"
     }
   },
   "安徽": {
