@@ -87,6 +87,9 @@
     },
     "北京工业大学": {
       "host": "webvpn.bjut.edu.cn"
+    },
+    "中国人民公安大学": {
+      "host": "webvpn.ppsuc.edu.cn"
     }
   },
   "福建": {
