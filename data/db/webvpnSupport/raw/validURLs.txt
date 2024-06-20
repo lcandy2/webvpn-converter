@@ -764,3 +764,4 @@
 青海	青海师范大学	http://vpn.qhnu.edu.cn/
 宁夏	宁夏职业技术学院	http://vpn.nxtc.edu.cn/
 新疆	新疆师范大学	http://vpn.xjnu.edu.cn/
+北京	中国人民公安大学	http://webvpn.ppsuc.edu.cn/
