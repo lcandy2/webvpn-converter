@@ -29,7 +29,6 @@
 北京	中国地质大学（北京）	http://webvpn.cugb.edu.cn/	Error: socket hang up
 北京	中央戏剧学院	http://webvpn.chntheatre.edu.cn/	Error: socket hang up
 天津	天津职业技术师范大学	http://webvpn.tust.edu.cn/	Error: socket hang up
-北京	中国人民公安大学	http://webvpn.cppsu.edu.cn/	Error: socket hang up
 北京	中国劳动关系学院	http://webvpn.ciir.edu.cn/	Error: socket hang up
 北京	中瑞酒店管理学院	http://webvpn.bhi.edu.cn/	Error: socket hang up
 北京	嘉华学院	http://webvpn.canvard.net.cn/	Error: socket hang up
@@ -727,6 +726,7 @@
 广东	华南理工大学	http://webvpn.scut.edu.cn/	No matched script found
 福建	福州大学	http://webvpn.fzu.edu.cn/	No matched script found
 陕西	西北工业大学	http://webvpn.nwpu.edu.cn/	No matched script found
+北京	中国人民公安大学	http://webvpn.ppsuc.edu.cn/	No matched script found
 黑龙江	绥化学院	http://webvpn.shxy.edu.cn/	Error: socket hang up
 江苏	南京传媒学院	http://webvpn.cucn.edu.cn/	Error: socket hang up
 江苏	东南大学	http://webvpn.seu.edu.cn/	Error: socket hang up

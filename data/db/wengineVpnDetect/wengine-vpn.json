@@ -55,6 +55,9 @@
         },
         "北京科技大学": {
             "host": "http://vpn.ustb.edu.cn/"
+        },
+        "中国人民公安大学": {
+            "host": "http://webvpn.ppsuc.edu.cn/"
         }
     },
     "江苏": {

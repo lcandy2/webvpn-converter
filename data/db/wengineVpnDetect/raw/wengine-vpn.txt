@@ -129,3 +129,4 @@
 贵州	贵州财经大学	http://vpn.gufe.edu.cn/
 宁夏	宁夏大学	http://webvpn.nxu.edu.cn/
 广东	广东海洋大学	http://webvpn.gdou.edu.cn/
+北京	中国人民公安大学	http://webvpn.ppsuc.edu.cn/
