@@ -16,13 +16,13 @@ const data: School = {
   /**
    * 学校所在地区
    * 请修改为学校所在地区，如：上海、广东…… */
-  province: '上海', // ← 请将学校所在地区填写在此处
+  province: '北京', // ← 请将学校所在地区填写在此处
 
   /**
    * 学校名称
    * 请修改单引号中内容为学校名称，如：上海交通大学
    * 若学校位独立学院，请附学院名，如：上海交通大学医学院 */
-  name: '上海交通大学', // ← 请将学校名称填写在此处
+  name: '中国人民公安大学', // ← 请将学校名称填写在此处
 
   /**
    * 学校 WebVPN 服务页面
@@ -30,7 +30,7 @@ const data: School = {
    * 请注意仅填写域名网址，不要填写完整链接。
    * 如：- https://webvpn.sjtu.edu.cn/ (✗错误)
    *    - webvpn.sjtu.edu.cn (✔正确) */
-  host: 'webvpn.sjtu.edu.cn', // ← 请将 WebVPN 服务网址填写在此处
+  host: 'webvpn.ppsuc.edu.cn', // ← 请将 WebVPN 服务网址填写在此处
 
   /**
    * 学校 WebVPN 加密信息（选填）
