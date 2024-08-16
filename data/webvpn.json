@@ -56,7 +56,7 @@
       "host": "webvpn.bipt.edu.cn"
     },
     "北京师范大学": {
-      "host": "webvpn.bnu.edu.cn",
+      "host": "onevpn.bnu.edu.cn",
       "crypto_key": "wrdvpnisthebest!",
       "crypto_iv": "wrdvpnisthebest!"
     },
