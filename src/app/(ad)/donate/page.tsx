@@ -3,7 +3,7 @@ import {
   TitleComponent,
 } from '@/app/_libs/components/title';
 import Link from 'next/link';
-import { PaidTwoTone, WorkTwoTone } from '@mui/icons-material';
+import { WorkTwoTone } from '@mui/icons-material';
 import { MdFabDonate, MdTextButtonDonate } from '@/app/_libs/ui/donate-buttons';
 
 export default function Page() {
@@ -45,20 +45,20 @@ export default function Page() {
         )}
         <div className={'flex flex-row'}>
           <Link href={'https://afdian.net/a/Lcandy/plan'} target={'_blank'}>
-            <MdFabDonate
-              label="我有资金支持 (爱发电)"
-              className="w-[100%] sm:w-56 mb-8 sm:mr-8 sm:mb-0"
-            >
-              <span slot="icon">
-                <PaidTwoTone />
-              </span>
-            </MdFabDonate>
+            {/*<MdFabDonate*/}
+            {/*  label="我有资金支持 (爱发电)"*/}
+            {/*  className="w-[100%] sm:w-56 mb-8 sm:mr-8 sm:mb-0"*/}
+            {/*>*/}
+            {/*  <span slot="icon">*/}
+            {/*    <PaidTwoTone />*/}
+            {/*  </span>*/}
+            {/*</MdFabDonate>*/}
           </Link>
           <Link href={'/'} prefetch={false}>
             <MdTextButtonDonate
               hasIcon
               className="w-[100%] sm:w-auto h-full min-w-36"
-              label="我想稍后再说"
+              label="好意我心领啦"
             ></MdTextButtonDonate>
           </Link>
         </div>

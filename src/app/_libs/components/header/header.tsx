@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { MdTextButton } from '@/app/_libs/ui/button';
 import { GitHub } from '@mui/icons-material';
 import { HeaderActionBookmarklet } from '@/app/_libs/components/header/header-actions';
-import { Badge } from '@mui/material';
 
 export default function Header() {
   return (
@@ -27,19 +26,19 @@ export default function Header() {
         </Link>
         <section className="order-last grow flex flex-row justify-end items-center">
           <Link href="/bookmarklet" prefetch={true}>
-            <Badge badgeContent="New" color="primary">
-              <HeaderActionBookmarklet />
-            </Badge>
+            {/*<Badge badgeContent="New" color="primary">*/}
+            <HeaderActionBookmarklet />
+            {/*</Badge>*/}
           </Link>
           {/*<Link href="https://afdian.net/a/Lcandy/plan" target="_blank">*/}
-          <Link href="/donate" prefetch={true}>
-            <Badge
-              badgeContent={process.env.CV_EMAIL && '内推请求'}
-              color="secondary"
-            >
-              <MdTextButton className="h-12">支持与捐赠</MdTextButton>
-            </Badge>
-          </Link>
+          {/*<Link href="/donate" prefetch={true}>*/}
+          {/*  <Badge*/}
+          {/*    badgeContent={process.env.CV_EMAIL && '内推请求'}*/}
+          {/*    color="secondary"*/}
+          {/*  >*/}
+          {/*    <MdTextButton className="h-12">支持</MdTextButton>*/}
+          {/*  </Badge>*/}
+          {/*</Link>*/}
           <Link
             href="https://github.com/lcandy2/webvpn-converter"
             target="_blank"
