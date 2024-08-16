@@ -100,6 +100,9 @@
       "host": "",
       "crypto_key": "wrdvpnisthebest!",
       "crypto_iv": "wrdvpnisthebest!"
+    },
+    "福州大学": {
+      "host": "webvpn.fzu.edu.cn",
     }
   },
   "甘肃": {
