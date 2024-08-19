@@ -42,7 +42,9 @@ export function usePaste({ onPasteError }: UsePasteOption) {
       try {
         if ('clipboard' in navigator) {
           const text = await navigator.clipboard.readText();
-          inputRef && inputRef.current?.focus();
+          if (inputRef && inputRef.current) {
+            inputRef.current.focus();
+          }
           handleSetInputValue(text);
         } else if (inputRef && inputRef.current) {
           // Fallback for browsers that do not donate Clipboard API
