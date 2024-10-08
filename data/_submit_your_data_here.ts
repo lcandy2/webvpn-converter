@@ -16,13 +16,13 @@ const data: School = {
   /**
    * 学校所在地区
    * 请修改为学校所在地区，如：上海、广东…… */
-  province: '福建', // ← 请将学校所在地区填写在此处
+  province: '辽宁', // ← 请将学校所在地区填写在此处
 
   /**
    * 学校名称
    * 请修改单引号中内容为学校名称，如：上海交通大学
    * 若学校位独立学院，请附学院名，如：上海交通大学医学院 */
-  name: '福州大学', // ← 请将学校名称填写在此处
+  name: '东北大学', // ← 请将学校名称填写在此处
 
   /**
    * 学校 WebVPN 服务页面
@@ -30,15 +30,15 @@ const data: School = {
    * 请注意仅填写域名网址，不要填写完整链接。
    * 如：- https://webvpn.sjtu.edu.cn/ (✗错误)
    *    - webvpn.sjtu.edu.cn (✔正确) */
-  host: 'webvpn.fzu.edu.cn', // ← 请将 WebVPN 服务网址填写在此处
+  host: 'webvpn.neu.edu.cn', // ← 请将 WebVPN 服务网址填写在此处
 
   /**
    * 学校 WebVPN 加密信息（选填）
    * 如需填写，请在单引号内填写学校 WebVPN 加密信息
    * 注意，正确的 key 和 iv 长度为16位，如：'wrdvpnisthebest!'
    * 如果你不知道 key 和 iv 是什么，请留空。 */
-  crypto_key: '', // ← 请将 key 填写在此处
-  crypto_iv: '', // ← 请将 iv 填写在此处
+  crypto_key: 'b0A58a69394ce73@', // ← 请将 key 填写在此处
+  crypto_iv: 'b0A58a69394ce73@', // ← 请将 iv 填写在此处
 }; // ← 请勿修改此行
 /* --------- 你只可以修改以上内容 --------- */
 
