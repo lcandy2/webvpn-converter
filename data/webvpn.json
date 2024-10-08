@@ -528,6 +528,11 @@
       "host": "webvpn.zjnu.edu.cn",
       "crypto_key": "wrdvpnisthebest!",
       "crypto_iv": "wrdvpnisthebest!"
+    },
+    "浙江警察学院": {
+      "host": "webvpn.zjjcxy.cn",
+      "crypto_key": "wrdvpnisthebest!",
+      "crypto_iv": "wrdvpnisthebest!"
     }
   }
 }
