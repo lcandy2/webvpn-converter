@@ -256,6 +256,11 @@
     },
     "树达学院": {
       "host": "webvpn.sdw.hunnu.edu.cn"
+    },
+    "长沙理工大学": {
+      "host": "vpn.csust.edu.cn",
+      "crypto_key":"WRDvpnisthebest!",
+      "crypto_iv":"WRDvpnisthebest!"
     }
   },
   "江苏": {
