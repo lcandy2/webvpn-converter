@@ -345,6 +345,11 @@
       "host": "webvpn.lntu.edu.cn",
       "crypto_key": "wrdvpnisthebest!",
       "crypto_iv": "wrdvpnisthebest!"
+    },
+    "东北大学": {
+      "host": "webvpn.neu.edu.cn",
+      "crypto_key": "b0A58a69394ce73@",
+      "crypto_iv": "b0A58a69394ce73@"
     }
   },
   "宁夏": {
