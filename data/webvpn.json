@@ -264,6 +264,11 @@
     }
   },
   "江苏": {
+    "南京理工大学": {
+      "host": "webvpn.njust.edu.cn",
+      "crypto_key": "wrdvpnisthebest!",
+      "crypto_iv": "wrdvpnisthebest!"
+    },
     "南京工程学院": {
       "host": "webvpn.njit.edu.cn"
     },
