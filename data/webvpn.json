@@ -90,6 +90,12 @@
     },
     "中国人民公安大学": {
       "host": "webvpn.ppsuc.edu.cn"
+    },
+    "北京科技大学（校园网内不可用）": {
+      "host": "n.ustb.edu.cn"
+    },
+    "北京科技大学（图书馆/校园网内可用）": {
+      "host": "elib.ustb.edu.cn"
     }
   },
   "福建": {
@@ -259,8 +265,8 @@
     },
     "长沙理工大学": {
       "host": "vpn.csust.edu.cn",
-      "crypto_key":"WRDvpnisthebest!",
-      "crypto_iv":"WRDvpnisthebest!"
+      "crypto_key": "WRDvpnisthebest!",
+      "crypto_iv": "WRDvpnisthebest!"
     }
   },
   "江苏": {
