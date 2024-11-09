@@ -155,6 +155,9 @@
     },
     "广东海洋大学": {
       "host": "webvpn.gdou.edu.cn"
+    },
+    "岭南师范学院": {
+      "host": "csvpn.lingnan.edu.cn"
     }
   },
   "广西": {
