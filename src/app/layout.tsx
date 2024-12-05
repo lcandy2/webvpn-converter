@@ -137,7 +137,7 @@ export default function RootLayout({
           }}
         >
           <Experimental_CssVarsProvider theme={MuiTheme}>
-            <WPNUmamiProvider websiteId={process.env.UMAMI_ID}>
+            <WPNUmamiProvider>
               <section className="flex flex-col sm:mb-l">
                 <div className="h-header block">
                   <Header />
