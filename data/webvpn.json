@@ -96,6 +96,9 @@
     },
     "北京科技大学（图书馆/校园网内可用）": {
       "host": "elib.ustb.edu.cn"
+    },
+    "华北电力大学": {
+      "host": "myvpn.ncepu.edu.cn"
     }
   },
   "福建": {
