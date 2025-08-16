@@ -261,8 +261,8 @@
     },
     "湖南农业大学": {
       "host": "webvpn.hunau.edu.cn",
-      "crypto_key": "wrdvpnisthebest!",
-      "crypto_iv": "wrdvpnisthebest!"
+      "crypto_key": "wwwvpnisthebest!",
+      "crypto_iv": "wwwvpnisthebest!"
     },
     "吉首大学": {
       "host": "webvpn.jsu.edu.cn",
