@@ -69,8 +69,8 @@ importers:
         specifier: 14.2.21
         version: 14.2.21(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-umami:
-        specifier: ^0.0.4
-        version: 0.0.4
+        specifier: ^1.0.0
+        version: 1.0.0
       notistack:
         specifier: ^3.0.1
         version: 3.0.1(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2632,8 +2632,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next-umami@0.0.4:
-    resolution: {integrity: sha512-v/sXVwvy+sumq3jPRkjiv1Tf7nk1HQxAjyohrc+x65QI6v5vFK2NG3NyI+C7ML41dYHDPg+UswUDDZu0yeGUWg==}
+  next-umami@1.0.0:
+    resolution: {integrity: sha512-bwq2nuH1vE0zBRkT/6pKznlKsDv6BwTWGfOFcSf0hLT3ua3OJHMVpB3Ws3GiCKl69Exan++PX05wNvfrDvfTmQ==}
 
   next@14.2.21:
     resolution: {integrity: sha512-rZmLwucLHr3/zfDMYbJXbw0ZeoBpirxkXuvsJbk7UPorvPYZhP7vq7aHbKnU7dQNCYIimRrbB2pp3xmf+wsYUg==}
@@ -6226,7 +6226,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-umami@0.0.4: {}
+  next-umami@1.0.0: {}
 
   next@14.2.21(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
