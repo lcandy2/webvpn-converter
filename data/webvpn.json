@@ -501,6 +501,9 @@
     },
     "四川传媒学院": {
       "host": "webvpn.scmc.edu.cn"
+    },
+    "电子科技大学": {
+      "host": "webvpn.uestc.edu.cn"
     }
   },
   "天津": {
