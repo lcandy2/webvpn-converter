@@ -276,6 +276,9 @@
       "host": "vpn.csust.edu.cn",
       "crypto_key": "WRDvpnisthebest!",
       "crypto_iv": "WRDvpnisthebest!"
+    },
+    "湖南机电职业技术学院": {
+      "host": "webvpn.hnjdzy.edu.cn"
     }
   },
   "江苏": {
