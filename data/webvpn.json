@@ -303,8 +303,8 @@
     "无锡学院": {
       "host": "webvpn.cwxu.edu.cn"
     },
-    "常熟理工学院": {
-      "host": "webvpn.cslg.edu.cn",
+    "苏州工学院": {
+      "host": "webvpn.szut.edu.cn",
       "crypto_key": "wrdvpnisthebest!",
       "crypto_iv": "wrdvpnisthebest!"
     },
