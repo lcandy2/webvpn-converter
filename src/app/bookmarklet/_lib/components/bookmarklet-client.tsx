@@ -68,7 +68,7 @@ export default function BookmarkletClient() {
       );
       const replacedType = replacedIv.replace(
         BOOKMARKLET_CONFIG.TYPE_SEPRATOR,
-        selectedSchool?.crypto_type || 'wrdvpn',
+        selectedSchool?.crypto_type || '',
       );
       return replacedType;
     } catch (e) {

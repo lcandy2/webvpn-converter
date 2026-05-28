@@ -1,9 +1,10 @@
-import { UrlConvertConfig } from '@/app/_libs/types';
+import { CryptoType, UrlConvertConfig } from '@/app/_libs/types';
 
 /** Default URL Convert Config */
 export const URL_CONVERT_CONFIG: UrlConvertConfig = {
   KEY: 'wrdvpnisthebest!',
   IV: 'wrdvpnisthebest!',
+  TYPE: 'wrdvpn' as CryptoType,
   PROTOCOLS: ['http', 'https', 'ssh', 'vnc', 'telnet', 'rdp'],
   DECRYPT_FAILED_SEPARATOR: '__WEBVPN_CONVERTER_DEPCRYPT@RESULT',
 };

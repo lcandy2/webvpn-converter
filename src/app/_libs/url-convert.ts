@@ -7,7 +7,8 @@ const hex = aesjs.utils.hex;
 const AesCfb = aesjs.ModeOfOperation.cfb;
 const AesCbc = aesjs.ModeOfOperation.cbc;
 const pkcs7 = aesjs.padding.pkcs7;
-const { KEY, IV, PROTOCOLS, DECRYPT_FAILED_SEPARATOR } = URL_CONVERT_CONFIG;
+const { KEY, IV, TYPE, PROTOCOLS, DECRYPT_FAILED_SEPARATOR } =
+  URL_CONVERT_CONFIG;
 
 const textRightAppend = (text: string, mode: 'utf8' | string) => {
   const segmentByteSize = mode === 'utf8' ? 16 : 32;
@@ -316,7 +317,7 @@ export const encryptUrl = ({
   schoolHost,
   key = KEY,
   iv = IV,
-  type = 'wrdvpn',
+  type = TYPE,
 }: ConvertConfig): string => {
   try {
     switch (type) {
@@ -336,7 +337,7 @@ export const decryptUrl = ({
   url: inputUrl,
   key = KEY,
   iv = IV,
-  type = 'wrdvpn',
+  type = TYPE,
 }: ConvertConfig): string => {
   let result = '';
 

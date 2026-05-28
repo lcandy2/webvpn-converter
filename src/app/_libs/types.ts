@@ -13,6 +13,7 @@ export interface School {
 export interface UrlConvertConfig {
   KEY: string;
   IV: string;
+  TYPE: CryptoType;
   PROTOCOLS: Protocol[];
   DECRYPT_FAILED_SEPARATOR: string;
 }

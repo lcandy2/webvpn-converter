@@ -9,6 +9,9 @@ import { selectedSchoolAtom } from '@/app/_libs/atoms';
 import { CryptoType, School, SettingsConfig } from '@/app/_libs/types';
 import CloseIcon from '@mui/icons-material/Close';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
+import { URL_CONVERT_CONFIG } from '@/app/_libs/config';
+
+const { TYPE } = URL_CONVERT_CONFIG;
 
 export default function SchoolCustomization({
   mode = 'settings',
@@ -20,14 +23,14 @@ export default function SchoolCustomization({
   const [schoolSelected, setSchoolSelected] = useAtom(selectedSchoolAtom);
 
   const [host, setHost] = useState('');
-  const [cryptoType, setCryptoType] = useState<CryptoType>('wrdvpn');
+  const [cryptoType, setCryptoType] = useState<CryptoType>(TYPE);
   const [key, setKey] = useState('');
   const [iv, setIv] = useState('');
   const [changed, setChanged] = useState(false);
 
   const initConfig = useCallback(() => {
     setHost(schoolSelected?.host || '');
-    setCryptoType(schoolSelected?.crypto_type || 'wrdvpn');
+    setCryptoType(schoolSelected?.crypto_type || TYPE);
     setKey(schoolSelected?.crypto_key || '');
     setIv(schoolSelected?.crypto_iv || '');
     setChanged(false);
