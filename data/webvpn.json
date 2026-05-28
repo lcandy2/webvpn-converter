@@ -272,10 +272,16 @@
     "树达学院": {
       "host": "webvpn.sdw.hunnu.edu.cn"
     },
-    "长沙理工大学": {
+    "长沙理工大学（旧系统）": {
       "host": "vpn.csust.edu.cn",
       "crypto_key": "WRDvpnisthebest!",
       "crypto_iv": "WRDvpnisthebest!"
+    },
+    "长沙理工大学（新系统）": {
+      "host": "vpn.csust.edu.cn",
+      "crypto_key": "CASB2021EnLink!!",
+      "crypto_iv": "CASB2021EnLink!!",
+      "crypto_type": "enlinkvpn"
     },
     "湖南机电职业技术学院": {
       "host": "webvpn.hnjdzy.edu.cn"
