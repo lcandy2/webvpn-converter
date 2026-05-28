@@ -7,6 +7,7 @@ export async function GET(request: Request) {
   const schoolHost = searchParams.get('host') || undefined;
   const key = searchParams.get('key') || URL_CONVERT_CONFIG.KEY;
   const iv = searchParams.get('iv') || URL_CONVERT_CONFIG.IV;
+  const type = searchParams.get('type') || URL_CONVERT_CONFIG.TYPE;
 
   interface EncryptResult {
     status: {
@@ -19,6 +20,7 @@ export async function GET(request: Request) {
       host?: string;
       key: string;
       iv: string;
+      type: string;
     };
   }
 
@@ -33,6 +35,7 @@ export async function GET(request: Request) {
       host: schoolHost,
       key,
       iv,
+      type: type,
     },
   };
 
@@ -42,12 +45,18 @@ export async function GET(request: Request) {
         'Url is required! Check https://wpn.citrons.cc/api for more information.',
       );
     }
-    const encryptedUrl = encryptUrl({ url, schoolHost, key, iv });
+    if (type !== 'wrdvpn' && type !== 'enlinkvpn') {
+      throw new Error('Invalid type!');
+    }
+    const encryptedUrl = encryptUrl({ url, schoolHost, key, iv, type });
     result.url = encryptedUrl;
   } catch (e) {
     const error = e as Error;
     const errorString = error.toString();
-    if (errorString.toLowerCase().includes('url is required')) {
+    if (
+      errorString.toLowerCase().includes('url is required') ||
+      errorString.toLowerCase().includes('invalid type')
+    ) {
       result.status.code = 400;
     } else {
       result.status.code = 500;

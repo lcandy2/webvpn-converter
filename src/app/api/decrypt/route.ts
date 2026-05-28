@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   const url = searchParams.get('url');
   const key = searchParams.get('key') || URL_CONVERT_CONFIG.KEY;
   const iv = searchParams.get('iv') || URL_CONVERT_CONFIG.IV;
+  const type = searchParams.get('type') || URL_CONVERT_CONFIG.TYPE;
 
   interface DecryptResult {
     status: {
@@ -17,6 +18,7 @@ export async function GET(request: Request) {
       url?: string;
       key: string;
       iv: string;
+      type: string;
     };
   }
 
@@ -30,6 +32,7 @@ export async function GET(request: Request) {
       url: url || undefined,
       key,
       iv,
+      type,
     },
   };
 
@@ -37,7 +40,10 @@ export async function GET(request: Request) {
     if (!url) {
       throw new Error('Url is required!');
     }
-    const decryptedUrl = decryptUrl({ url, key, iv });
+    if (type !== 'wrdvpn' && type !== 'enlinkvpn') {
+      throw new Error('Invalid type!');
+    }
+    const decryptedUrl = decryptUrl({ url, key, iv, type });
     result.url = decryptedUrl;
     try {
       new URL(decryptedUrl);
@@ -54,10 +60,12 @@ export async function GET(request: Request) {
   } catch (e) {
     const error = e as Error;
     const errorString = error.toString();
-    if (errorString.toLowerCase().includes('url is required')) {
+    if (
+      errorString.toLowerCase().includes('url is required') ||
+      errorString.toLowerCase().includes('invalid type')
+    ) {
       result.status.code = 400;
-    }
-    if (errorString.toLowerCase().includes('invalid')) {
+    } else if (errorString.toLowerCase().includes('invalid')) {
       result.status.code = 403;
     } else {
       result.status.code = 500;
