@@ -9,6 +9,7 @@ type SchoolDataStructure = Record<
       host: string;
       crypto_key?: string | null;
       crypto_iv?: string | null;
+      crypto_type?: string | null;
     }
   >
 >;
@@ -26,6 +27,9 @@ export const buildSchoolList = (data: SchoolDataStructure): School[] => {
             host: data[province][school].host,
             crypto_key: data[province][school].crypto_key || undefined,
             crypto_iv: data[province][school].crypto_iv || undefined,
+            crypto_type:
+              (data[province][school].crypto_type as School['crypto_type']) ||
+              undefined,
           });
         }
       }
@@ -77,5 +81,5 @@ export const schoolListIsOptionEqualToValue = (
   option: School,
   value: School,
 ): boolean => {
-  return option.host === value.host;
+  return option.host === value.host && option.name === value.name;
 };

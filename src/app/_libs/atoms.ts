@@ -19,6 +19,7 @@ export const encryptedUrlAtom = atom<string>((get) => {
     schoolHost: selectedSchool?.host,
     key: selectedSchool?.crypto_key,
     iv: selectedSchool?.crypto_iv,
+    type: selectedSchool?.crypto_type,
   });
   return encryptedPath;
 });
@@ -28,6 +29,7 @@ export const decryptedUrlAtom = atom<string>((get) => {
     url: get(originalUrlAtom),
     key: selectedSchool?.crypto_key,
     iv: selectedSchool?.crypto_iv,
+    type: selectedSchool?.crypto_type,
   });
   return decryptedPath;
 });

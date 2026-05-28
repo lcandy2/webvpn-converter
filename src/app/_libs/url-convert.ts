@@ -5,6 +5,8 @@ import aesjs from 'aes-js';
 const utf8 = aesjs.utils.utf8;
 const hex = aesjs.utils.hex;
 const AesCfb = aesjs.ModeOfOperation.cfb;
+const AesCbc = aesjs.ModeOfOperation.cbc;
+const pkcs7 = aesjs.padding.pkcs7;
 const { KEY, IV, PROTOCOLS, DECRYPT_FAILED_SEPARATOR } = URL_CONVERT_CONFIG;
 
 const textRightAppend = (text: string, mode: 'utf8' | string) => {
@@ -21,6 +23,10 @@ export interface ConvertHostConfig {
 
 const createAesCfb = (key: string, iv: string) => {
   return new AesCfb(utf8.toBytes(key), utf8.toBytes(iv), 16);
+};
+
+const createAesCbc = (key: string, iv: string) => {
+  return new AesCbc(utf8.toBytes(key), utf8.toBytes(iv));
 };
 
 const encryptHost = ({ text, key, iv }: ConvertHostConfig): string => {
@@ -50,6 +56,19 @@ const decryptText = ({ text, key, iv }: ConvertHostConfig): string => {
   } catch (e) {
     return (e as Error).toString();
   }
+};
+
+const encryptHostEnlink = ({ text, key, iv }: ConvertHostConfig): string => {
+  const aesCbc = createAesCbc(key, iv);
+  const textBytes = pkcs7.pad(utf8.toBytes(text));
+  const encryptBytes = aesCbc.encrypt(textBytes);
+  return hex.fromBytes(encryptBytes);
+};
+
+const decryptHostEnlink = ({ text, key, iv }: ConvertHostConfig): string => {
+  const aesCbc = createAesCbc(key, iv);
+  const decryptBytes = aesCbc.decrypt(hex.toBytes(text));
+  return utf8.fromBytes(pkcs7.strip(decryptBytes));
 };
 
 interface ExtrectedUrl {
@@ -143,7 +162,7 @@ const extractUrlLegacy = (requiredUrl: string | URL): ExtrectedUrl => {
   return { url, host, path, port, protocol };
 };
 
-export const encryptUrl = ({
+const encryptUrlWrd = ({
   url: inputUrl,
   schoolHost,
   key = KEY,
@@ -189,7 +208,7 @@ export const encryptUrl = ({
   }
 };
 
-export const decryptUrl = ({
+const decryptUrlWrd = ({
   url: inputUrl,
   key = KEY,
   iv = IV,
@@ -221,5 +240,126 @@ export const decryptUrl = ({
       DECRYPT_FAILED_SEPARATOR +
       result;
   }
+  return result;
+};
+
+const encryptUrlEnlink = ({
+  url: inputUrl,
+  schoolHost,
+  key = KEY,
+  iv = IV,
+}: ConvertConfig): string => {
+  const urlString = inputUrl.toString().trim();
+  let url: URL;
+  try {
+    url = new URL(urlString);
+  } catch {
+    url = new URL(`http://${urlString}`);
+  }
+  const protocol = url.protocol.slice(0, -1);
+  const hostWithPort = url.port ? `${url.hostname}:${url.port}` : url.hostname;
+  const encryptedHost = encryptHostEnlink({ text: hostWithPort, key, iv });
+  const path = `${url.pathname}${url.search}${url.hash}`;
+
+  schoolHost = schoolHost || '';
+  return `${schoolHost}/${protocol}/webvpn${encryptedHost}${path}`;
+};
+
+const decryptUrlEnlink = ({
+  url: inputUrl,
+  key = KEY,
+  iv = IV,
+}: ConvertConfig): string => {
+  const urlString = inputUrl.toString().trim();
+  let url: URL;
+  try {
+    url = new URL(urlString);
+  } catch {
+    url = new URL(`https://${urlString}`);
+  }
+  const pathComponents = url.pathname.split('/');
+
+  if (pathComponents.length < 3) {
+    throw new Error('WebVPN URL path format is invalid.');
+  }
+
+  const protocol = pathComponents[1];
+  const encryptedHostSegment = pathComponents[2];
+
+  if (!encryptedHostSegment.startsWith('webvpn')) {
+    throw new Error('WebVPN URL path format is invalid.');
+  }
+
+  const encryptedHost = encryptedHostSegment.slice('webvpn'.length);
+  const decryptedHost = decryptHostEnlink({ text: encryptedHost, key, iv });
+  const prefixToDrop = `/${protocol}/${encryptedHostSegment}`;
+
+  if (!url.pathname.startsWith(prefixToDrop)) {
+    throw new Error('WebVPN URL path format is invalid.');
+  }
+
+  const remainingPath = url.pathname.slice(prefixToDrop.length) || '/';
+  const result = `${protocol}://${decryptedHost}${remainingPath}${url.search}${url.hash}`;
+
+  if (!(decryptedHost !== '') || !(encryptedHost !== '')) {
+    throw new Error(
+      'Decrypted host is empty, decryption might be failed! Check if your url, key, iv is correct.',
+    );
+  }
+
+  new URL(result);
+  return result;
+};
+
+export const encryptUrl = ({
+  url: inputUrl,
+  schoolHost,
+  key = KEY,
+  iv = IV,
+  type = 'wrdvpn',
+}: ConvertConfig): string => {
+  try {
+    switch (type) {
+      case 'enlinkvpn':
+        return encryptUrlEnlink({ url: inputUrl, schoolHost, key, iv });
+      case 'wrdvpn':
+        return encryptUrlWrd({ url: inputUrl, schoolHost, key, iv });
+    }
+  } catch (error) {
+    const errorMessage = (error as Error).toString();
+    console.error('[WebVPN Converter] Encryption failed: ', error);
+    return `转换失败: ${errorMessage}`;
+  }
+};
+
+export const decryptUrl = ({
+  url: inputUrl,
+  key = KEY,
+  iv = IV,
+  type = 'wrdvpn',
+}: ConvertConfig): string => {
+  let result = '';
+
+  try {
+    if (!inputUrl) {
+      throw new Error('URL is required!');
+    }
+
+    switch (type) {
+      case 'enlinkvpn':
+        result = decryptUrlEnlink({ url: inputUrl, key, iv, type });
+        break;
+      case 'wrdvpn':
+        result = decryptUrlWrd({ url: inputUrl, key, iv, type });
+        break;
+    }
+  } catch (error) {
+    result =
+      'Decryption failed: ' +
+      (error as Error).toString() +
+      DECRYPT_FAILED_SEPARATOR +
+      result;
+  }
+
   return result;
 };
