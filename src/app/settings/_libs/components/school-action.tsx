@@ -10,10 +10,12 @@ import { useRouter } from 'next/navigation';
 import { isSchoolNotListedAtom } from '@/app/settings/_libs/atoms';
 import { SettingsConfig } from '@/app/_libs/types';
 import DoneIcon from '@mui/icons-material/Done';
+import { getSchoolByHost, getSchoolRoute } from '@/app/_libs/schools';
 
 export default function SchoolAction({
   mode = 'settings',
   type = 'page',
+  service = 'encrypt',
 }: SettingsConfig) {
   const [selectedSchool] = useAtom(selectedSchoolAtom);
   const [isSchoolSelected, setIsSchoolSelected] = useState(false);
@@ -27,9 +29,13 @@ export default function SchoolAction({
       setIsSchoolSelected(false);
     } else {
       setIsSchoolSelected(true);
-      router.prefetch('/');
+      const knownSchool =
+        selectedSchool.code && selectedSchool.code !== 'custom'
+          ? selectedSchool
+          : getSchoolByHost(selectedSchool.host);
+      router.prefetch(knownSchool ? getSchoolRoute(knownSchool, service) : '/');
     }
-  }, [selectedSchool, router]);
+  }, [selectedSchool, router, service]);
 
   useEffect(() => {
     handleSchoolListButton();
@@ -37,12 +43,21 @@ export default function SchoolAction({
 
   const handleConfirmButtonClick = useCallback(() => {
     sendGAEvent({ event: 'buttonClicked', value: 'school-select-confirm' });
-    if (mode === 'settings') {
+    const knownSchool =
+      selectedSchool?.code && selectedSchool.code !== 'custom'
+        ? selectedSchool
+        : selectedSchool?.host
+          ? getSchoolByHost(selectedSchool.host)
+          : undefined;
+
+    if (knownSchool) {
+      router.push(getSchoolRoute(knownSchool, service));
+    } else if (mode === 'settings') {
       router.back();
     } else {
       router.push('/');
     }
-  }, [router, mode]);
+  }, [router, mode, selectedSchool, service]);
 
   const handleNotListedButtonClick = useCallback(() => {
     sendGAEvent({ event: 'buttonClicked', value: 'school-select-not-listed' });

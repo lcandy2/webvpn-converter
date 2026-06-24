@@ -9,7 +9,6 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
  */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   compress: true,
 };
 
@@ -30,7 +29,9 @@ const millionConfig = {
 
 // if withLitSSR is in the withSerwist, it will not work
 
-const config = withLitSSR(withSerwist(million.next(nextConfig, millionConfig)));
+const config = withLitSSR()(
+  withSerwist(million.next(nextConfig, millionConfig)),
+);
 
 export default process.env.ANALYZE === 'true'
   ? withBundleAnalyzer(config)

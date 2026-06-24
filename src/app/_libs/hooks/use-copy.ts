@@ -18,7 +18,7 @@ interface UseClipboardOption {
 
 interface CopyOption {
   valueToCopy: string;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export default function useCopy({

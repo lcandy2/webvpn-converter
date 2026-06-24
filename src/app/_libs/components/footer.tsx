@@ -16,6 +16,9 @@ export default function Footer() {
         <Link href="/privacy" className="underline">
           <p className="px-2">Privacy</p>
         </Link>
+        <Link href="/sitemap" className="underline">
+          <p className="px-2">Sitemap</p>
+        </Link>
       </section>
       <section className="order-last flex flex-row divide-x items-start">
         <Link href="/about" className="underline">

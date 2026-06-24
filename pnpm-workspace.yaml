@@ -1,3 +1,15 @@
 packages:
   - 'packages/bookmarklet'
   - 'packages/readme'
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - webpack-cli@7.0.3
+peerDependencyRules:
+  allowedVersions:
+    eslint: '10'
+    next: '16'
+    tailwindcss: '4'
+    '@types/node': '25'

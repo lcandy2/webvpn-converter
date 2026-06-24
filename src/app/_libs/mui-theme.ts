@@ -1,8 +1,8 @@
 'use client';
 
-import { experimental_extendTheme } from '@mui/material';
+import { extendTheme } from '@mui/material';
 
-const MuiTheme = experimental_extendTheme({
+const MuiTheme = extendTheme({
   breakpoints: {
     values: {
       xs: 0,

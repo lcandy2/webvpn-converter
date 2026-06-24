@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Title from '@/app/_libs/components/title';
 import SettingsUI from '../_libs/ui/settings-ui';
+import { noIndexMetadata } from '@/app/_libs/seo';
 
 export const metadata: Metadata = {
   title: '选择学校',
+  ...noIndexMetadata,
 };
 
 export default async function Page() {

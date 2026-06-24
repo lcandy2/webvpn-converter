@@ -24,6 +24,9 @@ SOFTWARE.`;
 
 export const metadata: Metadata = {
   title: 'License',
+  alternates: {
+    canonical: '/license',
+  },
 };
 
 export default function Page() {

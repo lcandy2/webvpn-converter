@@ -8,6 +8,7 @@ import { SyncLocalStorageWithCookie } from '@/app/settings/_libs/components/sync
 export default async function SettingsUI({
   mode = 'settings',
   type = 'page',
+  service = 'encrypt',
 }: SettingsConfig) {
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -15,7 +16,9 @@ export default async function SettingsUI({
       {type === 'modal' && <JumpToFullscreen />}
       <SchoolSelector />
       <SchoolCustomization mode={mode} type={type} />
-      {type === 'page' && <SchoolAction mode={mode} type={type} />}
+      {type === 'page' && (
+        <SchoolAction mode={mode} type={type} service={service} />
+      )}
     </div>
   );
 }

@@ -2,6 +2,15 @@ import {
   SubtitleComponent,
   TitleComponent,
 } from '@/app/_libs/components/title';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy',
+  description: 'Web VPN Converter 隐私政策与第三方服务说明。',
+  alternates: {
+    canonical: '/privacy',
+  },
+};
 
 const privacy = `Collection of Routine Information
 This website track basic information about its visitors. This information includes, but is not limited to, IP addresses, browser details, timestamps and referring pages. None of this information can personally identify specific visitors to this website. The information is tracked for routine administration and maintenance purposes.

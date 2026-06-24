@@ -21,7 +21,7 @@ export default function Error({
     localStorage.clear();
     router.refresh();
     reset();
-  }, [reset]);
+  }, [reset, router]);
 
   return (
     <div>

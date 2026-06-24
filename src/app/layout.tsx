@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/app/_libs/components/header/header';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { Experimental_CssVarsProvider } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
+import { CssVarsProvider } from '@mui/material';
 import MuiTheme from '@/app/_libs/mui-theme';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { APP_MANIFEST } from '@/app/_libs/config';
@@ -11,6 +11,7 @@ import * as Fonts from '@/app/_libs/fonts/fonts';
 import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
 import WPNUmamiProvider from './_libs/umami-provider';
+import { SEO_IMAGES, SITE_URL } from '@/app/_libs/seo';
 
 const APP_NAME = APP_MANIFEST.name;
 const APP_DEFAULT_TITLE = APP_MANIFEST.name;
@@ -18,6 +19,7 @@ const APP_TITLE_TEMPLATE = '%s - ' + APP_MANIFEST.name;
 const APP_DESCRIPTION = APP_MANIFEST.description;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   applicationName: APP_NAME,
   icons: {
     icon: '/favicon.png',
@@ -63,6 +65,10 @@ export const metadata: Metadata = {
   },
   creator: '甜檸Citron🍋 (lcandy2)',
   description: APP_DESCRIPTION,
+  category: 'education',
+  alternates: {
+    canonical: '/',
+  },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -83,21 +89,9 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: APP_NAME,
     description: APP_DESCRIPTION,
-    url: 'https://wpn.citrons.cc',
-    images: [
-      {
-        url: 'https://wrdvpn.vercel.app/promotion/promotion2.png',
-        width: 1280,
-        height: 640,
-        alt: 'Web VPN Converter',
-      },
-      {
-        url: 'https://wrdvpn.vercel.app/promotion/promotion.png',
-        width: 2638,
-        height: 1024,
-        alt: 'Web VPN Converter',
-      },
-    ],
+    url: '/',
+    locale: 'zh_CN',
+    images: SEO_IMAGES,
   },
   twitter: {
     card: 'summary_large_image',
@@ -107,9 +101,19 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
     creator: '@vanillaCirtron',
-    images: ['https://wrdvpn.vercel.app/promotion/promotion2.png'],
+    images: [SEO_IMAGES[0].url],
   },
-  robots: 'all',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -136,7 +140,7 @@ export default function RootLayout({
             prepend: true,
           }}
         >
-          <Experimental_CssVarsProvider theme={MuiTheme}>
+          <CssVarsProvider theme={MuiTheme}>
             <WPNUmamiProvider>
               <section className="flex flex-col sm:mb-l">
                 <div className="h-header block">
@@ -181,7 +185,7 @@ export default function RootLayout({
                 </Script>
               )}
             </WPNUmamiProvider>
-          </Experimental_CssVarsProvider>
+          </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

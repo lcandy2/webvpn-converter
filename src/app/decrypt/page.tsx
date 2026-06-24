@@ -1,33 +1,25 @@
-import { TitleComponent } from '@/app/_libs/components/title';
-import UrlConverter from '@/app/_libs/components/url-converter/url-converter';
-import HomeStatus from '@/app/_libs/components/home-status';
 import '@/../package.json';
-import ToggleConvertButton from '@/app/_libs/components/toggle-convert-button';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { getSchoolByCookieValue, getSchoolRoute } from '@/app/_libs/schools';
+import { noIndexMetadata } from '@/app/_libs/seo';
 
 export const metadata: Metadata = {
   title: '还原链接',
+  ...noIndexMetadata,
 };
 
-export default function Home() {
-  const cookieStore = cookies();
-  const selectedSchool = cookieStore.get('selectedSchool');
+export default async function Home() {
+  const cookieStore = await cookies();
+  const selectedSchool = getSchoolByCookieValue(
+    cookieStore.get('selectedSchool')?.value,
+    cookieStore.get('customSchool')?.value,
+  );
 
   if (!selectedSchool) {
     redirect('/settings/setup');
   }
 
-  return (
-    <>
-      {/*<InitSelectSchool />*/}
-      <TitleComponent marginBottom={false}>
-        还原
-        <ToggleConvertButton />
-      </TitleComponent>
-      <HomeStatus />
-      <UrlConverter mode={'decrypt'} />
-    </>
-  );
+  redirect(getSchoolRoute(selectedSchool, 'decrypt'));
 }

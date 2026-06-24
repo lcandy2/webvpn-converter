@@ -1,4 +1,6 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
+import scrollbar from 'tailwind-scrollbar';
 
 const config: Config = {
   content: [
@@ -116,6 +118,6 @@ const config: Config = {
       'on-error-container': 'var(--md-sys-color-on-error-container)',
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar')],
+  plugins: [typography, scrollbar],
 };
 export default config;

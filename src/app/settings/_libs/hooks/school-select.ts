@@ -1,42 +1,5 @@
-// Define the data structure of the school list from data source
 import type { School } from '@/app/_libs/types';
-
-type SchoolDataStructure = Record<
-  string,
-  Record<
-    string,
-    {
-      host: string;
-      crypto_key?: string | null;
-      crypto_iv?: string | null;
-      crypto_type?: string | null;
-    }
-  >
->;
-
-// Build the school list from data source
-export const buildSchoolList = (data: SchoolDataStructure): School[] => {
-  const schoolList: School[] = [];
-  for (const province in data) {
-    if (Object.prototype.hasOwnProperty.call(data, province)) {
-      for (const school in data[province]) {
-        if (Object.prototype.hasOwnProperty.call(data[province], school)) {
-          schoolList.push({
-            province: province || '未知省份',
-            name: school,
-            host: data[province][school].host,
-            crypto_key: data[province][school].crypto_key || undefined,
-            crypto_iv: data[province][school].crypto_iv || undefined,
-            crypto_type:
-              (data[province][school].crypto_type as School['crypto_type']) ||
-              undefined,
-          });
-        }
-      }
-    }
-  }
-  return schoolList;
-};
+export { buildSchoolList } from '@/app/_libs/schools';
 
 // Sort the school alphabetically by province
 export const schoolListSorter = (a: School, b: School): number => {
@@ -51,10 +14,12 @@ export const schoolListSorter = (a: School, b: School): number => {
 
 export const schoolListMatcher = (option: School, value: string): boolean => {
   const normalizedValue = value.trim().toLowerCase();
+  const normalizedCode = option.code.trim().toLowerCase();
   const normalizedName = option.name.trim().toLowerCase();
   const normalizedHost = option.host.trim().toLowerCase();
   const normalizedProvince = option.province?.trim().toLowerCase();
   return (
+    normalizedCode.includes(normalizedValue) ||
     normalizedName.includes(normalizedValue) ||
     normalizedHost.includes(normalizedValue) ||
     (normalizedProvince !== undefined &&
@@ -66,9 +31,9 @@ export const schoolListLabel = (option: School): string => {
   const host = option.host;
   const name = option.name;
   if (host) {
-    return `${name} (${host})`;
+    return `${name} /${option.code} (${host})`;
   } else {
-    return name;
+    return `${name} /${option.code}`;
   }
 };
 
@@ -81,5 +46,5 @@ export const schoolListIsOptionEqualToValue = (
   option: School,
   value: School,
 ): boolean => {
-  return option.host === value.host && option.name === value.name;
+  return option.code === value.code || option.host === value.host;
 };
