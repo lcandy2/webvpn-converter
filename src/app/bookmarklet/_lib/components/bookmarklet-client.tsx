@@ -10,7 +10,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { BOOKMARKLET_CONFIG } from '@/app/_libs/config';
+import {
+  BOOKMARKLET_CONFIG,
+  URL_CONVERT_CONFIG,
+} from '@/app/_libs/config';
 import { CircularProgress, InputAdornment, TextField } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { MdTextButton } from '@/app/_libs/ui/button';
@@ -63,7 +66,11 @@ export default function BookmarkletClient({ school }: { school: School }) {
         BOOKMARKLET_CONFIG.IV_SEPRATOR,
         school.crypto_iv || '',
       );
-      return replacedIv;
+      const replacedType = replacedIv.replace(
+        BOOKMARKLET_CONFIG.TYPE_SEPRATOR,
+        school.crypto_type || URL_CONVERT_CONFIG.TYPE,
+      );
+      return replacedType;
     } catch (e) {
       return (e as Error).toString();
     }

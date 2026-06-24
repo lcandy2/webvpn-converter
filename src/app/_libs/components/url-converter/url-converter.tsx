@@ -85,12 +85,14 @@ export default function UrlConverter({
               url: inputUrl,
               key: school.crypto_key,
               iv: school.crypto_iv,
+              type: school.crypto_type,
             })
           : encryptUrl({
               url: inputUrl,
               schoolHost: school.host,
               key: school.crypto_key,
               iv: school.crypto_iv,
+              type: school.crypto_type,
             })
         : '',
     [inputUrl, isDecryptMode, school],

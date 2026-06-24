@@ -1,3 +1,5 @@
+export type CryptoType = 'wrdvpn' | 'enlinkvpn';
+
 // Define the data structure of the school list
 export interface School {
   code: string;
@@ -6,11 +8,13 @@ export interface School {
   host: string;
   crypto_key?: string;
   crypto_iv?: string;
+  crypto_type?: CryptoType;
 }
 
 export interface UrlConvertConfig {
   KEY: string;
   IV: string;
+  TYPE: CryptoType;
   PROTOCOLS: Protocol[];
   DECRYPT_FAILED_SEPARATOR: string;
 }
@@ -22,6 +26,7 @@ export interface ConvertConfig {
   schoolHost?: string;
   key?: string;
   iv?: string;
+  type?: CryptoType;
 }
 
 export type UrlConvertMode = 'encrypt' | 'decrypt';

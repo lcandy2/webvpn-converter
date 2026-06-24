@@ -4,11 +4,14 @@ import { isSchoolNotListedAtom } from '@/app/settings/_libs/atoms';
 import { useAtom } from 'jotai';
 import { MdOutlinedCard } from '@/app/_libs/ui/card';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
-import { TextField } from '@mui/material';
+import { MenuItem, TextField } from '@mui/material';
 import { selectedSchoolAtom } from '@/app/_libs/atoms';
-import { School, SettingsConfig } from '@/app/_libs/types';
+import { CryptoType, School, SettingsConfig } from '@/app/_libs/types';
 import CloseIcon from '@mui/icons-material/Close';
 import { MdIconButton } from '@/app/_libs/ui/icon-button';
+import { URL_CONVERT_CONFIG } from '@/app/_libs/config';
+
+const { TYPE } = URL_CONVERT_CONFIG;
 
 export default function SchoolCustomization({
   mode = 'settings',
@@ -20,16 +23,18 @@ export default function SchoolCustomization({
   const [schoolSelected, setSchoolSelected] = useAtom(selectedSchoolAtom);
 
   const [host, setHost] = useState('');
+  const [cryptoType, setCryptoType] = useState<CryptoType>(TYPE);
   const [key, setKey] = useState('');
   const [iv, setIv] = useState('');
   const [changed, setChanged] = useState(false);
 
   const initConfig = useCallback(() => {
     setHost(schoolSelected?.host || '');
+    setCryptoType(schoolSelected?.crypto_type || TYPE);
     setKey(schoolSelected?.crypto_key || '');
     setIv(schoolSelected?.crypto_iv || '');
     setChanged(false);
-  }, [schoolSelected, setHost, setKey, setIv]);
+  }, [schoolSelected, setHost, setCryptoType, setKey, setIv]);
 
   const buildCustomSchool = useMemo((): School => {
     const name = '自定义';
@@ -38,10 +43,11 @@ export default function SchoolCustomization({
       province: null,
       name,
       host,
+      crypto_type: cryptoType,
       crypto_key: key !== '' ? key : undefined,
       crypto_iv: iv !== '' ? iv : undefined,
     };
-  }, [host, key, iv]);
+  }, [host, cryptoType, key, iv]);
 
   const handleInputChanged = useCallback(() => {
     setChanged(true);
@@ -53,6 +59,14 @@ export default function SchoolCustomization({
       handleInputChanged();
     },
     [handleInputChanged, setHost],
+  );
+
+  const handleCryptoTypeChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setCryptoType(e.target.value as CryptoType);
+      handleInputChanged();
+    },
+    [handleInputChanged, setCryptoType],
   );
 
   const handleKeyChange = useCallback(
@@ -83,7 +97,7 @@ export default function SchoolCustomization({
     if (changed) {
       handleSetCustomSchool();
     }
-  }, [handleSetCustomSchool, host, key, iv, changed]);
+  }, [handleSetCustomSchool, host, cryptoType, key, iv, changed]);
 
   const handleCloseButtonClick = useCallback(() => {
     setIsSchoolNotListed(false);
@@ -112,6 +126,15 @@ export default function SchoolCustomization({
               value={host}
               onChange={handleHostChange}
             />
+            <TextField
+              select
+              label="VPN 类型"
+              value={cryptoType}
+              onChange={handleCryptoTypeChange}
+            >
+              <MenuItem value="wrdvpn">WRDVPN</MenuItem>
+              <MenuItem value="enlinkvpn">EnLinkVPN</MenuItem>
+            </TextField>
             <div className="flex flex-row gap-4 flex-wrap">
               <TextField
                 label="KEY"

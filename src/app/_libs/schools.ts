@@ -9,6 +9,7 @@ type SchoolDataStructure = Record<
       host: string;
       crypto_key?: string | null;
       crypto_iv?: string | null;
+      crypto_type?: string | null;
     }
   >
 >;
@@ -63,6 +64,7 @@ const buildBaseRows = (data: SchoolDataStructure) => {
         host: config.host,
         crypto_key: config.crypto_key || undefined,
         crypto_iv: config.crypto_iv || undefined,
+        crypto_type: (config.crypto_type as School['crypto_type']) || undefined,
       });
     }
   }
@@ -141,6 +143,7 @@ export const getSchoolByCookieValue = (
           host: parsed.host,
           crypto_key: parsed.crypto_key || undefined,
           crypto_iv: parsed.crypto_iv || undefined,
+          crypto_type: parsed.crypto_type || undefined,
         };
       }
     } catch {
