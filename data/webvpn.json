@@ -433,6 +433,11 @@
     },
     "青岛科技大学": {
       "host": "wvpn.qust.edu.cn"
+    },
+    "青岛职业技术学院": {
+      "host": "webvpn.qtc.edu.cn",
+      "crypto_key": "wrdvpnisthebest!",
+      "crypto_iv": "wrdvpnisthebest!"
     }
   },
   "上海": {
