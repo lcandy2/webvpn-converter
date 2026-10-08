@@ -99,6 +99,11 @@
     },
     "华北电力大学": {
       "host": "myvpn.ncepu.edu.cn"
+    },
+      "北京联合大学": {
+      "host": "webvpn.buu.edu.cn",
+      "crypto_key": "wrdvpnisthebest!",
+      "crypto_iv": "wrdvpnisthebest!"
     }
   },
   "福建": {
